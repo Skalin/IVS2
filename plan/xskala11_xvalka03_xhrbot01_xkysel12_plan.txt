@@ -1,0 +1,60 @@
+﻿Plán xskala11_xvalka03_xhrbot01_xkysel12_plan.txt
+
+
+Projekt bude psán v jazyce C++ (backend) a v Qt (frontend).
+Aplikace bude tvořena primárně pro platformu: Windows/Linux  # TODO
+
+
+Systém pro správu verzí bude Github na bázi Gitu, dostupný v repozitáři: IVS2 (link: https://github.com/Skalin/IVS2)
+
+Pro komunikaci bude využit primárně voice a messenger kanál, pro voice komunikaci bude využit TeamSpeak3 server, pro messenger komunikaci bude využit Facebook/Messenger. Další komunikace a schůzky budou prováděny v CVT v areálu FIT VUT v Brně.
+
+Pravidla pro komunikaci:
+- každý víkend (sobota/neděle) bude docházet k poradám na TeamSpeak3 serveru, kdy dojde k zhodnocení práce a výkonu jednotlivých členů týmu, dojde k ověření validity aktuální aplikace
+- během porad dojde k rozdělení prací na období do další porady
+- dojde k ustanovení dalšího termínu porady
+- komunikaci vždy povede jeden člen týmu, který byl určen jako vedoucí týmu
+
+
+Rozdělení prací:
+xskala11
+- matematické operace pokročilé (!, ^(unsigned int s 0), sqrt (unsigned int bez 0), suma)
+- správa gitu
+- testování TDD
+- code review
+
+xvalka03
+- frontend design
+- frontend funkcionalita
+- dokumentace
+- uživatelská příručka
+- testování TDD
+- code review
+
+xhrbot01
+- mockupy
+- nápověda
+- testování TDD
+- profiling
+- code review
+
+xkysel12
+- matematické operace základní (+, -, *, /)
+- makefile / install shield wizzard
+- testování TDD
+- code review
+
+
+
+
+Stanovené termíny:
+- do 20.3. rozdělení práce a plán práce
+- do 1.4. mockup aplikace frontend
+- do 5.4. testy
+- do 15.4. vytvoření programu, matematických operací a profilingu
+- do 17.4. napojední backendu na frontend
+- do 20.4. kompletace dokumentace (+ uživatelská příručka) a finalizace instalátorů a ověření funkčnosti instalace aplikace, mockupy další verze aplikace
+- do 20.4. soupis hodnocení členů
+- do 23.4. sepsání souboru skutecnost.txt a porovnání plánu vůči reálnému postupu vývoje
+- do 24.4. rezerva pro případné chyby a doladění problémů při implementaci, při psaní dokumentace
+
