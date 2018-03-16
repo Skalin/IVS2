@@ -7,26 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>369</width>
-    <height>459</height>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTextEdit" name="resultArea">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>351</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="numberZero">
     <property name="geometry">
      <rect>
@@ -365,7 +352,7 @@ color: rgb(0, 0, 0);</string>
      <string>AC</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="divideSign_3">
+   <widget class="QPushButton" name="deleteButton">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -382,6 +369,19 @@ color: rgb(0, 0, 0);</string>
      <string>DEL</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="resultArea">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>331</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;Cantarell&quot;;</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -392,18 +392,6 @@ color: rgb(0, 0, 0);</string>
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuKalkulacka">
-    <property name="title">
-     <string>Kalkulacka</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuProfilling">
-    <property name="title">
-     <string>Profilling</string>
-    </property>
-   </widget>
-   <addaction name="menuKalkulacka"/>
-   <addaction name="menuProfilling"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
