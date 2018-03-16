@@ -9,6 +9,7 @@ public:
 	double multiplication(double operand1, double operand2);
 	double division(double operand1, double operand2);
 	double powerOf(double operand1, int exponent);
+	double factorial(int operand1);
 };
 
 Math::addition(double operand1, double operand2) {
@@ -41,6 +42,16 @@ Math::powerOf(double operand1, int exponent) {
 		printError();
 	}
 }
+
+
+Math::factorial(int operand1) {
+	try {
+	
+	} catch (...) {
+		printError();
+	}
+}
+
 
 void printError() {
 	std::cerr << "Unexpected error occured!\n" << std::endl;
