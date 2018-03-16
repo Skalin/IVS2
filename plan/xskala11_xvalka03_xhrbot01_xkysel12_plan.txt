@@ -2,7 +2,7 @@
 
 
 Projekt bude psán v jazyce C++ (backend) a v Qt (frontend).
-Aplikace bude tvořena primárně pro platformu: Windows/Linux  # TODO
+Aplikace bude tvořena primárně pro platformu: Linux (Ubuntu 64bit)
 
 
 Systém pro správu verzí bude Github na bázi Gitu, dostupný v repozitáři: IVS2 (link: https://github.com/Skalin/IVS2)
@@ -14,6 +14,7 @@ Pravidla pro komunikaci:
 - během porad dojde k rozdělení prací na období do další porady
 - dojde k ustanovení dalšího termínu porady
 - komunikaci vždy povede jeden člen týmu, který byl určen jako vedoucí týmu
+- byl zvolen jazyk angličtina pro komentáře zdrojového kodu a pro git (commity a jiné requesty), pro ostatní dokumenty, dokumentaci, plán vývoje, hodnocení, atd. byl zvolen jazyk čeština
 
 
 Rozdělení prací:
@@ -51,7 +52,7 @@ Stanovené termíny:
 - do 20.3. rozdělení práce a plán práce
 - do 1.4. mockup aplikace frontend
 - do 5.4. testy
-- do 15.4. vytvoření programu, matematických operací a profilingu
+- do 15.4. vytvoření programu, matematických operací, profilingu a frontendu
 - do 17.4. napojední backendu na frontend
 - do 20.4. kompletace dokumentace (+ uživatelská příručka) a finalizace instalátorů a ověření funkčnosti instalace aplikace, mockupy další verze aplikace
 - do 20.4. soupis hodnocení členů
