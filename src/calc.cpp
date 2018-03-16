@@ -27,14 +27,14 @@ Math::multiplication(double operand1, double operand2) {
 
 Math::division(double operand1, double operand2) {
 	if (operand2 == 0)
-		throw std::overflow_error("Division by zero");
+		throw std::overflow_error("Division by zero!");
 	return (operand1/operand2);
 }
 
 Math::powerOf(double operand1, int exponent) {
 	try {
 		if (exponent < 0) {
-			throw std::range_error("Exponent is not natural number");
+			throw std::range_error("Exponent is not natural number!");
 		} else {
 			double result = 1.0;
 			for (int i = 0; i < exponent; i++) {
@@ -50,7 +50,7 @@ Math::powerOf(double operand1, int exponent) {
 Math::factorial(int operand1) {
 	try {
 		if (operand1 < 0) {
-			throw std::range_error("Number cannot be negative");
+			throw std::range_error("Number cannot be negative!");
 		} else {
 			for (int i = 0; i < operand1; i++) {
 			
