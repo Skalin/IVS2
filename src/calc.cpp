@@ -34,7 +34,7 @@ Math::division(double operand1, double operand2) {
 Math::powerOf(double operand1, int exponent) {
 	try {
 		if (exponent < 0) {
-			throw exponent;
+			throw std::range_error("Exponent is not natural number");
 		} else {
 			double result = 1.0;
 			for (int i = 0; i < exponent; i++) {
@@ -50,7 +50,7 @@ Math::powerOf(double operand1, int exponent) {
 Math::factorial(int operand1) {
 	try {
 		if (operand1 < 0) {
-			throw operand1;
+			throw std::range_error("Number cannot be negative");
 		} else {
 			for (int i = 0; i < operand1; i++) {
 			
