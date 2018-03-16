@@ -10,7 +10,7 @@ public:
 	double multiplication(double operand1, double operand2);
 	double division(double operand1, double operand2);
 	double powerOf(double operand1, int exponent);
-	double factorial(int operand1);
+	double factorial(int operand);
 };
 
 Math::addition(double operand1, double operand2) {
