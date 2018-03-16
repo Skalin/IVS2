@@ -46,13 +46,12 @@ Math::powerOf(double operand1, int exponent) {
 	}
 }
 
-
 Math::factorial(int operand) {
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
-			double result = 1.0;
+			int result = 1;
 			for (int i = 1; i <= operand; i++) {
 				result = multiplication(result, i)
 			}
@@ -61,7 +60,6 @@ Math::factorial(int operand) {
 		printError();
 	}
 }
-
 
 void printError() {
 	std::cerr << "Unexpected error occured!\n" << std::endl;
