@@ -34,7 +34,7 @@ Math::powerOf(double operand1, int exponent) {
 		} else {
 			double result = operand1;
 			for (int i = 1; i < exponent; i++) {
-				result *= result;
+				result = multiplication(result, result);
 			}
 			return result;
 		}
@@ -51,6 +51,7 @@ int main() {
 	
 	Math math;
 	
+	std::cout << Math.add(1, 2) << std::endl;
 	
 	cout << "Sample calculator source code" << endl;
 	return 0;
