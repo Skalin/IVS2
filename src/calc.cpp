@@ -29,14 +29,13 @@ Math::division(double operand1, double operand2) {
 
 Math::powerOf(double operand1, int exponent) {
 	try {
-		if (exponent < 1) {
+		if (exponent < 0) {
 			throw exponent;
 		} else {
-			double result = operand1;
-			for (int i = 1; i < exponent; i++) {
-				result = multiplication(result, result);
+			double result = 1.0;
+			for (int i = 0; i < exponent; i++) {
+				result = multiplication(result, operand1);
 			}
-			return result;
 		}
 	} catch (...){
 		printError();
