@@ -14,6 +14,7 @@ Pravidla pro komunikaci:
 - během porad dojde k rozdělení prací na období do další porady
 - dojde k ustanovení dalšího termínu porady
 - komunikaci vždy povede jeden člen týmu, který byl určen jako vedoucí týmu
+- byl zvolen jazyk angličtina pro komentáře zdrojového kodu a pro git (commity a jiné requesty), pro ostatní dokumenty, dokumentaci, plán vývoje, hodnocení, atd. byl zvolen jazyk čeština
 
 
 Rozdělení prací:
