@@ -47,13 +47,14 @@ Math::powerOf(double operand1, int exponent) {
 }
 
 
-Math::factorial(int operand1) {
+Math::factorial(int operand) {
 	try {
-		if (operand1 < 0) {
+		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
-			for (int i = 0; i < operand1; i++) {
-			
+			double result = 1.0;
+			for (int i = 1; i <= operand; i++) {
+				result = multiplication(result, i)
 			}
 		}
 	} catch (...) {
