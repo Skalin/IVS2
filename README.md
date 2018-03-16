@@ -2,16 +2,15 @@ Prostredi
 ---------
 
 Ubuntu 64bit
-Windows 64bit
 
 Autori
 ------
 
 Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+- xskala11 Dominik Skála 
+- xvalka03 Jan Válka
+- xkysel12 Juraj Kyseľ
+- xhrbot01 Jan Hrbotický
 
 Licence
 -------
