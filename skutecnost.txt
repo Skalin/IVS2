@@ -1,1 +1,8 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Rozdíl vývoje:
+- Plán
+	dle plánu do 20.3. hotový plán x
+	plán byl hotov 16.3.
+
+- Mockupy
+	dle plánu do 1.4. 
+	hotovy prakticky již 16.3.
