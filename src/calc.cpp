@@ -46,7 +46,13 @@ Math::powerOf(double operand1, int exponent) {
 
 Math::factorial(int operand1) {
 	try {
-	
+		if (operand1 < 0) {
+			throw operand1;
+		} else {
+			for (int i = 0; i < operand1; i++) {
+			
+			}
+		}
 	} catch (...) {
 		printError();
 	}
