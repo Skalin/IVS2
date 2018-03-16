@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdexcept>
 
 
 
@@ -25,6 +26,8 @@ Math::multiplication(double operand1, double operand2) {
 }
 
 Math::division(double operand1, double operand2) {
+	if (operand2 == 0)
+		throw std::overflow_error("Division by zero");
 	return (operand1/operand2);
 }
 
