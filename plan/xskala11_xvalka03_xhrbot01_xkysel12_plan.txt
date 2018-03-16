@@ -2,7 +2,7 @@
 
 
 Projekt bude psán v jazyce C++ (backend) a v Qt (frontend).
-Aplikace bude tvořena primárně pro platformu: Windows/Linux  # TODO
+Aplikace bude tvořena primárně pro platformu: Linux
 
 
 Systém pro správu verzí bude Github na bázi Gitu, dostupný v repozitáři: IVS2 (link: https://github.com/Skalin/IVS2)
