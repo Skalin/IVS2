@@ -40,6 +40,7 @@ Math::powerOf(double operand1, int exponent) {
 			for (int i = 0; i < exponent; i++) {
 				result = multiplication(result, operand1);
 			}
+			return result;
 		}
 	} catch (...){
 		printError();
@@ -55,6 +56,7 @@ Math::factorial(int operand) {
 			for (int i = 1; i <= operand; i++) {
 				result = multiplication(result, i)
 			}
+			return result;
 		}
 	} catch (...) {
 		printError();
