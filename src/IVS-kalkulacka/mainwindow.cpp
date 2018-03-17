@@ -121,9 +121,9 @@ void MainWindow::on_plusSign_clicked()
 
 void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
-    //.at .length
     QString tmp;
     tmp = arg1;
-    tmp.remove(QRegExp("[A-Za-z]"));
+    //tmp.remove(QRegExp("[A-Za-z]"));
+    tmp.remove(QRegExp("[^0123456789./*-+!√^]"));
     ui->resultArea->setText(tmp);
 }
