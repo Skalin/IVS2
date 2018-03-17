@@ -414,15 +414,6 @@ color: rgb(0, 0, 0);</string>
    </widget>
    <addaction name="menuMoznosti"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionKalkulacka">
    <property name="text">
     <string>Kalkulačka</string>
