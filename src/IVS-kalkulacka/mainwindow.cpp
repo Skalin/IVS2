@@ -118,3 +118,12 @@ void MainWindow::on_plusSign_clicked()
 {
      ui->resultArea->setText(ui->resultArea->text()+ "+");
 }
+
+void MainWindow::on_resultArea_textChanged(const QString &arg1)
+{
+    //.at .length
+    QString tmp;
+    tmp = arg1;
+    tmp.remove(QRegExp("[A-Za-z]"));
+    ui->resultArea->setText(tmp);
+}

@@ -56,6 +56,8 @@ private slots:
 
     void on_plusSign_clicked();
 
+    void on_resultArea_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };
