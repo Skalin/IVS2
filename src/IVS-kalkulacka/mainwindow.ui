@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>369</width>
-    <height>464</height>
+    <height>456</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>369</width>
+    <height>456</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>369</width>
+    <height>456</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>

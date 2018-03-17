@@ -119,11 +119,11 @@ void MainWindow::on_plusSign_clicked()
      ui->resultArea->setText(ui->resultArea->text()+ "+");
 }
 
+/*@brief forbids invalid characters in input*/
 void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
     QString tmp;
     tmp = arg1;
-    //tmp.remove(QRegExp("[A-Za-z]"));
     tmp.remove(QRegExp("[^0123456789./*-+!√^]"));
     ui->resultArea->setText(tmp);
 }
