@@ -404,6 +404,15 @@ color: rgb(0, 0, 0);</string>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMoznosti">
+    <property name="title">
+     <string>Možnosti</string>
+    </property>
+    <addaction name="actionKalkulacka"/>
+    <addaction name="actionProfilling"/>
+    <addaction name="actionNapoveda"/>
+   </widget>
+   <addaction name="menuMoznosti"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -414,6 +423,21 @@ color: rgb(0, 0, 0);</string>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionKalkulacka">
+   <property name="text">
+    <string>Kalkulačka</string>
+   </property>
+  </action>
+  <action name="actionProfilling">
+   <property name="text">
+    <string>Profilling</string>
+   </property>
+  </action>
+  <action name="actionNapoveda">
+   <property name="text">
+    <string>Nápověda</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
