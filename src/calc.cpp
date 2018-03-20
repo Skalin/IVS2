@@ -6,7 +6,7 @@ void printError() {
 }
 
 void printError(std::string error) {
-
+	std::cerr << error << std::endl;
 }
 
 double baseMath::addition(double operand1, double operand2) {
