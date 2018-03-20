@@ -61,4 +61,3 @@ Stanovené termíny:
 - do 20.4. soupis hodnocení členů
 - do 23.4. sepsání souboru skutecnost.txt a porovnání plánu vůči reálnému postupu vývoje
 - do 24.4. rezerva pro případné chyby a doladění problémů při implementaci, při psaní dokumentace
-
