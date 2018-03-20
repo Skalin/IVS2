@@ -37,6 +37,7 @@ xhrbot01
 - nápověda
 - testování TDD
 - profiling
+- testování frontendu
 - code review
 
 xkysel12
