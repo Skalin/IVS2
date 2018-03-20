@@ -104,7 +104,7 @@ int main() {
 	
 	advancedMath advancedMath1;
 	
-	std::cout << (long) advancedMath1.addition(1.0, 2.0) << std::endl;
+	std::cout << advancedMath1.addition(1.0, 2.0) << std::endl;
 	std::cout << advancedMath1.subtraction(5, 2) << std::endl;
 	std::cout << advancedMath1.multiplication(5, 2) << std::endl;
 	std::cout << advancedMath1.division(6, 2) << std::endl;
