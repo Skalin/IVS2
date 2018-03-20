@@ -11,35 +11,43 @@ void printError(std::string error) {
 }
 
 double baseMath::addition(double operand1, double operand2) {
+	double result;
 	try {
-		return (operand1 + operand2);
+		result = operand1 + operand2;
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
 double baseMath::subtraction(double operand1, double operand2) {
+	double result;
 	try {
-		return (operand1 - operand2);
+		result = operand1 - operand2;
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
 double baseMath::multiplication(double operand1, double operand2) {
+	double result;
 	try {
-		return (operand1 * operand2);
+		result = operand1 * operand2;
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
-int baseMath::multiplication(int operand1, int operand2) {	
+int baseMath::multiplication(int operand1, int operand2) {
+	int result;
 	try {
-		return (operand1 * operand2);
+		result = operand1 * operand2;
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
 double baseMath::division(double operand1, double operand2) {
@@ -73,30 +81,30 @@ double advancedMath::powerOf(double operand, int exponent) {
 }
 
 int advancedMath::factorial(int operand) {
+	int result = 1;
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
-			int result = 1;
 			for (int i = 1; i <= operand; i++) {
 				result = multiplication(result, i);
 			}
-			return result;
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
 // Newton's method
 double advancedMath::root(double operand, int exponent) {
+	double x = 1.0;
 	try {
 		if (exponent <= 0) {
 			throw std::range_error("Number cannot be negative or zero!");
 		} else {
-			double x;
 			double dx;
 			double eps(10e-6);
 			x = operand * 0.5;
@@ -105,25 +113,25 @@ double advancedMath::root(double operand, int exponent) {
 				x = x + dx;
 				dx = (operand/powerOf(x,exponent-1)-x)/exponent;
 			}
-			return x;
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
 	} catch (...) {
 		printError();
 	}
+	return x;
 }
 
 double advancedMath::sum(double *arrayOfOperands) {
+	double sum = 0.0;
 	try {
-		double sum = 0.0;
 		for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
 			sum += arrayOfOperands[i];
 		}
-		return sum;
 	} catch (...) {
 		printError();
 	}
+	return sum;
 }
 
 
