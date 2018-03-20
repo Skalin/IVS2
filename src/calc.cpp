@@ -1,27 +1,33 @@
-#include<iostream>
-#include<stdexcept>
 #include "calc.h"
 
 
-baseMath::addition(double operand1, double operand2) {
+void printError() {
+	std::cerr << "Unexpected error occured!\n" << std::endl;
+}
+
+double baseMath::addition(double operand1, double operand2) {
 	return (operand1 + operand2);
 }
 
-baseMath::subtraction(double operand1, double operand2) {
+double baseMath::subtraction(double operand1, double operand2) {
 	return (operand1 - operand2);
 }
 
-baseMath::multiplication(double operand1, double operand2) {
+double baseMath::multiplication(double operand1, double operand2) {
 	return (operand1 * operand2);
 }
 
-baseMath::division(double operand1, double operand2) {
+int baseMath::multiplication(int operand1, int operand2) {
+	return (operand1 * operand2);
+}
+
+double baseMath::division(double operand1, double operand2) {
 	if (operand2 == 0)
 		throw std::overflow_error("Division by zero!");
 	return (operand1/operand2);
 }
 
-advancedMath::powerOf(double operand, int exponent) {
+double advancedMath::powerOf(double operand, int exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
@@ -37,7 +43,7 @@ advancedMath::powerOf(double operand, int exponent) {
 	}
 }
 
-advancedMath::factorial(int operand) {
+int advancedMath::factorial(int operand) {
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
@@ -54,7 +60,7 @@ advancedMath::factorial(int operand) {
 }
 
 // Newton's method
-advancedMath::root(double operand, int exponent) {
+double advancedMath::root(double operand, int exponent) {
 	try {
 		if (exponent <= 0) {
 			throw std::range_error("Number cannot be negative or zero!");
@@ -75,7 +81,7 @@ advancedMath::root(double operand, int exponent) {
 	}
 }
 
-advancedMath::sum(double *arrayOfOperands) {
+double advancedMath::sum(double *arrayOfOperands) {
 	double sum = 0.0;
 	for (unsigned int i = 0; i < sizeof(arrayOfOperands)/sizeof(double); i++) {
 		sum += arrayOfOperands[i];
@@ -83,22 +89,21 @@ advancedMath::sum(double *arrayOfOperands) {
 	return sum;
 }
 
-void printError() {
-	std::cerr << "Unexpected error occured!\n" << std::endl;
-}
 
 int main() {
 	
-	baseMath math;
+	advancedMath advancedMath1;
 	
-	std::cout << Math.addition(1, 2) << std::endl;
-	std::cout << Math.subtraction(5, 2) << std::endl;
-	std::cout << Math.multiplication(5, 2) << std::endl;
-	std::cout << Math.division(6, 2) << std::endl;
-	std::cout << Math.powerOf(5, 2) << std::endl;
-	std::cout << Math.factorial(5) << std::endl;
-	std::cout << Math.root(81, 4) << std::endl;
+	std::cout << (long) advancedMath1.addition(1.0, 2.0) << std::endl;
+	std::cout << advancedMath1.subtraction(5, 2) << std::endl;
+	std::cout << advancedMath1.multiplication(5, 2) << std::endl;
+	std::cout << advancedMath1.division(6, 2) << std::endl;
+	std::cout << advancedMath1.powerOf(5, 2) << std::endl;
+	std::cout << advancedMath1.factorial(5) << std::endl;
+	std::cout << advancedMath1.root(81, 4) << std::endl;
+	double sumArray[] = {10, 20, 30, 40, 50};
+	std::cout << advancedMath1.sum(sumArray) << std::endl;
 	
-	cout << "Sample calculator source code" << endl;
+	std::cout << "Sample calculator source code" << std::endl;
 	return 0;
 }
