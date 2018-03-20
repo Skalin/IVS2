@@ -122,10 +122,10 @@ double advancedMath::root(double operand, int exponent) {
 	return x;
 }
 
-double advancedMath::sum(double *arrayOfOperands) {
+double advancedMath::sum(double *arrayOfOperands, int size) {
 	double sum = 0.0;
 	try {
-		for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
+		for (unsigned int i = 0; i < size; i++) {
 			sum += arrayOfOperands[i];
 		}
 	} catch (...) {
@@ -146,8 +146,8 @@ int main() {
 	std::cout << advancedMath1.powerOf(5, 2) << std::endl;
 	std::cout << advancedMath1.factorial(5) << std::endl;
 	std::cout << advancedMath1.root(81, 4) << std::endl;
-	double sumArray[] = {10, 20, 30, 40, 50};
-	std::cout << advancedMath1.sum(sumArray) << std::endl;
+	double sumArray[] = {10, 20, 30, 40, 50, 60};
+	std::cout << advancedMath1.sum(sumArray, (sizeof(sumArray)/sizeof(sumArray[0]))) << std::endl;
 	
 	std::cout << "Sample calculator source code" << std::endl;
 	return 0;

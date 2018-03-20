@@ -29,7 +29,7 @@ public:
 	double powerOf(double operand, int exponent);
 	int factorial(int operand);
 	double root(double operand, int exponent);
-	double sum(double *arrayOfNumbers);
+	double sum(double *arrayOfNumbers, int size);
 protected:
 private:
 };
