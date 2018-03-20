@@ -1,6 +1,7 @@
 #include "calc.h"
 
 
+
 void printError() {
 	std::cerr << "Unexpected error occured!\n" << std::endl;
 }
