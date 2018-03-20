@@ -115,11 +115,15 @@ double advancedMath::root(double operand, int exponent) {
 }
 
 double advancedMath::sum(double *arrayOfOperands) {
-	double sum = 0.0;
-	for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
-		sum += arrayOfOperands[i];
+	try {
+		double sum = 0.0;
+		for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
+			sum += arrayOfOperands[i];
+		}
+		return sum;
+	} catch (...) {
+		printError();
 	}
-	return sum;
 }
 
 
