@@ -1,7 +1,8 @@
-#include<iostream>
-#include<stdexcept>
+#include <iostream>
+#include <stdexcept>
+#include <cassert>
 
-
+#define TESTS 1 // if tests = 0, application will not run tests, otherwise the testing will be turned on
 
 class Math {
 public:
@@ -94,14 +95,18 @@ int main() {
 	
 	Math math;
 	
-	std::cout << Math.addition(1, 2) << std::endl;
-	std::cout << Math.subtraction(5, 2) << std::endl;
-	std::cout << Math.multiplication(5, 2) << std::endl;
-	std::cout << Math.division(6, 2) << std::endl;
-	std::cout << Math.powerOf(5, 2) << std::endl;
-	std::cout << Math.factorial(5) << std::endl;
-	std::cout << Math.root(81, 4) << std::endl;
-	
-	cout << "Sample calculator source code" << endl;
+	if (TESTS) {
+		assert();
+	} else {
+		std::cout << Math.addition(1, 2) << std::endl;
+		std::cout << Math.subtraction(5, 2) << std::endl;
+		std::cout << Math.multiplication(5, 2) << std::endl;
+		std::cout << Math.division(6, 2) << std::endl;
+		std::cout << Math.powerOf(5, 2) << std::endl;
+		std::cout << Math.factorial(5) << std::endl;
+		std::cout << Math.root(81, 4) << std::endl;
+		
+		cout << "Sample calculator source code" << endl;
+	}
 	return 0;
 }
