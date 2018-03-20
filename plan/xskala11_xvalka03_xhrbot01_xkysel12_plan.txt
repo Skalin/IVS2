@@ -19,8 +19,8 @@ Pravidla pro komunikaci:
 
 Rozdělení prací:
 xskala11
-- matematické operace pokročilé (!, ^(unsigned int s 0), sqrt (unsigned int bez 0), suma)
-- správa gitu
+- matematické operace pokročilé (!, ^(unsigned int s 0), suma)
+- správa gitu (merging, tvorba větví a rozdělování prací do větví)
 - testování TDD
 - code review
 
@@ -41,6 +41,8 @@ xhrbot01
 
 xkysel12
 - matematické operace základní (+, -, *, /)
+- matematické operace pokročilé (sqrt (usngined int bez 0))
+- optimalizace chybových hlášení
 - makefile / install shield wizzard
 - testování TDD
 - code review
