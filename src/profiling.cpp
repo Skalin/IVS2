@@ -1,7 +1,7 @@
-#include<iostream>
+#include "profiling.h"
 
 int main() {
-	cout << "Sample profiling source code" << endl;
+	std::cout << "Sample profiling source code" << std::endl;
 	return 0;
 }
 
