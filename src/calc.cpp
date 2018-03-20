@@ -26,9 +26,13 @@ int baseMath::multiplication(int operand1, int operand2) {
 }
 
 double baseMath::division(double operand1, double operand2) {
-	if (operand2 == 0)
-		throw std::overflow_error("Division by zero!");
-	return (operand1/operand2);
+	try {
+		if (operand2 == 0)
+			throw std::overflow_error("Division by zero!");
+		return (operand1/operand2);
+	} catch (std::overflow_error &e) {
+		printError(e.what());
+	}
 }
 
 double advancedMath::powerOf(double operand, int exponent) {
