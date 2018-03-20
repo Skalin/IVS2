@@ -11,19 +11,35 @@ void printError(std::string error) {
 }
 
 double baseMath::addition(double operand1, double operand2) {
-	return (operand1 + operand2);
+	try {
+		return (operand1 + operand2);
+	} catch (...) {
+		printError();
+	}
 }
 
 double baseMath::subtraction(double operand1, double operand2) {
-	return (operand1 - operand2);
+	try {
+		return (operand1 - operand2);
+	} catch (...) {
+		printError();
+	}
 }
 
 double baseMath::multiplication(double operand1, double operand2) {
-	return (operand1 * operand2);
+	try {
+		return (operand1 * operand2);
+	} catch (...) {
+		printError();
+	}
 }
 
-int baseMath::multiplication(int operand1, int operand2) {
-	return (operand1 * operand2);
+int baseMath::multiplication(int operand1, int operand2) {	
+	try {
+		return (operand1 * operand2);
+	} catch (...) {
+		printError();
+	}
 }
 
 double baseMath::division(double operand1, double operand2) {
@@ -33,6 +49,8 @@ double baseMath::division(double operand1, double operand2) {
 		return (operand1/operand2);
 	} catch (std::overflow_error &e) {
 		printError(e.what());
+	} catch (...) {
+		printError();
 	}
 }
 
@@ -49,7 +67,7 @@ double advancedMath::powerOf(double operand, int exponent) {
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
-	} catch (...){
+	} catch (...) {
 		printError();
 	}
 }
@@ -65,6 +83,8 @@ int advancedMath::factorial(int operand) {
 			}
 			return result;
 		}
+	} catch (std::range_error &e) {
+		printError(e.what());
 	} catch (...) {
 		printError();
 	}
@@ -87,17 +107,23 @@ double advancedMath::root(double operand, int exponent) {
 			}
 			return x;
 		}
+	} catch (std::range_error &e) {
+		printError(e.what());
 	} catch (...) {
 		printError();
 	}
 }
 
 double advancedMath::sum(double *arrayOfOperands) {
-	double sum = 0.0;
-	for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
-		sum += arrayOfOperands[i];
+	try {
+		double sum = 0.0;
+		for (unsigned int i = 0; i < (sizeof(arrayOfOperands)/sizeof(double)); i++) {
+			sum += arrayOfOperands[i];
+		}
+		return sum;
+	} catch (...) {
+		printError();
 	}
-	return sum;
 }
 
 
