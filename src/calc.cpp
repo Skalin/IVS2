@@ -1,15 +1,7 @@
 #include<iostream>
 #include<stdexcept>
+#include "calc.h"
 
-
-
-class baseMath {
-public:
-	double addition(double operand1, double operand2);
-	double subtraction(double operand1, double operand2);
-	double multiplication(double operand1, double operand2);
-	double division(double operand1, double operand2);
-};
 
 baseMath::addition(double operand1, double operand2) {
 	return (operand1 + operand2);
@@ -28,16 +20,6 @@ baseMath::division(double operand1, double operand2) {
 		throw std::overflow_error("Division by zero!");
 	return (operand1/operand2);
 }
-
-class advancedMath : public baseMath {
-public:
-	double powerOf(double operand, int exponent);
-	double factorial(int operand);
-	double root(double operand, int exponent);
-	double sum(double *arrayOfNumbers);
-};
-
-
 
 advancedMath::powerOf(double operand, int exponent) {
 	try {
