@@ -42,6 +42,8 @@ double advancedMath::powerOf(double operand, int exponent) {
 			}
 			return result;
 		}
+	} catch (std::range_error &e) {
+		printError(e.what());
 	} catch (...){
 		printError();
 	}
