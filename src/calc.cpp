@@ -3,36 +3,43 @@
 
 
 
-class Math {
+class baseMath {
 public:
 	double addition(double operand1, double operand2);
 	double subtraction(double operand1, double operand2);
 	double multiplication(double operand1, double operand2);
 	double division(double operand1, double operand2);
-	double powerOf(double operand, int exponent);
-	double factorial(int operand);
-	double root(double operand, int exponent);
 };
 
-Math::addition(double operand1, double operand2) {
+baseMath::addition(double operand1, double operand2) {
 	return (operand1 + operand2);
 }
 
-Math::subtraction(double operand1, double operand2) {
+baseMath::subtraction(double operand1, double operand2) {
 	return (operand1 - operand2);
 }
 
-Math::multiplication(double operand1, double operand2) {
+baseMath::multiplication(double operand1, double operand2) {
 	return (operand1 * operand2);
 }
 
-Math::division(double operand1, double operand2) {
+baseMath::division(double operand1, double operand2) {
 	if (operand2 == 0)
 		throw std::overflow_error("Division by zero!");
 	return (operand1/operand2);
 }
 
-Math::powerOf(double operand, int exponent) {
+class advancedMath : public baseMath {
+public:
+	double powerOf(double operand, int exponent);
+	double factorial(int operand);
+	double root(double operand, int exponent);
+	double sum(double *arrayOfNumbers);
+};
+
+
+
+advancedMath::powerOf(double operand, int exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
@@ -48,14 +55,14 @@ Math::powerOf(double operand, int exponent) {
 	}
 }
 
-Math::factorial(int operand) {
+advancedMath::factorial(int operand) {
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
 			int result = 1;
 			for (int i = 1; i <= operand; i++) {
-				result = multiplication(result, i)
+				result = multiplication(result, i);
 			}
 			return result;
 		}
@@ -65,7 +72,7 @@ Math::factorial(int operand) {
 }
 
 // Newton's method
-Math::root(double operand, int exponent) {
+advancedMath::root(double operand, int exponent) {
 	try {
 		if (exponent <= 0) {
 			throw std::range_error("Number cannot be negative or zero!");
@@ -86,13 +93,21 @@ Math::root(double operand, int exponent) {
 	}
 }
 
+advancedMath::sum(double *arrayOfOperands) {
+	double sum = 0.0;
+	for (unsigned int i = 0; i < sizeof(arrayOfOperands)/sizeof(double); i++) {
+		sum += arrayOfOperands[i];
+	}
+	return sum;
+}
+
 void printError() {
 	std::cerr << "Unexpected error occured!\n" << std::endl;
 }
 
 int main() {
 	
-	Math math;
+	baseMath math;
 	
 	std::cout << Math.addition(1, 2) << std::endl;
 	std::cout << Math.subtraction(5, 2) << std::endl;
