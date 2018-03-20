@@ -9,6 +9,9 @@
 #define IVS2_CALC_H
 
 
+void printError();
+void printError(std::string error);
+
 class baseMath {
 public:
 	double addition(double operand1, double operand2);

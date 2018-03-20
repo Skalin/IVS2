@@ -5,6 +5,10 @@ void printError() {
 	std::cerr << "Unexpected error occured!\n" << std::endl;
 }
 
+void printError(std::string error) {
+
+}
+
 double baseMath::addition(double operand1, double operand2) {
 	return (operand1 + operand2);
 }
