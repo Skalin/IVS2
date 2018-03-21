@@ -34,5 +34,12 @@ protected:
 private:
 };
 
+class Parser {
+public:
+	int parseInput();
+protected:
+private:
+};
+
 
 #endif //IVS2_CALC_H
