@@ -82,12 +82,13 @@ private slots:
     /*@brief forbids invalid characters in input*/
     void on_resultArea_textChanged(const QString &arg1);
 
+
     /*@brief converts string input into vector
     * @param input input string that needs to be split
     * @param splitter character to split the input with
     * @return vector of strings
     */
-    std::vector<std::string> splitInputString(std::string input, char splitter);
+   // std::vector<std::string> splitInputString(std::string input, char splitter);
 
 
     /*@brief prints out result of calculation*/

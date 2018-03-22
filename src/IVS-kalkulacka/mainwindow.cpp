@@ -126,7 +126,7 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
     tmp = arg1;
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
     ui->resultArea->setText(tmp);
-}
+}/*
 std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter){
     std::vector<std::string> listKeywords = {};
     std::string tmp = "";
@@ -144,21 +144,13 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
     }
     return listKeywords;
 }
+*/
 
 void MainWindow::on_equalSign_clicked()
 {
     QString tmp;
-    std::vector<std::string> afterSpliting{};
     tmp = ui->resultArea->text();
-    tmp.replace("+"," + ");
-    tmp.replace("-"," - ");
-    tmp.replace("*"," * ");
-    tmp.replace("/"," / ");
-    tmp.replace("+"," + ");
-    tmp.replace("√"," √ ");
-    tmp.replace("^"," ^ ");
-    tmp.replace("!"," ! ");
-
+    /*
     //debug
     qDebug() << tmp << endl;
 
@@ -166,23 +158,27 @@ void MainWindow::on_equalSign_clicked()
     //debug
     for(auto &i: afterSpliting)
         qDebug() << QString::fromStdString(i) << endl;
+     */
+    //placeholder
+   // ui->resultArea->setText(calculation(tmp.toStdString()));
 }
 
 void MainWindow::on_profilling_clicked()
 {
     QString tmp;
-    std::vector<std::string> afterSpliting{};
     tmp = ui->resultArea->text();
+    /*
     //debug
     qDebug() << tmp << endl;
 
     std::string tmp2 = tmp.toStdString();
     afterSpliting = splitInputString(tmp2,',');
-
     //debug
     for(auto &i: afterSpliting)
         qDebug() << QString::fromStdString(i) << endl;
-
+    */
+    //placeholder
+   // ui->resultArea->setText(profiling(tmp.toStdString()));
 }
 
 void MainWindow::on_commaButton_clicked()
