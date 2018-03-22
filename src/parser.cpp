@@ -1,3 +1,5 @@
+#include "calc.h"
+
 class Parser {
 public:
 	std::vector <string> getInputData() {
