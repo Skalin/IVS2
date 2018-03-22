@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <QDebug>
 
 namespace Ui {
@@ -88,7 +89,7 @@ private slots:
     * @param splitter character to split the input with
     * @return vector of strings
     */
-   // std::vector<std::string> splitInputString(std::string input, char splitter);
+   std::vector<std::string> splitInputString(std::string input, char splitter);
 
 
     /*@brief prints out result of calculation*/
