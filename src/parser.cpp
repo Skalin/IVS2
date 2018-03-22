@@ -27,6 +27,8 @@ public:
 				this->solveResult(0); // addition subtraction
 			*/
 		}
+		
+		// expected output after the for cycle should be class variable vector<string> containing only one item = result
 
 	}
 
