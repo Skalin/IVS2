@@ -95,8 +95,8 @@ private slots:
     /*@brief prints out result of calculation*/
     void on_equalSign_clicked();
 
-    /*@brief prints out result of profilling*/
-    void on_profilling_clicked();
+    /*@brief prints out result of profiling*/
+    void on_profiling_clicked();
 
     /*@brief appends ',' to input*/
     void on_commaButton_clicked();

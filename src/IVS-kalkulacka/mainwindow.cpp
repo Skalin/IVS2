@@ -180,11 +180,31 @@ void MainWindow::on_equalSign_clicked()
 {
     QString tmp;
     tmp = ui->resultArea->text();
+    std::vector<std::string> afterSpliting{};
+
+    //prepare for spliting
+    tmp.replace("+"," + ");
+    tmp.replace("-"," - ");
+    tmp.replace("*"," * ");
+    tmp.replace("/"," / ");
+    tmp.replace("+"," + ");
+    tmp.replace("√"," √ ");
+    tmp.replace("^"," ^ ");
+    tmp.replace("!"," ! ");
+
+     //debug
+     qDebug() << tmp << endl;
+
+     afterSpliting = splitInputString(tmp.toStdString(),' ');
+     //debug
+     for(auto &i: afterSpliting)
+         qDebug() << QString::fromStdString(i) << endl;
+
     //placeholder
    // ui->resultArea->setText(calculation(tmp.toStdString()));
 }
 
-void MainWindow::on_profilling_clicked()
+void MainWindow::on_profiling_clicked()
 {
     QString tmp;
     tmp = ui->resultArea->text();
