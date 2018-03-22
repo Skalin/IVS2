@@ -111,12 +111,33 @@ void MainWindow::on_multiplySign_clicked()
 
 void MainWindow::on_minusSign_clicked()
 {
-     ui->resultArea->setText(ui->resultArea->text()+ "-");
+    QString tmp = ui->resultArea->text();
+    if (tmp.at(tmp.size()-1) == '+'){
+        on_deleteButton_clicked();
+        ui->resultArea->setText(ui->resultArea->text()+ "-");
+    }else{
+        if (tmp.at(tmp.size()-1) == '-'){
+        }else{
+            ui->resultArea->setText(ui->resultArea->text()+ "-");
+        }
+    }
+
+
 }
 
 void MainWindow::on_plusSign_clicked()
 {
-     ui->resultArea->setText(ui->resultArea->text()+ "+");
+    QString tmp = ui->resultArea->text();
+    if (tmp.at(tmp.size()-1) == '+'){
+    }else{
+        if (tmp.at(tmp.size()-1) == '-'){
+            on_deleteButton_clicked();
+            ui->resultArea->setText(ui->resultArea->text()+ "+");
+        }else{
+            ui->resultArea->setText(ui->resultArea->text()+ "+");
+        }
+    }
+
 }
 
 /*@brief forbids invalid characters in input*/
