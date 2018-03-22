@@ -1,6 +1,6 @@
 #include "calc.h"
 
-class Parser extends Math {
+class Parser : public Math {
 public:
 		
 	std::vector <string> Parser::getInputData() {
@@ -42,4 +42,4 @@ private:
 		
 	}
 
-}
+};
