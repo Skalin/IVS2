@@ -21,7 +21,7 @@ public:
 		for (unsigned i = maxPriority; i > 0; i--) {
 			this->solveResult(i);
 			/* just for remembering what each part of the code does
-				this->solveResult(3); // factorials, sums and averages
+				this->solveResult(3); // factorials
 				this->solveResult(2); // powers and roots
 				this->solveResult(1); // multiplication and division
 				this->solveResult(0); // addition subtraction
