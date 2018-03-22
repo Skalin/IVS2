@@ -145,8 +145,35 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
     QString tmp;
     tmp = arg1;
+    //input restrictons
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
-    ui->resultArea->setText(tmp);
+
+    //seg fault
+    if (tmp.size()>1){
+        //+-
+        if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '-'){
+            on_deleteButton_clicked();
+            on_deleteButton_clicked();
+            ui->resultArea->setText(ui->resultArea->text()+ "-");
+        }
+        //-+
+        if (tmp.at(tmp.size()-2) == '-' && tmp.at(tmp.size()-1) == '+'){
+            on_deleteButton_clicked();
+            on_deleteButton_clicked();
+            ui->resultArea->setText(ui->resultArea->text()+ "+");
+        }
+        //--
+        if (tmp.at(tmp.size()-2) == '-' && tmp.at(tmp.size()-1) == '-'){
+            on_deleteButton_clicked();
+        }
+        //++
+        if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '+'){
+            on_deleteButton_clicked();
+        }
+
+    }
+    //ui->resultArea->setText(tmp);
+
 }
 std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter){
     std::vector<std::string> listKeywords = {};
