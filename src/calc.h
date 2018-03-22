@@ -13,7 +13,7 @@ void printError();
 
 void printError(std::string error);
 
-class baseMath {
+class Math {
 public:
 	double addition(double operand1, double operand2);
 	
@@ -24,25 +24,17 @@ public:
 	int multiplication(int operand1, int operand2);
 	
 	double division(double operand1, double operand2);
-
-protected:
-private:
-};
-
-
-class advancedMath : public baseMath {
-public:
+	
 	double powerOf(double operand, int exponent);
 	
 	int factorial(int operand);
 	
 	double root(double operand, int exponent);
 	
-	double sum(std::vector<double>&);
-
-protected:
-private:
+	double sum(std::vector <double> &);
+	
 };
+
 
 
 #endif //IVS2_CALC_H
