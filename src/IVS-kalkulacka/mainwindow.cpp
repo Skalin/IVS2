@@ -131,11 +131,12 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
     std::vector<std::string> listKeywords = {};
     std::string tmp = "";
     for (unsigned int i=0; i<input.length();i++){
-        if (input.at(i) == splitter && tmp.empty() == false){
-            if (tmp.find(',') == std::string::npos){ //check
+        if (input.at(i) == splitter){
+            tmp.erase(std::remove(tmp.begin(), tmp.end(), ','), tmp.end());
+            if (tmp.empty() == false){
                 listKeywords.push_back(tmp);
+                tmp = "";
             }
-            tmp = "";
         }else{
             tmp = tmp + input[i];
         }
