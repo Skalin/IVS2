@@ -33,6 +33,7 @@ public:
 	
 	double sum(std::vector <double> &);
 	
+	double average(std::vector <double> &);
 };
 
 

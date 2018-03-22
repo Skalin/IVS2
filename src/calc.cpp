@@ -134,6 +134,9 @@ double Math::sum(std::vector <double> &arrayOfDoubles) {
 	return sum;
 }
 
+double Math::average(std::vector <double> &arrayOfDoubles) {
+	return sum(arrayOfDoubles)/arrayOfDoubles.size();
+}
 
 int main() {
 	
