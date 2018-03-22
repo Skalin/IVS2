@@ -4,6 +4,7 @@
 
 #include<iostream>
 #include<stdexcept>
+#include <vector>
 
 #ifndef IVS2_CALC_H
 #define IVS2_CALC_H
