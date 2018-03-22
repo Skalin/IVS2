@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
+#include <vector>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -78,6 +81,23 @@ private slots:
 
     /*@brief forbids invalid characters in input*/
     void on_resultArea_textChanged(const QString &arg1);
+
+    /*@brief converts string input into vector
+    * @param input input string that needs to be split
+    * @param splitter character to split the input with
+    * @return vector of strings
+    */
+    std::vector<std::string> splitInputString(std::string input, char splitter);
+
+
+    /*@brief prints out result of calculation*/
+    void on_equalSign_clicked();
+
+    /*@brief prints out result of profilling*/
+    void on_profilling_clicked();
+
+    /*@brief appends ',' to input*/
+    void on_commaButton_clicked();
 
 private:
     Ui::MainWindow *ui;

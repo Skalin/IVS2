@@ -394,6 +394,40 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">font: 20pt &quot;Cantarell&quot;;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="commaButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>80</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(136, 138, 133);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>,</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="profilling">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>160</y>
+      <width>80</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(115, 210, 22);</string>
+    </property>
+    <property name="text">
+     <string>Proffilling</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
