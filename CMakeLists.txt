@@ -12,6 +12,7 @@ set(SOURCE_FILES
 		README.md
 		src/calc.h
 		#src/profiling.h
-		)
+		src/parser.cpp
+		src/parser.h)
 
 add_executable(IVS2 ${SOURCE_FILES})
