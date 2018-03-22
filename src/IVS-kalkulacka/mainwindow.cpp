@@ -111,33 +111,12 @@ void MainWindow::on_multiplySign_clicked()
 
 void MainWindow::on_minusSign_clicked()
 {
-    QString tmp = ui->resultArea->text();
-    if (tmp.at(tmp.size()-1) == '+'){
-        on_deleteButton_clicked();
-        ui->resultArea->setText(ui->resultArea->text()+ "-");
-    }else{
-        if (tmp.at(tmp.size()-1) == '-'){
-        }else{
-            ui->resultArea->setText(ui->resultArea->text()+ "-");
-        }
-    }
-
-
+     ui->resultArea->setText(ui->resultArea->text()+ "-");
 }
 
 void MainWindow::on_plusSign_clicked()
 {
-    QString tmp = ui->resultArea->text();
-    if (tmp.at(tmp.size()-1) == '+'){
-    }else{
-        if (tmp.at(tmp.size()-1) == '-'){
-            on_deleteButton_clicked();
-            ui->resultArea->setText(ui->resultArea->text()+ "+");
-        }else{
-            ui->resultArea->setText(ui->resultArea->text()+ "+");
-        }
-    }
-
+    ui->resultArea->setText(ui->resultArea->text()+ "+");
 }
 
 /*@brief forbids invalid characters in input*/
@@ -172,7 +151,6 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
         }
 
     }
-    //ui->resultArea->setText(tmp);
 
 }
 std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter){
