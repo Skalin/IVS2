@@ -36,9 +36,13 @@ private:
 
 class Parser {
 public:
-	int parseInput();
+    std::vector <std::string> &parseInput(std::string input);
 protected:
+    std::vector <std::string> getInputData();
+    void setInputData(std::vector<std::string> &inputData);
+    bool cleanInputData();
 private:
+    std::vector<std::string> &inputData;
 };
 
 
