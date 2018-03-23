@@ -7,15 +7,15 @@
 
 #include "calc.h"
 
-class Parser {
+class Parser : public advancedMath {
 public:
+	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:
 	std::vector <std::string> getInputData();
 	void setInputData(std::vector<std::string> &inputData);
-	void solve(std::vector<std::string> &input);
 private:
 	void cleanInputData();
-	void solveResult(unsigned int priority);
+	void solveResult(int priority);
 	
 	std::vector <std::string> &inputData;
 };
