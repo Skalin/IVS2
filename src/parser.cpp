@@ -31,7 +31,7 @@ void Parser::solveResult(int priority) {
 			this->setInputData({str});
 		}
 	} else {
-		for (unsigned int i = 0; i < this->inputData.size(); i++) {
+		for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 			std::string str;
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
