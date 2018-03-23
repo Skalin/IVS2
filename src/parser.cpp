@@ -39,5 +39,19 @@ void Parser::solveResult(unsigned int priority) {
 }
 
 string Parser::solve(std::vector<std::string> &input, unsigned int type) {
+		this->cleanInputData();
+	this->setInputData(input);
 
+	unsigned int maxPriority = 3;
+
+	// priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
+	if (type == 0) {
+		for (unsigned i = maxPriority; i > 0; i--) {
+			this->solveResult(i);
+		}
+	} else {
+		this->solveResult(-1); // sums, averages, devations
+	}		
+		// expected output after the for cycle should be class variable vector<string> containing only one item = result
+	return inputData.at(0);
 }
