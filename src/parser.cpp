@@ -35,7 +35,38 @@ void Parser::cleanInputData() {
 }
 
 void Parser::solveResult(unsigned int priority) {
+	if (priority == -1) {
+		std::string operation = this->inputData.at(0);
+		this->inputData.erase(this->inputData.begin());
+		// TODO conversion of inputData vector<string> to vector<double> should happen here
+		std::string str;
+		if (operation == "SUM") {
+			str = std::to_string(this->sum(inputData));
+			this->setInputData({str});
+		} else if (operation == "AVG") {
+			str = std::to_string(this->average(inputData));
+			this->setInputData({str});
+		} else if (operation == "DEV") {
+			str = std::to_string(this->deviation(inputData));
+			this->setInputData({str});
+		}
+	} else {
+		for (unsigned int i = 0; i < this->inputData.size(); i++) {
+			string str;
+			if (priority == 3) {
+				if (this->inputData.at(i) == "!") {
+					this->inputData.at(i-1) = std::to_string(this->factorial(stod(this->inputData.at(i-1))));
+					this->inputData.erase(this->inputData.begin()+i);
+				}
+			} else if (priority == 2) {
 
+			} else if (priority == 1) {
+
+			} else if (priority == 0) {
+
+			}
+		}
+	}
 }
 
 string Parser::solve(std::vector<std::string> &input, unsigned int type) {
