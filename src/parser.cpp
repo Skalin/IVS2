@@ -64,5 +64,5 @@ std::string Parser::solve(std::vector<std::string> &input, unsigned int type) {
 		this->solveResult(-1); // sums, averages, devations
 	}		
 		// expected output after the for cycle should be class variable vector<string> containing only one item = result
-	return inputData.at(0);
+	return this->getInputData().at(0);
 }
