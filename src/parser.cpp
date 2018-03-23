@@ -37,3 +37,7 @@ void Parser::cleanInputData() {
 void Parser::solveResult(unsigned int priority) {
 
 }
+
+string Parser::solve(std::vector<std::string> &input, unsigned int type) {
+
+}
