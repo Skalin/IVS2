@@ -16,10 +16,9 @@ void Parser::cleanInputData() {
 
 std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
     std::vector<double> doubleVector(input.size());
-    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val)
-                     {
-                         return std::stod(val);
-                     });
+    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val) {
+		 return std::stod(val);
+ 	});
     return doubleVector;
 }
 
@@ -29,14 +28,15 @@ void Parser::solveResult(int priority) {
 		this->inputData.erase(this->getInputData().begin());
 		// TODO conversion of inputData vector<string> to vector<double> should happen here
 		std::string str;
+		
 		if (operation == "SUM") {
-			str = std::to_string(this->sum(this->getInputData()));
+			str = std::to_string(this->sum(this->convertToDouble(this->getInputData())));
 			this->setInputData({str});
 		} else if (operation == "AVG") {
-			str = std::to_string(this->average(this->getInputData()));
+			str = std::to_string(this->average(this->convertToDouble(this->getInputData())));
 			this->setInputData({str});
 		} else if (operation == "DEV") {
-			str = std::to_string(this->deviation(this->getInputData()));
+			str = std::to_string(this->deviation(this->convertToDouble(this->getInputData())));
 			this->setInputData({str});
 		}
 	} else {
