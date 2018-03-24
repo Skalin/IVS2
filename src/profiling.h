@@ -7,6 +7,8 @@
 class Profiling : public Math {
 public:
 	double deviation(vector <double> &arrayOfDoubles);
+protected:
+private:
 };
 
 #endif //IVS2_PROFILING_H
