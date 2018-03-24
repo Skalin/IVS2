@@ -1,7 +1,5 @@
-#include<iostream>
+#include "profiling.h"
 
-int main() {
-	cout << "Sample profiling source code" << endl;
-	return 0;
-}
+double Profiling::deviation(vector<double> &arrayOfDoubles) {
 
+};
