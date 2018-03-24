@@ -10,10 +10,12 @@ public:
 protected:
 	std::vector<std::string> &getInputData();
 	void setInputData(std::vector<std::string> inputData);
+	std::vector <double> &getDoubleData();
 private:
 	std::vector<double> &convertToDouble();
 	void cleanInputData();
 	void solveResult(int priority);
 	std::vector<std::string> inputData;
+	std::vector<double> doubleData;
 };
 #endif //IVS2_PARSER_H
