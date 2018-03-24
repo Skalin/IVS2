@@ -1,5 +1,5 @@
 #include "profiling.h"
 
-double Profiling::deviation(vector<double> &arrayOfDoubles) {
+double Profiling::deviation(std::vector<double> &arrayOfDoubles) {
 
 };
