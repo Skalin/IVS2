@@ -6,6 +6,7 @@
 #include<stdexcept>
 #include<vector>
 #include<algorithm>
+#include "basic.h"
 
 #ifndef IVS2_CALC_H
 #define IVS2_CALC_H
@@ -14,7 +15,7 @@
 void printError();
 void printError(std::string error);
 
-class Math {
+class Math : public Basic {
 public:
 	double addition(double operand1, double operand2);
 	double subtraction(double operand1, double operand2);
