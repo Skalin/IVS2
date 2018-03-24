@@ -44,15 +44,31 @@ void Parser::solveResult(int priority) {
 			std::string str;
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
-					this->getInputData().at(i-1) = std::to_string(this->factorial(stoi(this->getInputData().at(i-1))));
-					this->getInputData().erase(this->getInputData().begin()+i);
+					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));
+					this->getInputData().erase(this->getInputData().begin() + i);
 				}
-			} else if (priority == 2) {
-
-			} else if (priority == 1) {
-
-			} else if (priority == 0) {
-
+			} else if (priority == 2 || priority == 1 || priority == 0) {
+				if (priority == 2) {
+					if (this->getInputData().at(i) == "^") {
+						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "sqrt") {
+						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+					}
+				} else if (priority == 1) {
+					if (this->getInputData().at(i) == "*") {
+						this->getInputData().at(i - 1) = std::to_string(this->multiplication(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "/") {
+						this->getInputData().at(i - 1) = std::to_string(this->division(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					}
+				} else if (priority == 0) {
+					if (this->getInputData().at(i) == "+") {
+						this->getInputData().at(i - 1) = std::to_string(this->addition(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "-") {
+						this->getInputData().at(i - 1) = std::to_string(this->subtraction(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					}
+				}
+				this->getInputData().erase(this->getInputData().begin() + i);
+				this->getInputData().erase(this->getInputData().begin() + i + 1);
 			}
 		}
 	}
