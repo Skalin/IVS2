@@ -23,7 +23,7 @@ std::vector <double>& Parser::getDoubleData() {
 }
 
 std::vector<double> &Parser::convertToDouble(){
-    this->getDoubleData().resize(this->getInputData().size()-1);
+    this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
 		 return std::stod(val);
  	});
