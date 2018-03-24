@@ -1,11 +1,7 @@
-//
-// Created by Dominik on 20-Mar-18.
-//
-
-#include<iostream>
-#include<stdexcept>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
 #include "basic.h"
 
 #ifndef IVS2_CALC_H
