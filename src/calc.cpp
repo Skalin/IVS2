@@ -1,15 +1,5 @@
 #include "calc.h"
 
-
-
-void printError() {
-	std::cerr << "Unexpected error occured!\n" << std::endl;
-}
-
-void printError(std::string error) {
-	std::cerr << error << "\n" << std::endl;
-}
-
 double Math::addition(double operand1, double operand2) {
 	double result;
 	try {
