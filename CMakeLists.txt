@@ -15,6 +15,6 @@ set(SOURCE_FILES
 		src/parser.cpp
 		src/parser.h
 		src/basic.cpp
-		src/basic.h)
+		src/basic.h src/main.cpp)
 
 add_executable(IVS2 ${SOURCE_FILES})
