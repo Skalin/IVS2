@@ -19,6 +19,7 @@ int main() {
 	DoubleVector.at(4) = 50;
 	std::cout << Math1.sum(DoubleVector) << std::endl;
 	std::cout << Math1.average(DoubleVector) << std::endl;
+	std::cout << Math1.deviation(DoubleVector) << std::endl;
 	
 	std::cout << "Sample calculator source code" << std::endl;
 	return 0;
