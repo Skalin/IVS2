@@ -1,28 +1,29 @@
 #include "calculator.h"
 
-Parser::Parser(){
+Calculator::Calculator(){
 	inputData.reserve(0);
+	doubleData.reserve(0);
 }
 
-std::vector <std::string>& Parser::getInputData() {
+std::vector <std::string>& Calculator::getInputData() {
 		return this->inputData;
 }
 
-void Parser::setInputData(std::vector<std::string> input) {
+void Calculator::setInputData(std::vector<std::string> input) {
 	this->inputData = input;
 }
 
-void Parser::cleanInputData() {
+void Calculator::cleanInputData() {
 	while (!this->inputData.empty()) {
 		this->inputData.pop_back();
 	}
 }
 
-std::vector <double>& Parser::getDoubleData() {
+std::vector <double>& Calculator::getDoubleData() {
 	return this->doubleData;
 }
 
-std::vector<double> &Parser::convertToDouble(){
+std::vector<double> &Calculator::convertToDouble(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
 		 return std::stod(val);
@@ -30,7 +31,7 @@ std::vector<double> &Parser::convertToDouble(){
     return this->getDoubleData();
 }
 
-void Parser::solveResult(int priority) {
+void Calculator::solveResult(int priority) {
 	if (priority == -1) {
 		std::string operation = *&getInputData().at(0);
 		this->getInputData().erase(this->getInputData().begin());
@@ -81,7 +82,7 @@ void Parser::solveResult(int priority) {
 	}
 }
 
-std::string Parser::solve(std::vector<std::string> &input, unsigned int type) {
+std::string Calculator::solve(std::vector<std::string> &input, unsigned int type) {
 	this->cleanInputData();
 	this->setInputData(input);
 

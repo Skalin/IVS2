@@ -3,9 +3,9 @@
 
 #include "profiling.h"
 
-class Parser : public Profiling {
+class Calculator : public Profiling {
 public:
-	Parser();
+	Calculator();
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:
 	std::vector<std::string> &getInputData();
