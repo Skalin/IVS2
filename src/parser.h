@@ -1,7 +1,7 @@
-#include "profiling.h"
-
 #ifndef IVS2_PARSER_H
 #define IVS2_PARSER_H
+
+#include "profiling.h"
 
 class Parser : public Profiling {
 public:
