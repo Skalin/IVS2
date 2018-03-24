@@ -25,7 +25,7 @@ std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
 void Parser::solveResult(int priority) {
 	if (priority == -1) {
 		std::string operation = this->getInputData().at(0);
-		this->inputData.erase(this->getInputData().begin());
+		this->getInputData().erase(this->getInputData().begin());
 		// TODO conversion of inputData vector<string> to vector<double> should happen here
 		std::string str;
 		
