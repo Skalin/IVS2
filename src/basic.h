@@ -1,8 +1,7 @@
-#include <iostream>
-
 #ifndef IVS2_BASIC_H
 #define IVS2_BASIC_H
 
+#include <iostream>
 
 class Basic {
 public:
