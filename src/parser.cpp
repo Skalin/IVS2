@@ -1,11 +1,11 @@
 #include "parser.h"
 
-std::vector <std::string> Parser::getInputData() {
-		return this->inputData;
+std::vector<std::string> &Parser::getInputData() {
+		return this->&inputData;
 }
 
 void Parser::setInputData(std::vector<std::string> &input) {
-	this->inputData = input;
+	this->&inputData = input;
 }
 
 void Parser::cleanInputData() {
@@ -16,27 +16,27 @@ void Parser::cleanInputData() {
 
 std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
     std::vector<double> doubleVector(input.size());
-    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val)
-                     {
-                         return std::stod(val);
-                     });
+    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val) {
+		 return std::stod(val);
+ 	});
     return doubleVector;
 }
 
 void Parser::solveResult(int priority) {
 	if (priority == -1) {
-		std::string operation = this->getInputData().at(0);
-		this->inputData.erase(this->getInputData().begin());
+		std::string operation = this->&getInputData().at(0);
+		this->getInputData().erase(this->getInputData().begin());
 		// TODO conversion of inputData vector<string> to vector<double> should happen here
 		std::string str;
+		
 		if (operation == "SUM") {
-			str = std::to_string(this->sum(this->getInputData()));
+			str = std::to_string(this->sum(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		} else if (operation == "AVG") {
-			str = std::to_string(this->average(this->getInputData()));
+			str = std::to_string(this->average(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		} else if (operation == "DEV") {
-			str = std::to_string(this->deviation(this->getInputData()));
+			str = std::to_string(this->deviation(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		}
 	} else {
@@ -44,15 +44,31 @@ void Parser::solveResult(int priority) {
 			std::string str;
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
-					this->getInputData().at(i-1) = std::to_string(this->factorial(stoi(this->getInputData().at(i-1))));
-					this->getInputData().erase(this->getInputData().begin()+i);
+					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));
+					this->getInputData().erase(this->getInputData().begin() + i);
 				}
-			} else if (priority == 2) {
-
-			} else if (priority == 1) {
-
-			} else if (priority == 0) {
-
+			} else if (priority == 2 || priority == 1 || priority == 0) {
+				if (priority == 2) {
+					if (this->getInputData().at(i) == "^") {
+						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "√") {
+						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+					}
+				} else if (priority == 1) {
+					if (this->getInputData().at(i) == "*") {
+						this->getInputData().at(i - 1) = std::to_string(this->multiplication(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "/") {
+						this->getInputData().at(i - 1) = std::to_string(this->division(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					}
+				} else if (priority == 0) {
+					if (this->getInputData().at(i) == "+") {
+						this->getInputData().at(i - 1) = std::to_string(this->addition(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					} else if (this->getInputData().at(i) == "-") {
+						this->getInputData().at(i - 1) = std::to_string(this->subtraction(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+					}
+				}
+				this->getInputData().erase(this->getInputData().begin() + i);
+				this->getInputData().erase(this->getInputData().begin() + i + 1);
 			}
 		}
 	}
