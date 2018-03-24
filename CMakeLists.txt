@@ -7,14 +7,15 @@ set(SOURCE_FILES
 		src/calc.cpp
 		src/Doxyfile
 		src/Makefile
-		#src/profiling.cpp
+		src/profiling.cpp
 		LICENSE
 		README.md
 		src/calc.h
-		#src/profiling.h
+		src/profiling.h
 		src/parser.cpp
 		src/parser.h
 		src/basic.cpp
-		src/basic.h src/main.cpp)
+		src/basic.h
+		src/main.cpp)
 
 add_executable(IVS2 ${SOURCE_FILES})
