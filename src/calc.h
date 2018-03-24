@@ -1,10 +1,10 @@
+#ifndef IVS2_CALC_H
+#define IVS2_CALC_H
+
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
 #include "basic.h"
-
-#ifndef IVS2_CALC_H
-#define IVS2_CALC_H
 
 class Math : public Basic {
 public:
