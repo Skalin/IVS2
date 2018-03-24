@@ -14,7 +14,7 @@ protected:
 	std::vector <std::string> getInputData();
 	void setInputData(std::vector<std::string> &inputData);
 private:
-	std::vector <std::double> convertToDouble(std::vector<std::string> &inputData);
+	std::vector <double> convertToDouble(std::vector<std::string> &inputData);
 	void cleanInputData();
 	void solveResult(int priority);
 	
