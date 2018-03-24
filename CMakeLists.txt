@@ -12,8 +12,8 @@ set(SOURCE_FILES
 		README.md
 		src/calc.h
 		src/profiling.h
-		src/parser.cpp
-		src/parser.h
+		src/calculator.cpp
+		src/calculator.h
 		src/basic.cpp
 		src/basic.h
 		src/main.cpp)
