@@ -112,11 +112,11 @@ double Math::root(double operand, int exponent) {
 	return x;
 }
 
-double Math::sum(std::vector <double> &arrayOfDoubles) {
+double Math::sum(std::vector <double> *arrayOfDoubles) {
 	double sum = 0.0;
 	try {
-		for (unsigned int i = 0; i < arrayOfDoubles.size(); i++){
-			sum = addition(sum, arrayOfDoubles.at(i));
+		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
+			sum = addition(sum, arrayOfDoubles->at(i));
 		}
 	} catch (...) {
 		printError();
@@ -124,6 +124,6 @@ double Math::sum(std::vector <double> &arrayOfDoubles) {
 	return sum;
 }
 
-double Math::average(std::vector <double> &arrayOfDoubles) {
-	return this->sum(arrayOfDoubles)/arrayOfDoubles.size();
+double Math::average(std::vector <double> *arrayOfDoubles) {
+	return this->sum(arrayOfDoubles)/arrayOfDoubles->size();
 }

@@ -16,8 +16,8 @@ public:
 	double powerOf(double operand, int exponent);
 	int factorial(int operand);
 	double root(double operand, int exponent);
-	double sum(std::vector <double> &);
-	double average(std::vector <double> &);
+	double sum(std::vector <double> *vector);
+	double average(std::vector <double> *vector);
 };
 
 

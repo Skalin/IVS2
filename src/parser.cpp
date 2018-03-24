@@ -1,11 +1,15 @@
 #include "parser.h"
 
-std::vector<std::string> &Parser::getInputData() {
-		return this->&inputData;
+Parser::Parser(){
+	inputData.reserve(0);
 }
 
-void Parser::setInputData(std::vector<std::string> &input) {
-	this->&inputData = input;
+std::vector <std::string>& Parser::getInputData() {
+		return this->inputData;
+}
+
+void Parser::setInputData(std::vector<std::string> input) {
+	this->inputData = input;
 }
 
 void Parser::cleanInputData() {
@@ -14,9 +18,9 @@ void Parser::cleanInputData() {
 	}
 }
 
-std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
-    std::vector<double> doubleVector(input.size());
-    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val) {
+std::vector<double> &Parser::convertToDouble(){
+    std::vector<double> doubleVector(this->getInputData().size());
+    std::transform(this->getInputData().begin(), this->getInputData().end(), doubleVector.begin(), [](std::string &val) {
 		 return std::stod(val);
  	});
     return doubleVector;
@@ -24,19 +28,18 @@ std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
 
 void Parser::solveResult(int priority) {
 	if (priority == -1) {
-		std::string operation = this->&getInputData().at(0);
+		std::string operation = *&getInputData().at(0);
 		this->getInputData().erase(this->getInputData().begin());
-		// TODO conversion of inputData vector<string> to vector<double> should happen here
 		std::string str;
 		
 		if (operation == "SUM") {
-			str = std::to_string(this->sum(this->&convertToDouble(this->&getInputData())));
+			str = std::to_string(this->sum(&this->convertToDouble()));
 			this->setInputData({str});
 		} else if (operation == "AVG") {
-			str = std::to_string(this->average(this->&convertToDouble(this->&getInputData())));
+			str = std::to_string(this->average(&this->convertToDouble()));
 			this->setInputData({str});
 		} else if (operation == "DEV") {
-			str = std::to_string(this->deviation(this->&convertToDouble(this->&getInputData())));
+			str = std::to_string(this->deviation(&this->convertToDouble()));
 			this->setInputData({str});
 		}
 	} else {
