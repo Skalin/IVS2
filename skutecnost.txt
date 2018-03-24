@@ -1,8 +1,20 @@
-Rozd�l v�voje:
-- Pl�n
-	dle pl�nu do 20.3. hotov� pl�n x
-	pl�n byl hotov 16.3.
+Rozdíl vývoje:
+- Plán
+	dle plánu do 20.3. hotový plán x
+	plán byl hotov 16.3.
 
 - Mockupy
-	dle pl�nu do 1.4. 
-	hotovy prakticky ji� 16.3.
+	dle plánu do 1.4. 
+	hotovy prakticky již 16.3.
+	
+- Matematická knihovna
+	dle plánu až do 15.4
+	hotova již 24.3., testování probíhá v rámci vývoje a proběhla první implementace testů v calc.cpp
+
+- Frontend
+	dle plánu také do 15.4.
+	24.3. prototyp frontendu, prakticky funkční, řeší se již napojování na backend
+	
+- Backend
+	prakticky funkční 24.3., spousta práce se zvládla během týdnu půlsemestrálních zkoušek, profiling se bude skládat z funkcí pro matematickou knihovnu, takže je prakticky 70 % profilingu napsáno
+	původně zamýšleno mít jednu celou třídu, ve výsledku jsme se rozhodli mít několik tříd a ty mezi sebou extendovat za účelem rozšiřitelnosti programu

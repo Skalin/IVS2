@@ -1,38 +1,68 @@
-#include<iostream>
-#include<stdexcept>
+#include "calc.h"
 
 
 
-class Math {
-public:
-	double addition(double operand1, double operand2);
-	double subtraction(double operand1, double operand2);
-	double multiplication(double operand1, double operand2);
-	double division(double operand1, double operand2);
-	double powerOf(double operand, int exponent);
-	double factorial(int operand);
-	double root(double operand, int exponent);
-};
-
-Math::addition(double operand1, double operand2) {
-	return (operand1 + operand2);
+void printError() {
+	std::cerr << "Unexpected error occured!\n" << std::endl;
 }
 
-Math::subtraction(double operand1, double operand2) {
-	return (operand1 - operand2);
+void printError(std::string error) {
+	std::cerr << error << "\n" << std::endl;
 }
 
-Math::multiplication(double operand1, double operand2) {
-	return (operand1 * operand2);
+double Math::addition(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 + operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::division(double operand1, double operand2) {
-	if (operand2 == 0)
-		throw std::overflow_error("Division by zero!");
-	return (operand1/operand2);
+double Math::subtraction(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 - operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::powerOf(double operand, int exponent) {
+double Math::multiplication(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 * operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
+}
+
+int Math::multiplication(int operand1, int operand2) {
+	int result;
+	try {
+		result = operand1 * operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
+}
+
+double Math::division(double operand1, double operand2) {
+	try {
+		if (operand2 == 0)
+			throw std::overflow_error("Division by zero!");
+		return (operand1/operand2);
+	} catch (std::overflow_error &e) {
+		printError(e.what());
+	} catch (...) {
+		printError();
+	}
+}
+
+double Math::powerOf(double operand, int exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
@@ -43,34 +73,38 @@ Math::powerOf(double operand, int exponent) {
 			}
 			return result;
 		}
-	} catch (...){
-		printError();
-	}
-}
-
-Math::factorial(int operand) {
-	try {
-		if (operand < 0) {
-			throw std::range_error("Number cannot be negative!");
-		} else {
-			int result = 1;
-			for (int i = 1; i <= operand; i++) {
-				result = multiplication(result, i)
-			}
-			return result;
-		}
+	} catch (std::range_error &e) {
+		printError(e.what());
 	} catch (...) {
 		printError();
 	}
 }
 
+int Math::factorial(int operand) {
+	int result = 1;
+	try {
+		if (operand < 0) {
+			throw std::range_error("Number cannot be negative!");
+		} else {
+			for (int i = 1; i <= operand; i++) {
+				result = multiplication(result, i);
+			}
+		}
+	} catch (std::range_error &e) {
+		printError(e.what());
+	} catch (...) {
+		printError();
+	}
+	return result;
+}
+
 // Newton's method
-Math::root(double operand, int exponent) {
+double Math::root(double operand, int exponent) {
+	double x = 1.0;
 	try {
 		if (exponent <= 0) {
 			throw std::range_error("Number cannot be negative or zero!");
 		} else {
-			double x;
 			double dx;
 			double eps(10e-6);
 			x = operand * 0.5;
@@ -79,29 +113,51 @@ Math::root(double operand, int exponent) {
 				x = x + dx;
 				dx = (operand/powerOf(x,exponent-1)-x)/exponent;
 			}
-			return x;
+		}
+	} catch (std::range_error &e) {
+		printError(e.what());
+	} catch (...) {
+		printError();
+	}
+	return x;
+}
+
+double Math::sum(std::vector <double> &arrayOfDoubles) {
+	double sum = 0.0;
+	try {
+		for (unsigned int i = 0; i < arrayOfDoubles.size(); i++){
+			sum = addition(sum, arrayOfDoubles.at(i));
 		}
 	} catch (...) {
 		printError();
 	}
+	return sum;
 }
 
-void printError() {
-	std::cerr << "Unexpected error occured!\n" << std::endl;
+double Math::average(std::vector <double> &arrayOfDoubles) {
+	return this->sum(arrayOfDoubles)/arrayOfDoubles.size();
 }
 
 int main() {
 	
-	Math math;
+	Math Math1;
 	
-	std::cout << Math.addition(1, 2) << std::endl;
-	std::cout << Math.subtraction(5, 2) << std::endl;
-	std::cout << Math.multiplication(5, 2) << std::endl;
-	std::cout << Math.division(6, 2) << std::endl;
-	std::cout << Math.powerOf(5, 2) << std::endl;
-	std::cout << Math.factorial(5) << std::endl;
-	std::cout << Math.root(81, 4) << std::endl;
+	std::cout << Math1.addition(1.0, 2.0) << std::endl;
+	std::cout << Math1.subtraction(5, 2) << std::endl;
+	std::cout << Math1.multiplication(5, 2) << std::endl;
+	std::cout << Math1.division(6, 2) << std::endl;
+	std::cout << Math1.powerOf(5, 2) << std::endl;
+	std::cout << Math1.factorial(5) << std::endl;
+	std::cout << Math1.root(81, 4) << std::endl;
+	std::vector<double> DoubleVector (5);
+	DoubleVector.at(0) = 10;
+	DoubleVector.at(1) = 20;
+	DoubleVector.at(2) = 30;
+	DoubleVector.at(3) = 40;
+	DoubleVector.at(4) = 50;
+	std::cout << Math1.sum(DoubleVector) << std::endl;
+	std::cout << Math1.average(DoubleVector) << std::endl;
 	
-	cout << "Sample calculator source code" << endl;
+	std::cout << "Sample calculator source code" << std::endl;
 	return 0;
 }
