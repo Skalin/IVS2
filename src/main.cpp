@@ -2,7 +2,7 @@
 
 int main() {
 	
-	Profiling Math1;
+	Parser Math1;
 	
 	std::cout << Math1.addition(1.0, 2.0) << std::endl;
 	std::cout << Math1.subtraction(5, 2) << std::endl;
