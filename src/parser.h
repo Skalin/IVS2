@@ -1,11 +1,7 @@
-//
-// Created by Dominik on 22-Mar-18.
-//
+#include "calc.h"
 
 #ifndef IVS2_PARSER_H
 #define IVS2_PARSER_H
-
-#include "calc.h"
 
 class Parser : public Math {
 public:
