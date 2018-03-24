@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
@@ -6,10 +5,6 @@
 
 #ifndef IVS2_CALC_H
 #define IVS2_CALC_H
-
-
-void printError();
-void printError(std::string error);
 
 class Math : public Basic {
 public:
