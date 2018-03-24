@@ -1,7 +1,3 @@
-//
-// Created by Dominik on 24-Mar-18.
-//
-
 #include <iostream>
 
 #ifndef IVS2_BASIC_H
