@@ -1,9 +1,9 @@
-#include "calc.h"
+#include "profiling.h"
 
 #ifndef IVS2_PARSER_H
 #define IVS2_PARSER_H
 
-class Parser : public Math {
+class Parser : public Profiling {
 public:
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:
