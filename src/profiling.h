@@ -1,4 +1,3 @@
-#include <iostream>
 #include "calc.h"
 
 #ifndef IVS2_PROFILING_H
@@ -6,7 +5,7 @@
 
 class Profiling : public Math {
 public:
-	double deviation(vector <double> &arrayOfDoubles);
+	double deviation(std::vector <double> &arrayOfDoubles);
 protected:
 private:
 };
