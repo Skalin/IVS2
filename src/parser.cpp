@@ -18,12 +18,16 @@ void Parser::cleanInputData() {
 	}
 }
 
+std::vector <double>& Parser::getDoubleData() {
+	return this->doubleData;
+}
+
 std::vector<double> &Parser::convertToDouble(){
-    std::vector<double> doubleVector(this->getInputData().size());
-    std::transform(this->getInputData().begin(), this->getInputData().end(), doubleVector.begin(), [](std::string &val) {
+    this->getDoubleData().resize(this->getInputData().size()-1);
+    std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
 		 return std::stod(val);
  	});
-    return doubleVector;
+    return this->getDoubleData();
 }
 
 void Parser::solveResult(int priority) {
