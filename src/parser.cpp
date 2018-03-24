@@ -51,7 +51,7 @@ void Parser::solveResult(int priority) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
-					} else if (this->getInputData().at(i) == "sqrt") {
+					} else if (this->getInputData().at(i) == "√") {
 						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 					}
 				} else if (priority == 1) {
