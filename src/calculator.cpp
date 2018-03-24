@@ -1,4 +1,4 @@
-#include "parser.h"
+#include "calculator.h"
 
 Parser::Parser(){
 	inputData.reserve(0);
