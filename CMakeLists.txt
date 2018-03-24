@@ -13,6 +13,8 @@ set(SOURCE_FILES
 		src/calc.h
 		#src/profiling.h
 		src/parser.cpp
-		src/parser.h)
+		src/parser.h
+		src/basic.cpp
+		src/basic.h)
 
 add_executable(IVS2 ${SOURCE_FILES})
