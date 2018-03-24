@@ -14,6 +14,15 @@ void Parser::cleanInputData() {
 	}
 }
 
+std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
+    std::vector<double> doubleVector(input.size());
+    std::transform(input.begin(), input.end(), doubleVector.begin(), [](std::string &val)
+                     {
+                         return std::stod(val);
+                     });
+    return doubleVector;
+}
+
 void Parser::solveResult(int priority) {
 	if (priority == -1) {
 		std::string operation = this->getInputData().at(0);
