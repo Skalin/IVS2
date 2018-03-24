@@ -116,7 +116,7 @@ double Math::sum(std::vector <double> *arrayOfDoubles) {
 	double sum = 0.0;
 	try {
 		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
-			sum = addition(sum, arrayOfDoubles->at(i));
+			sum += arrayOfDoubles->at(i);
 		}
 	} catch (...) {
 		printError();
