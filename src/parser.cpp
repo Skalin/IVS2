@@ -1,11 +1,11 @@
 #include "parser.h"
 
-std::vector <std::string> Parser::getInputData() {
-		return this->inputData;
+std::vector<std::string> &Parser::getInputData() {
+		return this->&inputData;
 }
 
 void Parser::setInputData(std::vector<std::string> &input) {
-	this->inputData = input;
+	this->&inputData = input;
 }
 
 void Parser::cleanInputData() {
@@ -24,19 +24,19 @@ std::vector <double> Parser::convertToDouble(std::vector<std::string> &input){
 
 void Parser::solveResult(int priority) {
 	if (priority == -1) {
-		std::string operation = this->getInputData().at(0);
+		std::string operation = this->&getInputData().at(0);
 		this->getInputData().erase(this->getInputData().begin());
 		// TODO conversion of inputData vector<string> to vector<double> should happen here
 		std::string str;
 		
 		if (operation == "SUM") {
-			str = std::to_string(this->sum(this->convertToDouble(this->getInputData())));
+			str = std::to_string(this->sum(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		} else if (operation == "AVG") {
-			str = std::to_string(this->average(this->convertToDouble(this->getInputData())));
+			str = std::to_string(this->average(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		} else if (operation == "DEV") {
-			str = std::to_string(this->deviation(this->convertToDouble(this->getInputData())));
+			str = std::to_string(this->deviation(this->&convertToDouble(this->&getInputData())));
 			this->setInputData({str});
 		}
 	} else {

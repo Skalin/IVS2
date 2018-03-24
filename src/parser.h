@@ -11,7 +11,7 @@ class Parser : public Math {
 public:
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:
-	std::vector<std::string> getInputData();
+	std::vector<std::string> &getInputData();
 	void setInputData(std::vector<std::string> &inputData);
 private:
 	std::vector<double> convertToDouble(std::vector<std::string> &inputData);
