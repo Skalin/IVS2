@@ -1,7 +1,7 @@
 #include "basic.h"
 
 void Basic::printError() {
-	std::cerr << "Unexpected error occured!\n" << std::endl;
+	std::cerr << "Unexpected error occurred!\n" << std::endl;
 }
 
 void Basic::printError(std::string error) {
