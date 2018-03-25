@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
+#include <QMessageBox>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -87,9 +89,10 @@ private slots:
     /*@brief converts string input into vector
     * @param input input string that needs to be split
     * @param splitter character to split the input with
+    * @param mode tag for solve function
     * @return vector of strings
     */
-   std::vector<std::string> splitInputString(std::string input, char splitter);
+   std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
 
 
     /*@brief prints out result of calculation*/
@@ -100,6 +103,12 @@ private slots:
 
     /*@brief appends ',' to input*/
     void on_commaButton_clicked();
+
+    void on_average_clicked();
+
+    void on_sum_clicked();
+
+    void on_helpButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -153,8 +153,11 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
     }
 
 }
-std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter){
+std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter, std::string mode){
     std::vector<std::string> listKeywords = {};
+    if (mode.empty() == false){
+        listKeywords.push_back(mode);
+    }
     std::string tmp = "";
     for (unsigned int i=0; i<input.length();i++){
         if (input.at(i) == splitter){
@@ -195,13 +198,13 @@ void MainWindow::on_equalSign_clicked()
      //debug
      qDebug() << tmp << endl;
 
-     afterSpliting = splitInputString(tmp.toStdString(),' ');
+     afterSpliting = splitInputString(tmp.toStdString(),' ',"");
      //debug
      for(auto &i: afterSpliting)
          qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-   // ui->resultArea->setText(calculation(tmp.toStdString()));
+    //ui->resultArea->setText(solve(afterSpliting,0));
 }
 
 void MainWindow::on_profiling_clicked()
@@ -213,17 +216,78 @@ void MainWindow::on_profiling_clicked()
     //debug
     qDebug() << tmp << endl;
 
-    //std::string tmp2 = tmp.toStdString();
-    afterSpliting = splitInputString(tmp.toStdString(),',');
+    afterSpliting = splitInputString(tmp.toStdString(),',',"DEV");
     //debug
     for(auto &i: afterSpliting)
         qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-   // ui->resultArea->setText(profiling(tmp.toStdString()));
+   //ui->resultArea->setText(solve(afterSpliting,1));
 }
 
 void MainWindow::on_commaButton_clicked()
 {
     ui->resultArea->setText(ui->resultArea->text()+ ",");
+}
+
+void MainWindow::on_average_clicked()
+{
+    QString tmp;
+    tmp = ui->resultArea->text();
+    std::vector<std::string> afterSpliting = {};
+
+    //debug
+    qDebug() << tmp << endl;
+
+    afterSpliting = splitInputString(tmp.toStdString(),',',"AVG");
+    //debug
+    for(auto &i: afterSpliting)
+        qDebug() << QString::fromStdString(i) << endl;
+
+    //placeholder
+   //ui->resultArea->setText(solve(afterSpliting,1));
+}
+
+void MainWindow::on_sum_clicked()
+{
+    QString tmp;
+    tmp = ui->resultArea->text();
+    std::vector<std::string> afterSpliting = {};
+
+    //debug
+    qDebug() << tmp << endl;
+
+    afterSpliting = splitInputString(tmp.toStdString(),',',"SUM");
+    //debug
+    for(auto &i: afterSpliting)
+        qDebug() << QString::fromStdString(i) << endl;
+
+    //placeholder
+   //ui->resultArea->setText(solve(afterSpliting,1));
+}
+
+void MainWindow::on_helpButton_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setTextFormat(Qt::RichText);
+    msgBox.setText("Vysvětlení jednotlivých tlačítek    ");
+    msgBox.setInformativeText("<b>DEL</b>    smaže poslední znak ze vstupu<br>"
+                              "<b>AC</b>    vymaže celý vstup<br>"
+                              "<br>"
+                              "Pro následující operace se členové odělují čárkou (,)<br>"
+                              "<br>"
+                              "<b>σ</b>     funkce pro profiling<br>"
+                              "<b>μ</b>     funkce pro průměr<br>"
+                              "<b>Σ</b>     funkce pro sumu (součet všech prvků)<br>");
+    msgBox.setDetailedText("Příklady použití jednotlivých funkcí\n"
+                           "μ\n"
+                           "5,5,5   => 5\n"
+                           "1,2,3   => 2\n"
+                           "Σ\n"
+                           "5,5,5   = 15\n"
+                           "5,-5,-2 = -2\n"
+                           "σ\n"
+                           "TODO");
+    msgBox.exec();
+
 }
