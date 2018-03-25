@@ -11,10 +11,12 @@ protected:
 	std::vector<std::string> &getInputData();
 	void setInputData(std::vector<std::string> inputData);
 	std::vector <double> &getDoubleData();
+	void setDoubleData(std::vector<std::double> doubleData);
 private:
 	std::vector<double> &convertToDouble();
 	void deleteItemsFromVector(unsigned int start, unsigned int amount);
 	void cleanInputData();
+	void cleanDoubleData();
 	void solveResult(int priority);
 	std::vector<std::string> inputData;
 	std::vector<double> doubleData;
