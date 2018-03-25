@@ -6,7 +6,7 @@ Calculator::Calculator(){
 }
 
 std::vector <std::string>& Calculator::getInputData() {
-		return this->inputData;
+	return this->inputData;
 }
 
 void Calculator::setInputData(std::vector<std::string> input) {
@@ -61,7 +61,7 @@ void Calculator::solveResult(int priority) {
 					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));
 					this->deleteItemsFromVector(i, 1);
 				}
-			} else if (priority == 2 || priority == 1 || priority == 0) {
+			} else if (priority <= 2 && priority >= 0) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
