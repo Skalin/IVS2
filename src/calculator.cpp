@@ -29,6 +29,11 @@ std::vector <double>& Calculator::getDoubleData() {
 	return this->doubleData;
 }
 
+void Calculator::setDoubleData(std::vector<double> input) {
+	this->doubleData = input;
+}
+
+
 std::vector<double> &Calculator::convertToDouble(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
