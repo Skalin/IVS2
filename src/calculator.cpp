@@ -116,7 +116,7 @@ std::string Calculator::solve(std::vector<std::string> &input, unsigned int type
 			this->solveResult(i);
 		}
 	} else {
-		this->solveResult(-1); // sums, averages, devations
+		this->solveResult(-1); // sums, averages, deviations
 	}		
 		// expected output after the for cycle should be class variable vector<string> containing only one item = result
 	return this->getInputData().at(0);
