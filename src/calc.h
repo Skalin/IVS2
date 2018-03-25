@@ -18,6 +18,8 @@ public:
 	double root(double operand, int exponent);
 	double sum(std::vector <double> *vector);
 	double average(std::vector <double> *vector);
+	double sum(std::vector <double> *vector, int amount);
+	double average(std::vector <double> *vector, int amount);
 };
 
 
