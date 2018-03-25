@@ -127,3 +127,24 @@ double Math::sum(std::vector <double> *arrayOfDoubles) {
 double Math::average(std::vector <double> *arrayOfDoubles) {
 	return this->sum(arrayOfDoubles)/arrayOfDoubles->size();
 }
+
+
+double Math::sum(std::vector <double> *arrayOfDoubles, int amount) {
+	double sum = 0.0;
+	try {
+		for (unsigned int i = 0; i < amount; i++){
+			sum += arrayOfDoubles->at(i);
+		}
+	} catch (...) {
+		printError();
+	}
+	return sum;
+}
+
+double Math::average(std::vector <double> *arrayOfDoubles, int amount) {
+	int realAmount = amount;
+	if (realAmount > arrayOfDoubles->size()) {
+		realAmount = arrayOfDoubles->size();
+	}
+	return this->sum(arrayOfDoubles, realAmount)/realAmount;
+}
