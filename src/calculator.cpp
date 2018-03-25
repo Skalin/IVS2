@@ -19,6 +19,12 @@ void Calculator::cleanInputData() {
 	}
 }
 
+void Calculator::cleanDoubleData() {
+	while (!this->doubleData.empty()) {
+		this->doubleData.pop_back();
+	}
+}
+
 std::vector <double>& Calculator::getDoubleData() {
 	return this->doubleData;
 }
