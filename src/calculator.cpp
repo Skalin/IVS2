@@ -32,7 +32,7 @@ std::vector<double> &Calculator::convertToDouble(){
 }
 
 void Calculator::deleteItemsFromVector(unsigned int start, unsigned int amount) {
-	for (unsigned int i = start+amount; i > start; i--) {
+	for (unsigned int i = start+amount-1; i >= start; i--) {
 		this->getInputData().erase(this->getInputData().begin() + i);
 	}
 }
@@ -59,32 +59,38 @@ void Calculator::solveResult(int priority) {
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
 					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));
-					this->deleteItemsFromVector(i, 1);
+					this->getInputData().erase(this->getInputData().begin() + i);
 				}
 			} else if (priority == 2 || priority == 1 || priority == 0) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					} else if (this->getInputData().at(i) == "√") {
 						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					}
 				} else if (priority == 1) {
 					if (this->getInputData().at(i) == "*") {
 						this->getInputData().at(i - 1) = std::to_string(this->multiplication(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					} else if (this->getInputData().at(i) == "/") {
 						this->getInputData().at(i - 1) = std::to_string(this->division(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					}
 				} else if (priority == 0) {
 					if (this->getInputData().at(i) == "+") {
 						this->getInputData().at(i - 1) = std::to_string(this->addition(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					} else if (this->getInputData().at(i) == "-") {
 						this->getInputData().at(i - 1) = std::to_string(this->subtraction(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
-						this->deleteItemsFromVector(i, 2);
+						this->getInputData().erase(this->getInputData().begin() + i + 1);
+						this->getInputData().erase(this->getInputData().begin() + i);
 					}
 				}
 			}
@@ -100,7 +106,8 @@ std::string Calculator::solve(std::vector<std::string> &input, unsigned int type
 
 	// priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
 	if (type == 0) {
-		for (unsigned i = maxPriority; i >= 0; i--) {
+		for (int i = maxPriority; i >= 0; i--) {
+			std::cout << i << std::endl;
 			this->solveResult(i);
 		}
 	} else {
