@@ -31,6 +31,12 @@ std::vector<double> &Calculator::convertToDouble(){
     return this->getDoubleData();
 }
 
+void Calculator::deleteItemsFromVector(unsigned int start, unsigned int amount) {
+	for (unsigned int i = start+amount; i > start; i--) {
+		this->getInputData().erase(this->getInputData().begin() + i);
+	}
+}
+
 void Calculator::solveResult(int priority) {
 	if (priority == -1) {
 		std::string operation = *&getInputData().at(0);
