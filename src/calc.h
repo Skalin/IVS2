@@ -108,6 +108,15 @@ public:
 		\sa sum()
 	*/
 	double sum(std::vector <double> *vector, int amount);
+	
+	//! Calculation of partial average.
+	/*!
+		Function for calculation of partial average of entered numbers.
+		\param *vector vector of entered numbers.
+		\param amount number of entered numbers.
+		\return Result of partial average.
+		\sa average()
+	*/
 	double average(std::vector <double> *vector, int amount);
 };
 
