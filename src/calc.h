@@ -29,6 +29,14 @@ public:
 		\return Result of substraction.
 	*/
 	double subtraction(double operand1, double operand2);
+	
+	//! Calculation of multiplication of two doubles.
+	/*!
+		Function for calculation of multiplication of two doubles.
+		\param operand1 first number.
+		\param operand2 second number.
+		\return Result of multiplication.
+	*/
 	double multiplication(double operand1, double operand2);
 	int multiplication(int operand1, int operand2);
 	double division(double operand1, double operand2);
