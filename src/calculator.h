@@ -25,7 +25,12 @@ public:
 		\return Result of calculation.
 	*/
 	std::string solve(std::vector<std::string> &input, unsigned int type);
-protected:
+protected:	
+	//! Getting data from inputData.
+	/*!
+		Function for getting data from class variable inputData.
+		\return inputData.
+	*/
 	std::vector<std::string> &getInputData();
 	void setInputData(std::vector<std::string> inputData);
 	std::vector <double> &getDoubleData();
