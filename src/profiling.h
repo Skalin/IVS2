@@ -9,6 +9,14 @@
 */
 class Profiling : public Math {
 public:
+	//! The function responsible for the calculation.
+	/*!
+		The function responsible for the calculation of sample standard deviation
+		using functions from Math library.
+		\param *arrayOfDoubles vector of given values for calculation.
+		\return Result of calculation of sample standard deviation.
+		\sa Math
+	*/
 	double deviation(std::vector <double> *arrayOfDoubles);
 protected:
 private:
