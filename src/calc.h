@@ -82,6 +82,13 @@ public:
 		\return Result of square root.
 	*/
 	double root(double operand, int exponent);
+	
+	//! Calculation of sum.
+	/*!
+		Function for calculation of sum of entered numbers.
+		\param *vector vector of entered numbers.
+		\return Result of sum.
+	*/
 	double sum(std::vector <double> *vector);
 	double average(std::vector <double> *vector);
 	double sum(std::vector <double> *vector, int amount);
