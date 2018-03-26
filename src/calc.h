@@ -47,6 +47,14 @@ public:
 		\return Result of multiplication.
 	*/
 	int multiplication(int operand1, int operand2);
+	
+	//! Calculation of division.
+	/*!
+		Function for calculation of division of two numbers.
+		\param operand1 dividend.
+		\param operand2 divisor.
+		\return Result of division.
+	*/
 	double division(double operand1, double operand2);
 	double powerOf(double operand, int exponent);
 	int factorial(int operand);
