@@ -3,6 +3,11 @@
 
 #include "profiling.h"
 
+//! Class representing calculator.
+/*!
+	Class inheriting classes Basic, Math and Profiling
+	\sa Basic, Math, Profiling
+*/
 class Calculator : public Profiling {
 public:
 	Calculator();
