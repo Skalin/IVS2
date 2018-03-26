@@ -6,6 +6,10 @@
 #include <algorithm>
 #include "basic.h"
 
+//! Math library class.
+/*!
+	Class of Math library functions.
+*/
 class Math : public Basic {
 public:
 	double addition(double operand1, double operand2);
