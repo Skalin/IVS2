@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+//! Trieda pomocných funkcii.
+/*!
+	Trieda zapúzdrujúca pomocné funkcie využívané v projekte.
+*/
 class Basic {
 public:
 	void printError();
