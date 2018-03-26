@@ -3,9 +3,9 @@
 
 #include <iostream>
 
-//! Trieda pomocných funkcii.
+//! Class of help functions.
 /*!
-	Trieda zapúzdrujúca pomocné funkcie využívané v projekte.
+	Class of help functions which are used in the project.
 */
 class Basic {
 public:
