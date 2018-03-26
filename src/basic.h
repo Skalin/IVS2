@@ -9,6 +9,10 @@
 */
 class Basic {
 public:
+	//! Printout of unexpected error.
+	/*!
+		Function for printing out of unexpected error.
+	*/
 	void printError();
 	void printError(std::string error);
 };
