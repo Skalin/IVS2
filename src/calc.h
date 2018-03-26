@@ -62,7 +62,7 @@ public:
 		Function for calculation of power with natural exponent.
 		\param operand cardinal number.
 		\param exponent natural exponent.
-		\return Result of powerOf.
+		\return Result of power.
 	*/
 	double powerOf(double operand, int exponent);
 	
@@ -73,6 +73,14 @@ public:
 		\return Result of factorial.
 	*/
 	int factorial(int operand);
+	
+	//! Calculation of square root.
+	/*!
+		Function for calculation of square root.
+		\param operand the root of the root.
+		\param exponent exponent of the root.
+		\return Result of square root.
+	*/
 	double root(double operand, int exponent);
 	double sum(std::vector <double> *vector);
 	double average(std::vector <double> *vector);
