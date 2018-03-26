@@ -20,6 +20,14 @@ public:
 		\return Result of addition.
 	*/
 	double addition(double operand1, double operand2);
+	
+	//! Calculation of substraction.
+	/*!
+		Function for calculation of substraction of two numbers.
+		\param operand1 minuend.
+		\param operand2 subtrahend.
+		\return Result of substraction.
+	*/
 	double subtraction(double operand1, double operand2);
 	double multiplication(double operand1, double operand2);
 	int multiplication(int operand1, int operand2);
