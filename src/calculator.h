@@ -54,6 +54,11 @@ protected:
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
+	//! Converting data from string vector to double vector.
+	/*!
+		Function for converting data from string vector to double vector.
+		\return converted vector of doubles, doubleData.
+	*/
 	std::vector<double> &convertToDouble();
 	void deleteItemsFromVector(unsigned int start, unsigned int amount);
 	void cleanInputData();
