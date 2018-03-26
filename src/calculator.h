@@ -87,7 +87,8 @@ private:
 		\param priority priority of operation.
 	*/
 	void solveResult(int priority);
-	std::vector<std::string> inputData;
+	
+	std::vector<std::string> inputData; /*!< String vector representing data entered into calculator. */ 
 	std::vector<double> doubleData;
 };
 #endif //IVS2_PARSER_H
