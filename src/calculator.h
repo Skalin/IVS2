@@ -39,6 +39,12 @@ protected:
 		\param inputData vector for storing.
 	*/
 	void setInputData(std::vector<std::string> inputData);
+	
+	//! Getting data from getDoubleData.
+	/*!
+		Function for getting data from class variable getDoubleData.
+		\return getDoubleData.
+	*/
 	std::vector <double> &getDoubleData();
 	void setDoubleData(std::vector<double> doubleData);
 private:
