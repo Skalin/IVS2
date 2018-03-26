@@ -155,14 +155,14 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
 }
 std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter, std::string mode){
     std::vector<std::string> listKeywords = {};
-    if (mode.empty() == false){
+    if (!mode.empty()){
         listKeywords.push_back(mode);
     }
     std::string tmp = "";
     for (unsigned int i=0; i<input.length();i++){
         if (input.at(i) == splitter){
             tmp.erase(std::remove(tmp.begin(), tmp.end(), ','), tmp.end());
-            if (tmp.empty() == false){
+            if (!tmp.empty()){
                 listKeywords.push_back(tmp);
                 tmp = "";
             }
@@ -172,18 +172,48 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
 
     }
     //push last member but only if not ','
-    if (tmp.empty() == false && tmp.find(',') == std::string::npos){
+    if (!tmp.empty() && tmp.find(',') == std::string::npos){
         listKeywords.push_back(tmp);
     }
     return listKeywords;
+}
+
+bool MainWindow::checkInput(QString input, int mode){
+    std::string tmp = input.toStdString();
+    QMessageBox msgBox;
+    QString last = input.at(input.size()-1);
+
+    //general condition
+    if (last == "+" || last == "-" || last =="/" || last == "*" || last == "√" || last == "^"){
+        msgBox.setText("Špatný vstup!\n"
+                       "vstup nemůže být zakončen operátorem\n"
+                       "př. 5+5");
+        msgBox.exec();
+        return false;
+    }
+    //mode specific condition
+    if (mode == 1){
+        if (tmp.find(',') == std::string::npos){
+            msgBox.setText("Špatný vstup!\n"
+                           "členove se oddělují čárkamy\n"
+                           "př. 5,5,5");
+            msgBox.exec();
+            return false;
+        }
+    }else{
+
+    }
+
+    return true;
 }
 
 
 void MainWindow::on_equalSign_clicked()
 {
     QString tmp;
+    Calculator Calculator1;
     tmp = ui->resultArea->text();
-    std::vector<std::string> afterSpliting{};
+    std::vector<std::string> afterSpliting = {};
 
     //prepare for spliting
     tmp.replace("+"," + ");
@@ -198,23 +228,36 @@ void MainWindow::on_equalSign_clicked()
      //debug
      qDebug() << tmp << endl;
 
+     if (!checkInput(tmp,0)){
+         qDebug() << "test" << endl;
+         return;
+     }
+
      afterSpliting = splitInputString(tmp.toStdString(),' ',"");
      //debug
      for(auto &i: afterSpliting)
          qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-    //ui->resultArea->setText(solve(afterSpliting,0));
+     qDebug() << "tady" << endl;
+     qDebug() << QString::fromStdString(Calculator1.solve(afterSpliting,0)) << endl;
+     ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSpliting,0)));
 }
 
 void MainWindow::on_profiling_clicked()
 {
     QString tmp;
+    Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSpliting = {};
 
     //debug
     qDebug() << tmp << endl;
+
+    if (!checkInput(tmp,1)){
+        qDebug() << "test" << endl;
+        return;
+    }
 
     afterSpliting = splitInputString(tmp.toStdString(),',',"DEV");
     //debug
@@ -222,7 +265,7 @@ void MainWindow::on_profiling_clicked()
         qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-   //ui->resultArea->setText(solve(afterSpliting,1));
+   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSpliting,1)));
 }
 
 void MainWindow::on_commaButton_clicked()
@@ -233,11 +276,17 @@ void MainWindow::on_commaButton_clicked()
 void MainWindow::on_average_clicked()
 {
     QString tmp;
+    Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSpliting = {};
 
     //debug
     qDebug() << tmp << endl;
+
+    if (!checkInput(tmp,1)){
+        qDebug() << "test" << endl;
+        return;
+    }
 
     afterSpliting = splitInputString(tmp.toStdString(),',',"AVG");
     //debug
@@ -245,17 +294,23 @@ void MainWindow::on_average_clicked()
         qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-   //ui->resultArea->setText(solve(afterSpliting,1));
+   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSpliting,1)));
 }
 
 void MainWindow::on_sum_clicked()
 {
     QString tmp;
+    Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSpliting = {};
 
     //debug
     qDebug() << tmp << endl;
+
+    if (!checkInput(tmp,1)){
+        qDebug() << "test" << endl;
+        return;
+    }
 
     afterSpliting = splitInputString(tmp.toStdString(),',',"SUM");
     //debug
@@ -263,7 +318,7 @@ void MainWindow::on_sum_clicked()
         qDebug() << QString::fromStdString(i) << endl;
 
     //placeholder
-   //ui->resultArea->setText(solve(afterSpliting,1));
+   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSpliting,1)));
 }
 
 void MainWindow::on_helpButton_clicked()

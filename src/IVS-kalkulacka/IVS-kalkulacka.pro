@@ -36,7 +36,8 @@ HEADERS += \
 	basic.h \
 	calc.h \
 	calculator.h \
-	prifiling.h
+	profiling.h
+
 
 
 FORMS += \

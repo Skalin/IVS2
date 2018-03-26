@@ -4,10 +4,16 @@
 #include <QMainWindow>
 #include <QApplication>
 #include <QMessageBox>
+#include <QDebug>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <QDebug>
+
+
+#include "basic.h"
+#include "calc.h"
+#include "calculator.h"
+#include "profiling.h"
 
 namespace Ui {
 class MainWindow;
@@ -94,7 +100,6 @@ private slots:
     */
    std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
 
-
     /*@brief prints out result of calculation*/
     void on_equalSign_clicked();
 
@@ -109,6 +114,14 @@ private slots:
     void on_sum_clicked();
 
     void on_helpButton_clicked();
+
+    /*
+    * @brief checks input
+    * @param input string to check
+    * @param mode for wich operation its checking
+    * @return true if input is ok
+    */
+    bool checkInput(QString input, int mode);
 
 private:
     Ui::MainWindow *ui;
