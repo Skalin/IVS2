@@ -89,6 +89,7 @@ private:
 	void solveResult(int priority);
 	
 	std::vector<std::string> inputData; /*!< String vector representing data entered into calculator. */ 
-	std::vector<double> doubleData;
+	
+	std::vector<double> doubleData; /*!< Double vector representing data entered into calculator as double. */
 };
 #endif //IVS2_PARSER_H
