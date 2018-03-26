@@ -98,6 +98,15 @@ public:
 		\return Result of average.
 	*/
 	double average(std::vector <double> *vector);
+	
+	//! Calculation of partial sum.
+	/*!
+		Function for calculation of partial sum of entered numbers.
+		\param *vector vector of entered numbers.
+		\param amount number of entered numbers.
+		\return Result of partial sum.
+		\sa sum()
+	*/
 	double sum(std::vector <double> *vector, int amount);
 	double average(std::vector <double> *vector, int amount);
 };
