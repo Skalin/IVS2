@@ -56,6 +56,14 @@ public:
 		\return Result of division.
 	*/
 	double division(double operand1, double operand2);
+	
+	//! Calculation of power.
+	/*!
+		Function for calculation of power with natural exponent.
+		\param operand cardinal number.
+		\param exponent natural exponent.
+		\return Result of powerOf.
+	*/
 	double powerOf(double operand, int exponent);
 	int factorial(int operand);
 	double root(double operand, int exponent);
