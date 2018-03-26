@@ -14,6 +14,12 @@ public:
 		Function for printing out of unexpected error.
 	*/
 	void printError();
+	
+	//! Printout of specific error.
+	/*!
+		Function for printing out of specific error.
+		\param error text of specific error.
+	*/
 	void printError(std::string error);
 };
 
