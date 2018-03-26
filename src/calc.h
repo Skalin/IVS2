@@ -65,6 +65,13 @@ public:
 		\return Result of powerOf.
 	*/
 	double powerOf(double operand, int exponent);
+	
+	//! Calculation of factorial.
+	/*!
+		Function for calculation of factorial.
+		\param operand positive integer.
+		\return Result of factorial.
+	*/
 	int factorial(int operand);
 	double root(double operand, int exponent);
 	double sum(std::vector <double> *vector);
