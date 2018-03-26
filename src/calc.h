@@ -90,6 +90,13 @@ public:
 		\return Result of sum.
 	*/
 	double sum(std::vector <double> *vector);
+	
+	//! Calculation of average.
+	/*!
+		Function for calculation of average of entered numbers.
+		\param *vector vector of entered numbers.
+		\return Result of average.
+	*/
 	double average(std::vector <double> *vector);
 	double sum(std::vector <double> *vector, int amount);
 	double average(std::vector <double> *vector, int amount);
