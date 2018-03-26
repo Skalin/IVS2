@@ -9,8 +9,8 @@ std::vector <std::string>& Calculator::getInputData() {
 	return this->inputData;
 }
 
-void Calculator::setInputData(std::vector<std::string> input) {
-	this->inputData = input;
+void Calculator::setInputData(std::vector<std::string> inputData) {
+	this->inputData = inputData;
 }
 
 void Calculator::cleanInputData() {
