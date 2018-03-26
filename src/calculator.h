@@ -60,6 +60,13 @@ private:
 		\return converted vector of doubles, doubleData.
 	*/
 	std::vector<double> &convertToDouble();
+	
+	//! Deleting certain data from string vector.
+	/*!
+		Function for deleting certain data from string vector inputData.
+		 \param start starting position for deleting.
+		 \param amount number of elements to be deleted.
+	*/
 	void deleteItemsFromVector(unsigned int start, unsigned int amount);
 	void cleanInputData();
 	void cleanDoubleData();
