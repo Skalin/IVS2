@@ -80,6 +80,12 @@ private:
 		Function for deleting all the data from double vector doubleData.
 	*/
 	void cleanDoubleData();
+	
+	//! Calculation of mathematic operations based on priority.
+	/*!
+		Function for calculation of mathematic operations based on operation priority.
+		\param priority priority of operation.
+	*/
 	void solveResult(int priority);
 	std::vector<std::string> inputData;
 	std::vector<double> doubleData;
