@@ -10,6 +10,10 @@
 */
 class Calculator : public Profiling {
 public:
+	//! Constructor.
+	/*!
+		Function for initializing class variables.
+	*/
 	Calculator();
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:
