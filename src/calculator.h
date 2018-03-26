@@ -68,6 +68,11 @@ private:
 		 \param amount number of elements to be deleted.
 	*/
 	void deleteItemsFromVector(unsigned int start, unsigned int amount);
+	
+	//! Deleting all the data from strin vector.
+	/*!
+		Function for deleting all the data from strin vector inputData.
+	*/
 	void cleanInputData();
 	void cleanDoubleData();
 	void solveResult(int priority);
