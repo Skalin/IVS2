@@ -40,12 +40,18 @@ protected:
 	*/
 	void setInputData(std::vector<std::string> inputData);
 	
-	//! Getting data from getDoubleData.
+	//! Getting data from doubleData.
 	/*!
-		Function for getting data from class variable getDoubleData.
-		\return getDoubleData.
+		Function for getting data from class variable doubleData.
+		\return doubleData.
 	*/
 	std::vector <double> &getDoubleData();
+	
+	//! Storing data to doubleData.
+	/*!
+		Function for storing data to class variable doubleData.
+		\param doubleData vector for storing.
+	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
 	std::vector<double> &convertToDouble();
