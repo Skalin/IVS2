@@ -12,6 +12,13 @@
 */
 class Math : public Basic {
 public:
+	//! Calculation of addition.
+	/*!
+		Function for calculation of addition of two numbers.
+		\param operand1 first addend.
+		\param operand2 second addend.
+		\return Result of addition.
+	*/
 	double addition(double operand1, double operand2);
 	double subtraction(double operand1, double operand2);
 	double multiplication(double operand1, double operand2);
