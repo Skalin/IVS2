@@ -71,9 +71,14 @@ private:
 	
 	//! Deleting all the data from strin vector.
 	/*!
-		Function for deleting all the data from strin vector inputData.
+		Function for deleting all the data from string vector inputData.
 	*/
 	void cleanInputData();
+	
+	//! Deleting all the data from double vector.
+	/*!
+		Function for deleting all the data from double vector doubleData.
+	*/
 	void cleanDoubleData();
 	void solveResult(int priority);
 	std::vector<std::string> inputData;
