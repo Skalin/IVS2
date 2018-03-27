@@ -1,5 +1,5 @@
-//! \file basic.cpp
-/*! Header file containing the declaration of basic error handling functions
+/** \file basic.cpp
+\brief Header file containing the declaration of basic error handling functions
  */
 
 #include "basic.h"
