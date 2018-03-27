@@ -115,12 +115,11 @@ INPUT                  = ./ # change line here depending on where is doxyfile si
 INPUT_ENCODING         = UTF-8
                          *.cpp \
                          *.h \
-                         ./../*.md \
                          *.dox \
 RECURSIVE              = YES
-EXCLUDE                = cmake-build-debug
+EXCLUDE                = cmake-build-debug \
 EXCLUDE_SYMLINKS       = NO
-EXCLUDE_PATTERNS       =
+EXCLUDE_PATTERNS       = *.txt \
 EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           =
 EXAMPLE_PATTERNS       = *
@@ -130,7 +129,7 @@ INPUT_FILTER           =
 FILTER_PATTERNS        =
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE =
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
