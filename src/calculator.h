@@ -24,14 +24,14 @@ public:
 		\param unsigned type determines the type of operation to be performed
 		\return std::string Result of calculation converted to string
 	*/
-	std::string solve(std::vector<std::string> &input, unsigned int type);
+	std::string solve(std::vector<std::string>& input, unsigned int type);
 protected:	
 	//! Getting data from class variable inputData
 	/*!
 		Function for getting data from class variable inputData
 		\return std::vector<std::string> inputData
 	*/
-	std::vector<std::string> &getInputData();
+	std::vector<std::string>& getInputData();
 	
 	//! Storing data to class variable inputData
 	/*!
@@ -45,7 +45,7 @@ protected:
 		Function for getting data from class variable doubleData
 		\return std::vector<double>& doubleData Vector of doubles
 	*/
-	std::vector <double> &getDoubleData();
+	std::vector <double>& getDoubleData();
 	
 	//! Storing data to class variable doubleData
 	/*!
@@ -57,15 +57,15 @@ private:
 	//! Converting data from string vector to double vector
 	/*!
 		Function for converting data from string vector to double vector
-		\return converted vector of doubles, doubleData
+		\return std::vector<double>& converted vector of doubles, doubleData
 	*/
-	std::vector<double> &convertToDouble();
+	std::vector<double>& convertToDouble();
 	
 	//! Deleting certain data from string vector
 	/*!
 		Function for deleting certain data from string vector inputData
-		 \param start starting position for deleting
-		 \param amount number of elements to be deleted
+		 \param unsigned start starting position for deleting
+		 \param unsigned amount number of elements to be deleted
 	*/
 	void deleteItemsFromInputDataVector(unsigned int start, unsigned int amount);
 	
@@ -84,7 +84,7 @@ private:
 	//! Calculation of mathematic operations based on priority
 	/*!
 		Function for calculating mathematic operations based on operators priority
-		\param priority priority of operation
+		\param int priority priority of operation
 	*/
 	void solveResult(int priority);
 	
