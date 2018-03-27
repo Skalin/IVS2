@@ -1,5 +1,5 @@
-//! \file profiling.cpp
-/*! Deviation function implementation for profiling
+/** \file profiling.cpp
+ \brief Deviation function implementation for profiling
  */
 
 #include "profiling.h"
