@@ -1,5 +1,5 @@
-//! \file profiling.h
-/*! Header file containing the declaration of deviation function
+/** \file profiling.h
+ \brief Header file containing the declaration of deviation function
  */
 
 #include "calc.h"
