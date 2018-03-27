@@ -17,6 +17,7 @@
 */
 class Math : public Basic {
 public:
+	
 	//! Calculation of addition
 	/*!
 		Function for calculation of addition of two numbers
@@ -123,6 +124,9 @@ public:
 		\sa average()
 	*/
 	double average(std::vector<double>* vector, int amount);
+	
+protected:
+private:
 };
 
 

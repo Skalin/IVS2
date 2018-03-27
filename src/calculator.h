@@ -15,6 +15,7 @@
 */
 class Calculator : public Profiling {
 public:
+	
 	//! Constructor
 	/*!
 		\brief Function for initializing class variables
@@ -30,6 +31,7 @@ public:
 		\return Result of calculation converted to string
 	*/
 	std::string solve(std::vector<std::string>& input, unsigned int type);
+	
 protected:	
 	//! \brief Getter for inputData
 	//! Getting data from class variable inputData
@@ -54,7 +56,6 @@ protected:
 		\return doubleData Vector of doubles
 	*/
 	std::vector <double>& getDoubleData();
-	
 	//! Setter fot doubleData
 	//! Storing data to class variable doubleData
 	/*!
@@ -63,6 +64,7 @@ protected:
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
+	
 	//! \brief Converts vector of strings to vector of doubles
 	//! Converting data from string vector to double vector
 	/*!
