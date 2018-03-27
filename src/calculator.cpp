@@ -1,3 +1,7 @@
+//! \file calculator.cpp
+/*! Calculator backend implementation
+ */
+
 #include "calculator.h"
 
 Calculator::Calculator(){

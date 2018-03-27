@@ -1,3 +1,7 @@
+//! \file profiling.h
+/*! Header file containing the declaration of deviation function
+ */
+
 #include "calc.h"
 
 #ifndef IVS2_PROFILING_H

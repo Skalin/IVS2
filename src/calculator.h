@@ -1,3 +1,7 @@
+//! \file calculator.h
+/*! Header file containing the declaration of calculator logic functions
+ */
+
 #ifndef IVS2_PARSER_H
 #define IVS2_PARSER_H
 

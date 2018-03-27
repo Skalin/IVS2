@@ -1,3 +1,7 @@
+//! \file calc.cpp
+/*! Math operations implementation
+ */
+
 #include "calc.h"
 
 double Math::addition(double operand1, double operand2) {

@@ -1,3 +1,7 @@
+//! \file basic.h
+/*! Header file containing the declaration of basic error handling functions
+ */
+
 #ifndef IVS2_BASIC_H
 #define IVS2_BASIC_H
 

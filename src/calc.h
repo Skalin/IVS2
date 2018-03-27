@@ -1,3 +1,7 @@
+//! \file calc.h
+/*! Header file containing the declaration of mathematical functions
+ */
+
 #ifndef IVS2_CALC_H
 #define IVS2_CALC_H
 

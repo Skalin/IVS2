@@ -1,3 +1,7 @@
+//! \file basic.cpp
+/*! Header file containing the declaration of basic error handling functions
+ */
+
 #include "basic.h"
 
 void Basic::printError() {
