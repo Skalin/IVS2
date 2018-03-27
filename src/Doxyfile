@@ -114,7 +114,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 INPUT                  = IVS2-master/src # change line here depending on where we want to generate doxygen
 INPUT_ENCODING         = UTF-8
-FILE_PATTERNS          = README.md
+FILE_PATTERNS          = README.md \
                          *.c \
                          *.cc \
                          *.cxx \
