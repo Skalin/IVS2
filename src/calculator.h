@@ -47,7 +47,7 @@ protected:
 	*/
 	std::vector <double> &getDoubleData();
 	
-	//! Storing data to doubleData.
+	//! Storing data to class variable doubleData.
 	/*!
 		Function for storing data to class variable doubleData.
 		\param doubleData vector for storing.
