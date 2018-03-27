@@ -25,11 +25,11 @@ If you have already installed the program in **Installation** section, just run 
 - xskala11 Dominik Skála - Team Leader (@Skalin)
 - xvalka03 Jan Válka (@ragga57)
 - xkysel12 Juraj Kyseľ (@kisi8)
-- xhrbot01 Jan Hrbotický (@Johnczek)
+- xhrbot01 Jan Hrbotický ( @Johnczek )
 
 ## License agreement
 
-This program is licensed under GNU GPL 3.0. The license agreement can be found under [LICENSE](./LICENSE)
+This program is licensed under GNU GPL 3.0. The license agreement can be found under [LICENSE](./LICENSE).
 
 
 
