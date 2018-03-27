@@ -8,20 +8,20 @@
 
 //! Math library class.
 /*!
-	Class of Math library functions.
+	Class of Math library functions
 */
 class Math : public Basic {
 public:
-	//! Calculation of addition.
+	//! Calculation of addition
 	/*!
-		Function for calculation of addition of two numbers.
-		\param operand1 first addend.
-		\param operand2 second addend.
-		\return Result of addition.
+		Function for calculation of addition of two numbers
+		\param double operand1 first addend
+		\param double operand2 second addend
+		\return double Result of addition
 	*/
 	double addition(double operand1, double operand2);
 	
-	//! Calculation of substraction.
+	//! Calculation of substraction
 	/*!
 		Function for calculation of substraction of two numbers.
 		\param operand1 minuend.
