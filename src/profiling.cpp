@@ -1,4 +1,4 @@
-//! Deviation function implementation for profiling
+//! Deviation function implementation for Profiling
 /*! \file profiling.cpp
  *
  */
