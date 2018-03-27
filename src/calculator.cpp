@@ -34,7 +34,7 @@ void Calculator::setDoubleData(std::vector<double> input) {
 }
 
 
-std::vector<double> &Calculator::convertToDouble(){
+std::vector<double>& Calculator::convertToDouble(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
 		 return std::stod(val);
@@ -103,7 +103,7 @@ void Calculator::solveResult(int priority) {
 	}
 }
 
-std::string Calculator::solve(std::vector<std::string> &input, unsigned int type) {
+std::string Calculator::solve(std::vector<std::string>& input, unsigned int type) {
 	this->cleanInputData();
 	this->setInputData(input);
 
