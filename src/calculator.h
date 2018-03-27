@@ -69,7 +69,7 @@ private:
 	*/
 	void deleteItemsFromInputDataVector(unsigned int start, unsigned int amount);
 	
-	//! Deleting all the data from strin vector
+	//! Deleting all the data from string vector
 	/*!
 		Function for deleting all the data from string vector inputData
 	*/
@@ -81,9 +81,9 @@ private:
 	*/
 	void cleanDoubleData();
 	
-	//! Calculation of mathematic operations based on priority
+	//! Calculation of math operations based on priority
 	/*!
-		Function for calculating mathematic operations based on operators priority
+		Function for calculating math operations based on operators priority
 		\param int priority priority of operation
 	*/
 	void solveResult(int priority);
