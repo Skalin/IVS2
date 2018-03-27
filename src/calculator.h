@@ -35,22 +35,22 @@ protected:
 	
 	//! Storing data to class variable inputData.
 	/*!
-		Function for storing data to class variable inputData.
-		\param std::vector<std::string> inputData vector for storing.
+		Function for storing data to class variable inputData
+		\param std::vector<std::string> inputData vector for storing
 	*/
 	void setInputData(std::vector<std::string> inputData);
 	
 	//! Getting data from class variable doubleData
 	/*!
-		Function for getting data from class variable doubleData.
+		Function for getting data from class variable doubleData
 		\return std::vector<double>& doubleData Vector of doubles
 	*/
 	std::vector <double> &getDoubleData();
 	
 	//! Storing data to class variable doubleData.
 	/*!
-		Function for storing data to class variable doubleData.
-		\param doubleData vector for storing.
+		Function for storing data to class variable doubleData
+		\param std::vector<double> doubleData vector for storing
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
