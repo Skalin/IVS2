@@ -29,7 +29,7 @@ If you have already installed the program in **Installation** section, just run 
 
 ## License agreement
 
-This program is licensed under GNU GPL 3.0. The license agreement can be found under [LICENSE](./IVS2/LICENSE).
+This program is licensed under GNU GPL 3.0. The license agreement can be found under [LICENSE](./LICENSE).
 
 
 
