@@ -13,7 +13,7 @@ public:
 	/*!
 		The function responsible for the calculation of sample standard deviation
 		using functions from Math library.
-		\param *arrayOfDoubles vector of given values for calculation.
+		\param arrayOfDoubles vector of given values for calculation.
 		\return Result of calculation of sample standard deviation.
 		\sa Math
 	*/
