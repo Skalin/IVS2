@@ -23,98 +23,98 @@ public:
 	
 	//! Calculation of substraction
 	/*!
-		Function for calculation of substraction of two numbers.
-		\param operand1 minuend.
-		\param operand2 subtrahend.
-		\return Result of substraction.
+		Function for calculation of substraction of two numbers
+		\param operand1 minuend
+		\param operand2 subtrahend
+		\return Result of substraction
 	*/
 	double subtraction(double operand1, double operand2);
 	
-	//! Calculation of multiplication of two doubles.
+	//! Calculation of multiplication of two doubles
 	/*!
-		Function for calculation of multiplication of two doubles.
-		\param operand1 first number.
-		\param operand2 second number.
-		\return Result of multiplication.
+		Function for calculation of multiplication of two doubles
+		\param operand1 first number
+		\param operand2 second number
+		\return Result of multiplication
 	*/
 	double multiplication(double operand1, double operand2);
 	
-	//! Calculation of multiplication of two integers.
+	//! Calculation of multiplication of two integers
 	/*!
-		Function for calculation of multiplication of two integers.
-		\param operand1 first number.
-		\param operand2 second number.
-		\return Result of multiplication.
+		Function for calculation of multiplication of two integers
+		\param operand1 first number
+		\param operand2 second number
+		\return Result of multiplication
 	*/
 	int multiplication(int operand1, int operand2);
 	
-	//! Calculation of division.
+	//! Calculation of division
 	/*!
-		Function for calculation of division of two numbers.
-		\param operand1 dividend.
-		\param operand2 divisor.
-		\return Result of division.
+		Function for calculation of division of two numbers
+		\param operand1 dividend
+		\param operand2 divisor
+		\return Result of division
 	*/
 	double division(double operand1, double operand2);
 	
-	//! Calculation of power.
+	//! Calculation of power
 	/*!
-		Function for calculation of power with natural exponent.
-		\param operand cardinal number.
-		\param exponent natural exponent.
-		\return Result of power.
+		Function for calculation of power with natural exponent
+		\param operand cardinal number
+		\param exponent natural exponent
+		\return Result of power
 	*/
 	double powerOf(double operand, int exponent);
 	
-	//! Calculation of factorial.
+	//! Calculation of factorial
 	/*!
-		Function for calculation of factorial.
-		\param operand positive integer.
-		\return Result of factorial.
+		Function for calculation of factorial
+		\param operand positive integer
+		\return Result of factorial
 	*/
 	int factorial(int operand);
 	
-	//! Calculation of square root.
+	//! Calculation of square root
 	/*!
-		Function for calculation of square root.
-		\param operand the root of the root.
-		\param exponent exponent of the root.
-		\return Result of square root.
+		Function for calculation of square root
+		\param operand the root of the root
+		\param exponent exponent of the root
+		\return Result of square root
 	*/
 	double root(double operand, int exponent);
 	
-	//! Calculation of sum.
+	//! Calculation of sum
 	/*!
-		Function for calculation of sum of entered numbers.
-		\param *vector vector of entered numbers.
-		\return Result of sum.
+		Function for calculation of sum of entered numbers
+		\param *vector vector of entered numbers
+		\return Result of sum
 	*/
 	double sum(std::vector <double> *vector);
 	
-	//! Calculation of average.
+	//! Calculation of average
 	/*!
-		Function for calculation of average of entered numbers.
-		\param *vector vector of entered numbers.
-		\return Result of average.
+		Function for calculation of average of entered numbers
+		\param *vector vector of entered numbers
+		\return Result of average
 	*/
 	double average(std::vector <double> *vector);
 	
-	//! Calculation of partial sum.
+	//! Calculation of partial sum
 	/*!
-		Function for calculation of partial sum of entered numbers.
-		\param *vector vector of entered numbers.
-		\param amount number of entered numbers.
-		\return Result of partial sum.
+		Function for calculation of partial sum of entered numbers
+		\param *vector vector of entered numbers
+		\param amount number of entered numbers
+		\return Result of partial sum
 		\sa sum()
 	*/
 	double sum(std::vector <double> *vector, int amount);
 	
-	//! Calculation of partial average.
+	//! Calculation of partial average
 	/*!
-		Function for calculation of partial average of entered numbers.
-		\param *vector vector of entered numbers.
-		\param amount number of entered numbers.
-		\return Result of partial average.
+		Function for calculation of partial average of entered numbers
+		\param *vector vector of entered numbers
+		\param amount number of entered numbers
+		\return Result of partial average
 		\sa average()
 	*/
 	double average(std::vector <double> *vector, int amount);
