@@ -1,5 +1,5 @@
-//! \file calc.cpp
-/*! Math operations implementation
+/** \file calc.cpp
+ \brief Math operations implementation
  */
 
 #include "calc.h"
