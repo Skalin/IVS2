@@ -1,5 +1,6 @@
-/** \file calc.cpp
- \brief Math operations implementation
+//! Placeholder pre brief popis 
+/*! \file calc.cpp
+	Math operations implementation
  */
 
 #include "calc.h"
