@@ -20,8 +20,8 @@ public:
 	/*!
 		Function for calculation of given problem.
 		Manages the overall logic of the solution
-		\param &input string vector representing the data entered to calculator.
-		\param type determines the type of operation to be performed.
+		\param std::vector<std::string> &input string vector representing the data entered to calculator.
+		\param unsigned type determines the type of operation to be performed.
 		\return Result of calculation.
 	*/
 	std::string solve(std::vector<std::string> &input, unsigned int type);
