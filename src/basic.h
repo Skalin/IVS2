@@ -5,7 +5,7 @@
 
 //! Class of help functions.
 /*!
-	Class of help functions which are used accross the whole project.
+	Class of help functions which are used across the whole project.
 */
 class Basic {
 public:
