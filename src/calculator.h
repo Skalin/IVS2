@@ -26,14 +26,14 @@ public:
 	*/
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:	
-	//! Getting data from class variable inputData.
+	//! Getting data from class variable inputData
 	/*!
-		Function for getting data from class variable inputData.
-		\return std::vector<std::string> inputData.
+		Function for getting data from class variable inputData
+		\return std::vector<std::string> inputData
 	*/
 	std::vector<std::string> &getInputData();
 	
-	//! Storing data to class variable inputData.
+	//! Storing data to class variable inputData
 	/*!
 		Function for storing data to class variable inputData
 		\param std::vector<std::string> inputData vector for storing
@@ -47,17 +47,17 @@ protected:
 	*/
 	std::vector <double> &getDoubleData();
 	
-	//! Storing data to class variable doubleData.
+	//! Storing data to class variable doubleData
 	/*!
 		Function for storing data to class variable doubleData
 		\param std::vector<double> doubleData vector for storing
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
-	//! Converting data from string vector to double vector.
+	//! Converting data from string vector to double vector
 	/*!
-		Function for converting data from string vector to double vector.
-		\return converted vector of doubles, doubleData.
+		Function for converting data from string vector to double vector
+		\return converted vector of doubles, doubleData
 	*/
 	std::vector<double> &convertToDouble();
 	
