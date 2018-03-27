@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis
+//! Calculator backend implementation
 /*! \file calculator.cpp
-	Calculator backend implementation
+ *
  */
 
 #include "calculator.h"

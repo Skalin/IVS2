@@ -1,3 +1,8 @@
+//! Main file
+/*! \file main.cpp
+ *
+ */
+
 #include "calculator.h"
 
 int main() {

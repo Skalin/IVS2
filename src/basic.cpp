@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis
+//! Basic error handling functions implementation
 /*! \file basic.cpp
-	Header file containing the declaration of basic error handling functions
+ *
  */
 
 #include "basic.h"

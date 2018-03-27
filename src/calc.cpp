@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis 
+//! Math operations implementation
 /*! \file calc.cpp
-	Math operations implementation
+ *
  */
 
 #include "calc.h"

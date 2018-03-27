@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis
+//! Header file containing the declaration of calculator logic functions
 /*! \file calculator.h
-	Header file containing the declaration of calculator logic functions
+ *
  */
 
 #ifndef IVS2_PARSER_H

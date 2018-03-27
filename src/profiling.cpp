@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis
+//! Deviation function implementation for profiling
 /*! \file profiling.cpp
-       Deviation function implementation for profiling
+ *
  */
 
 #include "profiling.h"

@@ -1,6 +1,6 @@
-//! Placeholder pre brief popis
+//! Header file containing the declaration of mathematical functions
 /*! \file calc.h
-	Header file containing the declaration of mathematical functions
+ *
  */
 
 #ifndef IVS2_CALC_H
