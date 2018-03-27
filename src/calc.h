@@ -21,19 +21,19 @@ public:
 	*/
 	double addition(double operand1, double operand2);
 	
-	//! Calculation of substraction
+	//! Calculation of subtraction
 	/*!
-		Function for calculation of substraction of two numbers
+		Function for calculation of subtraction of two numbers
 		\param double operand1 minuend
 		\param double operand2 subtrahend
-		\return double Result of substraction
+		\return double Result of subtraction
 	*/
 	double subtraction(double operand1, double operand2);
 	
 	//! Calculation of multiplication of two doubles
 	/*!
 		Function for calculation of multiplication of two doubles
-		\param odouble perand1 first number
+		\param double operand1 first number
 		\param double operand2 second number
 		\return double Result of multiplication
 	*/
