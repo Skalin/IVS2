@@ -114,7 +114,8 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 INPUT                  = IVS2-master/src # change line here depending on where we want to generate doxygen
 INPUT_ENCODING         = UTF-8
-FILE_PATTERNS          = *.c \
+FILE_PATTERNS          = README.md
+                         *.c \
                          *.cc \
                          *.cxx \
                          *.cpp \
@@ -171,7 +172,7 @@ INPUT_FILTER           =
 FILTER_PATTERNS        =
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE =
+USE_MDFILE_AS_MAINPAGE = README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
