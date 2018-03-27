@@ -89,7 +89,7 @@ public:
 		\param std::vector<double>* vector vector of entered numbers
 		\return double Result of sum
 	*/
-	double sum(std::vector<double> *vector);
+	double sum(std::vector<double>* vector);
 	
 	//! Calculation of average
 	/*!
@@ -97,7 +97,7 @@ public:
 		\param std::vector<double>* vector vector of entered numbers
 		\return double Result of average
 	*/
-	double average(std::vector<double> *vector);
+	double average(std::vector<double>* vector);
 	
 	//! Calculation of partial sum
 	/*!
@@ -107,7 +107,7 @@ public:
 		\return double Result of partial sum
 		\sa sum()
 	*/
-	double sum(std::vector<double> *vector, int amount);
+	double sum(std::vector<double>* vector, int amount);
 	
 	//! Calculation of partial average
 	/*!
@@ -117,7 +117,7 @@ public:
 		\return double Result of partial average
 		\sa average()
 	*/
-	double average(std::vector<double> *vector, int amount);
+	double average(std::vector<double>* vector, int amount);
 };
 
 
