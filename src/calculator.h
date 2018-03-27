@@ -20,52 +20,52 @@ public:
 	/*!
 		Function for calculation of given problem
 		Manages the overall logic of the solution
-		\param std::vector<std::string> &input string vector representing the data entered to calculator
-		\param unsigned type determines the type of operation to be performed
-		\return std::string Result of calculation converted to string
+		\param input string vector representing the data entered to calculator
+		\param type determines the type of operation to be performed
+		\return Result of calculation converted to string
 	*/
 	std::string solve(std::vector<std::string>& input, unsigned int type);
 protected:	
 	//! Getting data from class variable inputData
 	/*!
 		Function for getting data from class variable inputData
-		\return std::vector<std::string> inputData
+		\return inputData
 	*/
 	std::vector<std::string>& getInputData();
 	
 	//! Storing data to class variable inputData
 	/*!
 		Function for storing data to class variable inputData
-		\param std::vector<std::string> inputData vector for storing
+		\param inputData vector for storing
 	*/
 	void setInputData(std::vector<std::string> inputData);
 	
 	//! Getting data from class variable doubleData
 	/*!
 		Function for getting data from class variable doubleData
-		\return std::vector<double>& doubleData Vector of doubles
+		\return doubleData Vector of doubles
 	*/
 	std::vector <double>& getDoubleData();
 	
 	//! Storing data to class variable doubleData
 	/*!
 		Function for storing data to class variable doubleData
-		\param std::vector<double> doubleData vector for storing
+		\param doubleData vector for storing
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
 	//! Converting data from string vector to double vector
 	/*!
 		Function for converting data from string vector to double vector
-		\return std::vector<double>& converted vector of doubles, doubleData
+		\return converted vector of doubles, doubleData
 	*/
 	std::vector<double>& convertToDouble();
 	
 	//! Deleting certain data from string vector
 	/*!
 		Function for deleting certain data from string vector inputData
-		 \param unsigned start starting position for deleting
-		 \param unsigned amount number of elements to be deleted
+		 \param start starting position for deleting
+		 \param amount number of elements to be deleted
 	*/
 	void deleteItemsFromInputDataVector(unsigned int start, unsigned int amount);
 	
@@ -84,7 +84,7 @@ private:
 	//! Calculation of math operations based on priority
 	/*!
 		Function for calculating math operations based on operators priority
-		\param int priority priority of operation
+		\param priority priority of operation
 	*/
 	void solveResult(int priority);
 	
