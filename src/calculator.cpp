@@ -1,5 +1,5 @@
-//! \file calculator.cpp
-/*! Calculator backend implementation
+/** \file calculator.cpp
+ \brief Calculator backend implementation
  */
 
 #include "calculator.h"
