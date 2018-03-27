@@ -1,36 +1,35 @@
 # Simple calculator
 
-## About program {#about-program}
+## About program
 
 
 
-## Supported operating systems: {#supported-operating-systems}
+## Supported operating systems
 
-Ubuntu 64bit
+- Ubuntu 32bit
+- Ubuntu 64bit
 
-## Installation:
+## Installation
 If you want to install this program, just follow these steps:
 1. `git clone https://github.com/Skalin/IVS2`
 2. `cd ./IVS2`
 3. `make all`
 
-## Running program:
-If you have already installed the program in section require "installation", just run program using:
+## Running program
+If you have already installed the program in **Installation** section, just run program using:
 - `make run`
 
-## Authors:
-require "authors"
-### Team:
-Must remove kebab
+## Authors
+### Team: Must remove kebab
 
-- xskala11 Dominik Skála
-- xvalka03 Jan Válka
-- xkysel12 Juraj Kyseľ
-- xhrbot01 Jan Hrbotický
+- xskala11 Dominik Skála - Team Leader (@Skalin)
+- xvalka03 Jan Válka (@ragga57)
+- xkysel12 Juraj Kyseľ (@kisi8)
+- xhrbot01 Jan Hrbotický (@Johnczek)
 
-## [License agreement](#license-agreement)
+## License agreement
 
-Tento program je poskytovan...
+This program is licensed under GPL 3.0
 
 
 
