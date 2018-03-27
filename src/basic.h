@@ -14,6 +14,7 @@
 */
 class Basic {
 public:
+	
 	//! Printout of unexpected error
 	/*!
 		Function for printing out of unexpected error
@@ -26,6 +27,9 @@ public:
 		\param error text of specific error
 	*/
 	void printError(std::string error);
+	
+protected:
+private:
 };
 
 
