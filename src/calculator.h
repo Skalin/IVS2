@@ -67,7 +67,7 @@ private:
 		 \param start starting position for deleting.
 		 \param amount number of elements to be deleted.
 	*/
-	void deleteItemsFromVector(unsigned int start, unsigned int amount);
+	void deleteItemsFromInputDataVector(unsigned int start, unsigned int amount);
 	
 	//! Deleting all the data from strin vector.
 	/*!
@@ -83,7 +83,7 @@ private:
 	
 	//! Calculation of mathematic operations based on priority.
 	/*!
-		Function for calculation of mathematic operations based on operation priority.
+		Function for calculating mathematic operations based on operators priority.
 		\param priority priority of operation.
 	*/
 	void solveResult(int priority);
