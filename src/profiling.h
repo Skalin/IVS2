@@ -9,7 +9,7 @@
 */
 class Profiling : public Math {
 public:
-	//! The function responsible for the calculation.
+	//! Standard deviation function
 	/*!
 		The function is responsible for the calculation of sample standard deviation
 		using functions from Math library.
