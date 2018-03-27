@@ -22,10 +22,10 @@ If you have already installed the program in **Installation** section, just run 
 ## Authors
 ### Team: Must remove kebab
 
-- xskala11 Dominik Skála - Team Leader (@Skalin)
-- xvalka03 Jan Válka (@ragga57)
-- xkysel12 Juraj Kyseľ (@kisi8)
-- xhrbot01 Jan Hrbotický ( @Johnczek )
+- xskala11 Dominik Skála - Team Leader
+- xvalka03 Jan Válka
+- xkysel12 Juraj Kyseľ
+- xhrbot01 Jan Hrbotický
 
 ## License agreement
 
