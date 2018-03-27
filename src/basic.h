@@ -8,22 +8,22 @@
 
 #include <iostream>
 
-//! Class of help functions.
+//! Basic class
 /*!
-	Class of help functions which are used across the whole project.
+	Class of help functions which are used across the whole project
 */
 class Basic {
 public:
-	//! Printout of unexpected error.
+	//! Printout of unexpected error
 	/*!
-		Function for printing out of unexpected error.
+		Function for printing out of unexpected error
 	*/
 	void printError();
 	
-	//! Printout of specific error.
+	//! Printout of specific error
 	/*!
-		Function for printing out of specific error.
-		\param error text of specific error.
+		Function for printing out of specific error
+		\param error text of specific error
 	*/
 	void printError(std::string error);
 };
