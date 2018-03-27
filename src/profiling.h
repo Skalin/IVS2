@@ -8,7 +8,7 @@
 #ifndef IVS2_PROFILING_H
 #define IVS2_PROFILING_H
 
-//! Class for profiling.
+//! Profiling class
 /*!
 	Class for profiling according to sample standard deviation
 */
