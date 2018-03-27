@@ -8,7 +8,7 @@
 
 #include "profiling.h"
 
-//! Class representing calculator
+//! Calculator class
 /*!
 	Class inheriting classes Basic, Math and Profiling
 	\sa Basic, Math, Profiling
