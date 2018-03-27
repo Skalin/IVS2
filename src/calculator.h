@@ -22,28 +22,28 @@ public:
 		Manages the overall logic of the solution
 		\param std::vector<std::string> &input string vector representing the data entered to calculator.
 		\param unsigned type determines the type of operation to be performed.
-		\return Result of calculation.
+		\return std::string Result of calculation converted to string
 	*/
 	std::string solve(std::vector<std::string> &input, unsigned int type);
 protected:	
-	//! Getting data from inputData.
+	//! Getting data from class variable inputData.
 	/*!
 		Function for getting data from class variable inputData.
-		\return inputData.
+		\return std::vector<std::string> inputData.
 	*/
 	std::vector<std::string> &getInputData();
 	
-	//! Storing data to inputData.
+	//! Storing data to class variable inputData.
 	/*!
 		Function for storing data to class variable inputData.
-		\param inputData vector for storing.
+		\param std::vector<std::string> inputData vector for storing.
 	*/
 	void setInputData(std::vector<std::string> inputData);
 	
-	//! Getting data from doubleData.
+	//! Getting data from class variable doubleData
 	/*!
 		Function for getting data from class variable doubleData.
-		\return doubleData.
+		\return std::vector<double>& doubleData Vector of doubles
 	*/
 	std::vector <double> &getDoubleData();
 	
