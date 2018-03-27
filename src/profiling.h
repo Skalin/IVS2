@@ -5,19 +5,19 @@
 
 //! Class for profiling.
 /*!
-	Class for profiling according to sample standard deviation.
+	Class for profiling according to sample standard deviation
 */
 class Profiling : public Math {
 public:
 	//! Standard deviation function
 	/*!
 		The function is responsible for the calculation of sample standard deviation
-		using functions from Math library.
-		\param arrayOfDoubles vector of given values for calculation.
-		\return Result of calculation of sample standard deviation.
+		using functions from Math library
+		\param std::vector<double>* arrayOfDoubles vector of given values for calculation
+		\return double Result of calculation of sample standard deviation
 		\sa Math
 	*/
-	double deviation(std::vector <double> *arrayOfDoubles);
+	double deviation(std::vector<double> *arrayOfDoubles);
 protected:
 private:
 };
