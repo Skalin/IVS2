@@ -29,8 +29,8 @@ std::vector <double>& Calculator::getDoubleData() {
 	return this->doubleData;
 }
 
-void Calculator::setDoubleData(std::vector<double> input) {
-	this->doubleData = input;
+void Calculator::setDoubleData(std::vector<double> doubleData) {
+	this->doubleData = doubleData;
 }
 
 
