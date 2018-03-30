@@ -18,7 +18,7 @@ $(TARGET): $(OBJS)
 pack:
 
 clean:
-	rm -rf $(TARGET) *.o doc
+	rm -rf $(TARGET) *.o html
 
 test:
 
