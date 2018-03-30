@@ -3,6 +3,8 @@ project(IVS2)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_FLAGS "-Wall -Werror -pedantic")
+
 set(SOURCE_FILES
 		src/calc.cpp
 		src/Doxyfile
