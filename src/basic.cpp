@@ -1,3 +1,8 @@
+//! Basic error handling functions implementation
+/*! \file basic.cpp
+ *
+ */
+
 #include "basic.h"
 
 void Basic::printError() {
