@@ -129,7 +129,7 @@ double Math::average(std::vector <double> *arrayOfDoubles) {
 }
 
 
-double Math::sum(std::vector <double> *arrayOfDoubles, int amount) {
+double Math::sum(std::vector <double> *arrayOfDoubles, unsigned int amount) {
 	double sum = 0.0;
 	try {
 		for (unsigned int i = 0; i < amount; i++){
