@@ -10,7 +10,7 @@ double Profiling::deviation(std::vector<double> *arrayOfDoubles) {
     result = powerOf(result, 2);
     result = multiplication(result, arrayOfDoubles->size());
 
-    for (unsigned int i =0; i < arrayOfDoubles->size(); i++) {
+    for (unsigned int i = 0; i < arrayOfDoubles->size(); i++) {
         tmp = arrayOfDoubles->at(i);
         tmp = powerOf(tmp, 2);
         sumPower = addition(sumPower, tmp);
