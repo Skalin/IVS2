@@ -65,37 +65,45 @@ void Calculator::solveResult(int priority) {
 			this->setInputData({str});
 		}
 	} else {
+		// TODO sometimes the program deletes parts of vector that should not be deleted yet
 		for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 			std::string str;
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
 					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));
 					this->deleteItemsFromVector(i, 1);
+					i--;
 				}
 			} else if (priority <= 2 && priority >= 0) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					} else if (this->getInputData().at(i) == "√") {
 						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					}
 				} else if (priority == 1) {
 					if (this->getInputData().at(i) == "*") {
 						this->getInputData().at(i - 1) = std::to_string(this->multiplication(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					} else if (this->getInputData().at(i) == "/") {
 						this->getInputData().at(i - 1) = std::to_string(this->division(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					}
 				} else if (priority == 0) {
 					if (this->getInputData().at(i) == "+") {
 						this->getInputData().at(i - 1) = std::to_string(this->addition(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					} else if (this->getInputData().at(i) == "-") {
 						this->getInputData().at(i - 1) = std::to_string(this->subtraction(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
 						this->deleteItemsFromVector(i, 2);
+						i--;
 					}
 				}
 			}
