@@ -1,5 +1,5 @@
 #include "profiling.h"
-/*
+
 double Profiling::deviation(std::vector<double> &arrayOfDoubles) {
     double result;
     double sumPower;
@@ -23,4 +23,4 @@ double Profiling::deviation(std::vector<double> &arrayOfDoubles) {
     result = root(result, 2);
     return result;
 };
-*/
+
