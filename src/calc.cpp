@@ -50,6 +50,7 @@ double Math::division(double operand1, double operand2) {
 	} catch (...) {
 		printError();
 	}
+	return 0.0;
 }
 
 double Math::powerOf(double operand, int exponent) {
@@ -68,6 +69,7 @@ double Math::powerOf(double operand, int exponent) {
 	} catch (...) {
 		printError();
 	}
+	return 0.0;
 }
 
 int Math::factorial(int operand) {
