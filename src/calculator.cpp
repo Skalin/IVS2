@@ -120,7 +120,6 @@ std::string Calculator::solve(std::vector<std::string> &input, unsigned int type
 	// priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
 	if (type == 0) {
 		for (int i = maxPriority; i >= 0; i--) {
-			std::cout << i << std::endl;
 			this->solveResult(i);
 		}
 	} else {
