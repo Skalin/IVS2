@@ -22,4 +22,4 @@ double Profiling::deviation(std::vector<double> *arrayOfDoubles) {
     result = multiplication(div, result);
     result = root(result, 2);
     return result;
-};
+}
