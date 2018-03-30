@@ -29,6 +29,27 @@ int main() {
 	std::cout << Calculator1.deviation(&DoubleVector) << std::endl;
 	std::cout << "Size of StringVector: " << StringVector.size() << std::endl;
 	std::cout << Calculator1.solve(StringVector, 1) << std::endl;
+	std::vector<std::string> StringVector2(8);
+	StringVector2.at(0) = "10";
+	StringVector2.at(1) = "+";
+	StringVector2.at(2) = "3";
+	StringVector2.at(3) = "*";
+	StringVector2.at(4) = "2";
+	StringVector2.at(5) = "-";
+	StringVector2.at(6) = "3";
+	StringVector2.at(7) = "!";
+	std::cout << Calculator1.solve(StringVector2,0) << std::endl;
+	std::vector<std::string> StringVector3(9);
+	StringVector3.at(0) = "5";
+	StringVector3.at(1) = "!";
+	StringVector3.at(2) = "+";
+	StringVector3.at(3) = "3";
+	StringVector3.at(4) = "*";
+	StringVector3.at(5) = "2";
+	StringVector3.at(6) = "/";
+	StringVector3.at(7) = "3";
+	StringVector3.at(8) = "!";
+	std::cout << Calculator1.solve(StringVector3,0) << std::endl;
 	
 	std::cout << "Sample Calculator1 source code" << std::endl;
 	return 0;
