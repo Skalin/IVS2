@@ -29,7 +29,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    //! \brief Redefinition of constructor
+    /*!
+        Function for constructing the calculator.
+        \param parent Defining the number of possible windows
+    */
     explicit MainWindow(QWidget *parent = 0);
+    
+    //! \brief Destructor
+    /*!
+        Function for destroying the calculator.
+    */
     ~MainWindow();
 
 private slots:
