@@ -43,7 +43,7 @@ public:
         \param parent Defining the number of possible windows
     */
     explicit MainWindow(QWidget *parent = 0);
-    
+
     //! \brief Destructor
     /*!
         Function for destroying the calculator.
@@ -205,17 +205,29 @@ private slots:
     */
     void on_commaButton_clicked();
 
+    //! \brief Handles average button
+    /*!
+        Function for calling sum function
+    */
     void on_average_clicked();
 
+    //! \brief Handles sum button
+    /*!
+        Function for calling average function
+    */
     void on_sum_clicked();
 
+    //! \brief Shows help
+    /*!
+        Function for showing help
+    */
     void on_helpButton_clicked();
 
-    /*
-    * @brief checks input
-    * @param input string to check
-    * @param mode for wich operation its checking
-    * @return true if input is ok
+
+    //! \brief checks input
+    /*! \param input string to check
+        \param mode for wich operation its checking
+        \return true if input is ok
     */
     bool checkInput(QString input, int mode);
 
