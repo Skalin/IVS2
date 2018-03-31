@@ -12,6 +12,10 @@
 #include <algorithm>
 #include <QDebug>
 
+//! User interface namespace
+/*!
+    Namespace for the class representing calculator.
+*/
 namespace Ui {
 class MainWindow;
 }
