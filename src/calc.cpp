@@ -1,3 +1,8 @@
+//! Math operations implementation
+/*! \file calc.cpp
+ *
+ */
+
 #include "calc.h"
 
 double Math::addition(double operand1, double operand2) {
@@ -112,7 +117,7 @@ double Math::root(double operand, int exponent) {
 	return x;
 }
 
-double Math::sum(std::vector <double> *arrayOfDoubles) {
+double Math::sum(std::vector <double>* arrayOfDoubles) {
 	double sum = 0.0;
 	try {
 		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
@@ -124,6 +129,27 @@ double Math::sum(std::vector <double> *arrayOfDoubles) {
 	return sum;
 }
 
-double Math::average(std::vector <double> *arrayOfDoubles) {
+double Math::average(std::vector <double>* arrayOfDoubles) {
 	return this->sum(arrayOfDoubles)/arrayOfDoubles->size();
+}
+
+
+double Math::sum(std::vector <double>* arrayOfDoubles, int amount) {
+	double sum = 0.0;
+	try {
+		for (unsigned int i = 0; i < amount; i++){
+			sum += arrayOfDoubles->at(i);
+		}
+	} catch (...) {
+		printError();
+	}
+	return sum;
+}
+
+double Math::average(std::vector <double>* arrayOfDoubles, int amount) {
+	int realAmount = amount;
+	if (realAmount > arrayOfDoubles->size()) {
+		realAmount = arrayOfDoubles->size();
+	}
+	return this->sum(arrayOfDoubles, realAmount)/realAmount;
 }

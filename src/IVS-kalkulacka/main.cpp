@@ -1,10 +1,10 @@
-//! Main file
+//! Initialization of application
 /*! \file main.cpp
  *
  */
 
 #include "mainwindow.h"
-
+#include <QApplication>
 
 
 int main(int argc, char *argv[])

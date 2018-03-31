@@ -1,3 +1,8 @@
+//! Implementation of functions for user interface logic
+/*! \file mainwindow.cpp
+ *
+ */
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 

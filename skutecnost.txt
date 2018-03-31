@@ -1,20 +1,22 @@
-Rozdíl vývoje:
-- Plán
-	dle plánu do 20.3. hotový plán x
-	plán byl hotov 16.3.
+Původní plán:
+    - do 20.3. rozdělení práce a plán práce
+    - do 1.4. mockup aplikace frontend
+    - do 5.4. testy
+    - do 15.4. vytvoření programu, matematických operací, profilingu a frontendu
+    - do 17.4. napojední backendu na frontend
+    - do 20.4. kompletace dokumentace (+ uživatelská příručka) a finalizace instalátorů a ověření funkčnosti instalace aplikace, mockupy další verze aplikace
+    - do 20.4. soupis hodnocení členů
+    - do 23.4. sepsání souboru skutecnost.txt a porovnání plánu vůči reálnému postupu vývoje
+    - do 24.4. rezerva pro případné chyby a doladění problémů při implementaci, při psaní dokumentace
 
-- Mockupy
-	dle plánu do 1.4. 
-	hotovy prakticky již 16.3.
-	
-- Matematická knihovna
-	dle plánu až do 15.4
-	hotova již 24.3., testování probíhá v rámci vývoje a proběhla první implementace testů v calc.cpp
 
-- Frontend
-	dle plánu také do 15.4.
-	24.3. prototyp frontendu, prakticky funkční, řeší se již napojování na backend
-	
-- Backend
-	prakticky funkční 24.3., spousta práce se zvládla během týdnu půlsemestrálních zkoušek, profiling se bude skládat z funkcí pro matematickou knihovnu, takže je prakticky 70 % profilingu napsáno
-	původně zamýšleno mít jednu celou třídu, ve výsledku jsme se rozhodli mít několik tříd a ty mezi sebou extendovat za účelem rozšiřitelnosti programu
+Realita
+	- 16.3.
+	    - plán hotový
+        - hotové mockupy aplikace frontendu
+    - 24.3.
+    	- matematická knihovna základní dokoncena 24.3., 25.3. i s bugfindingem, první testy v calc.cpp a main.cpp
+	    - prototyp frontendu, prakticky funkční, řeší se již napojování na backend
+	- 25.3.
+	    - napojení frontendu na backend dokončeno, provádí se ošetřování vstupů a testoval se backend, nalezeno pár chyb
+	    - profiling dokončený, napojení frontend <-> backend hotovo, nalezeny a opraveny chyby při práci s vektory a prakticky zbývá pouze otestovat profiling
