@@ -1,3 +1,8 @@
+//! Header file containing the declaration of class for interacting with calculator interface
+/*! \file mainwindow.h
+ *
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -7,102 +12,194 @@
 #include <algorithm>
 #include <QDebug>
 
+//! User interface namespace
+/*!
+    Namespace for the class representing calculator.
+*/
 namespace Ui {
 class MainWindow;
 }
 
+//! calculator interface logic class
+/*!
+    Class containing functions for interacting with calculator interface
+*/
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    //! \brief Redefinition of constructor
+    /*!
+        Function for constructing the calculator.
+        \param parent Defining the number of possible windows
+    */
     explicit MainWindow(QWidget *parent = 0);
+    
+    //! \brief Destructor
+    /*!
+        Function for destroying the calculator.
+    */
     ~MainWindow();
 
 private slots:
-    /*@brief appends '7' to input*/
+    //! \brief Appends '7' to input
+    /*!
+        Function for appending '7' to input
+    */
     void on_numberSeven_clicked();
 
-    /*@brief clears everything from input*/
+    //! \brief Clears everything from input
+    /*!
+        Function for clearing everything from input
+    */
     void on_allClear_clicked();
 
-    /*@brief deletes last character from input*/
+    //! \brief Deletes last character from input
+    /*!
+        Function for deleting last character from input
+    */
     void on_deleteButton_clicked();
 
-    /*@brief appends '8' to input*/
+    //! \brief Appends '8' to input
+    /*!
+        Function for appending '8' to input
+    */
     void on_numberEight_clicked();
 
-    /*@brief appends '9' to input*/
+    //! \brief Appends '9' to input
+    /*!
+        Function for appending '9' to input
+    */
     void on_numberNine_clicked();
 
-    /*@brief appends '4' to input*/
+    //! \brief Appends '4' to input
+    /*!
+        Function for appending '4' to input
+    */
     void on_numberFour_clicked();
 
-    /*@brief appends '5' to input*/
+    //! \brief Appends '5' to input
+    /*!
+        Function for appending '5' to input
+    */
     void on_numberFive_clicked();
 
-    /*@brief appends '6' to input*/
+    //! \brief Appends '6' to input
+    /*!
+        Function for appending '6' to input
+    */
     void on_numberSix_clicked();
 
-    /*@brief appends '1' to input*/
+    //! \brief Appends '1' to input
+    /*!
+        Function for appending '1' to input
+    */
     void on_numberOne_clicked();
 
-    /*@brief appends '2' to input*/
+    //! \brief Appends '2' to input
+    /*!
+        Function for appending '2' to input
+    */
     void on_numberTwo_clicked();
 
-    /*@brief appends '3' to input*/
+    //! \brief Appends '3' to input
+    /*!
+        Function for appending '3' to input
+    */
     void on_numberThree_clicked();
 
-    /*@brief appends '0' to input*/
+    //! \brief Appends '0' to input
+    /*!
+        Function for appending '0' to input
+    */
     void on_numberZero_clicked();
 
-    /*@brief appends '.' to input*/
+    //! \brief Appends '.' to input
+    /*!
+        Function for appending '.' to input
+    */
     void on_decimalPoint_clicked();
 
-    /*@brief appends '√' to input*/
+    //! \brief Appends '√' to input
+    /*!
+        Function for appending '√' to input
+    */
     void on_sqrtSign_clicked();
 
-    /*@brief appends '^' to input*/
+    //! \brief Appends '^' to input
+    /*!
+        Function for appending '^' to input
+    */
     void on_sqrSign_clicked();
 
-    /*@brief appends '!' to input*/
+    //! \brief Appends '!' to input
+    /*!
+        Function for appending '!' to input
+    */ 
     void on_factorialSign_clicked();
 
-    /*@brief appends '/' to input*/
+    //! \brief Appends '/' to input
+    /*!
+        Function for appending '/' to input
+    */
     void on_divideSign_clicked();
 
-    /*@brief appends '*' to input*/
+    //! \brief Appends '*' to input
+    /*!
+        Function for appending '*' to input
+    */
     void on_multiplySign_clicked();
 
-    /*@brief appends 'i' to input*/
+    //! \brief Appends 'i' to input
+    /*!
+        Function for appending 'i' to input
+    */
     void on_minusSign_clicked();
 
-    /*@brief appends '+' to input*/
+    //! \brief Appends '+' to input
+    /*!
+        Function for appending '+' to input
+    */
     void on_plusSign_clicked();
 
-    /*@brief forbids invalid characters in input*/
+    //! \brief Forbids invalid characters in input
+    /*!
+        Function for forbiding invalid characters in input
+        \param arg1 representing input string (sequence)
+    */
     void on_resultArea_textChanged(const QString &arg1);
 
 
-    /*@brief converts string input into vector
-    * @param input input string that needs to be split
-    * @param splitter character to split the input with
-    * @return vector of strings
+    //! Input splitter
+    /*! \brief Converts string input into vector
+        \param input input string that needs to be split
+        \param splitter character to split the input with
+        \return vector of strings
     */
    std::vector<std::string> splitInputString(std::string input, char splitter);
 
 
-    /*@brief prints out result of calculation*/
+    //! \brief Prints out result of calculation
+    /*!
+        Function for printing out the result of calculation
+    */
     void on_equalSign_clicked();
 
-    /*@brief prints out result of profiling*/
+    //! \brief Prints out result of profiling
+    /*!
+        Function for printing out the result of profiling
+    */
     void on_profiling_clicked();
 
-    /*@brief appends ',' to input*/
+    //! \brief Appends ',' to input
+    /*!
+        Function for appending ',' to input
+    */
     void on_commaButton_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; /*!< Instance variable of class */
 };
 
 #endif // MAINWINDOW_H
