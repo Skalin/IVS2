@@ -13,8 +13,6 @@ Calculator::Calculator(){
 Calculator::~Calculator() {
 	inputData.clear();
 	doubleData.clear();
-	delete inputData;
-	delete doubleData;
 }
 
 std::vector <std::string>& Calculator::getInputData() {
