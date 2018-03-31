@@ -18,9 +18,15 @@ public:
 	
 	//! Constructor
 	/*!
-		\brief Function for initializing class variables
+		\brief Function for initializing class
 	*/
 	Calculator();
+	
+	//! Destructor
+	/*!
+	 	\brief Function for destructing and cleaning the class
+	 */
+	~Calculator();
 	
 	//! Calculation of problem
 	/*!
