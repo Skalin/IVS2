@@ -199,7 +199,7 @@ private slots:
     void on_commaButton_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; /*!< Instance variable of class */
 };
 
 #endif // MAINWINDOW_H
