@@ -1,3 +1,8 @@
+//! Header file containing the declaration of class for interacting with calculator interface
+/*! \file mainwindow.h
+ *
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -7,6 +12,10 @@
 #include <algorithm>
 #include <QDebug>
 
+//! User interface namespace
+/*!
+    Namespace for the class representing calculator.
+*/
 namespace Ui {
 class MainWindow;
 }
