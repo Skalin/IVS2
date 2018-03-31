@@ -186,27 +186,30 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
 bool MainWindow::checkInput(QString input, int mode){
     std::string tmp = input.toStdString();
     QMessageBox msgBox;
-    QString last = input.at(input.size()-1);
 
-    //general condition
-    if (last == "+" || last == "-" || last =="/" || last == "*" || last == "√" || last == "^"){
-        msgBox.setText("Špatný vstup!\n"
-                       "vstup nemůže být zakončen operátorem\n"
-                       "př. 5+5");
-        msgBox.exec();
-        return false;
-    }
-    //mode specific condition
-    if (mode == 1){
-        if (tmp.find(',') == std::string::npos){
+
+    if (tmp.size()>1){
+        QString last = input.at(input.size()-1);
+        qDebug() <<"last "<< last << endl;
+        //general condition
+        if (last == "+" || last == "-" || last =="/" || last == "*" || last == "√" || last == "^"){
             msgBox.setText("Špatný vstup!\n"
-                           "členove se oddělují čárkamy\n"
-                           "př. 5,5,5");
+                           "vstup nemůže být zakončen operátorem\n"
+                           "př. 5+5");
             msgBox.exec();
             return false;
         }
-    }else{
-
+        //mode specific condition
+        if (mode == 1){
+            if (tmp.find(',') == std::string::npos){
+                msgBox.setText("Špatný vstup!\n"
+                               "členove se oddělují čárkamy\n"
+                               "př. 5,5,5");
+                msgBox.exec();
+                return false;
+            }
+        }else{
+        }
     }
 
     return true;
@@ -220,6 +223,11 @@ void MainWindow::on_equalSign_clicked()
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
 
+
+    if (!checkInput(tmp,0)){
+        qDebug() << "test" << endl;
+        return;
+    }
     //prepare for spliting
     tmp.replace("+"," + ");
     tmp.replace("-"," - ");
@@ -233,10 +241,7 @@ void MainWindow::on_equalSign_clicked()
      //debug
      qDebug() << tmp << endl;
 
-     if (!checkInput(tmp,0)){
-         qDebug() << "test" << endl;
-         return;
-     }
+
 
      afterSplitting = splitInputString(tmp.toStdString(),' ',"");
      //debug
