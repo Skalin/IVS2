@@ -20,6 +20,10 @@ namespace Ui {
 class MainWindow;
 }
 
+//! calculator interface logic class
+/*!
+    Class containing functions for interacting with calculator interface
+*/
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
