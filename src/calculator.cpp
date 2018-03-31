@@ -6,8 +6,8 @@
 #include "calculator.h"
 
 Calculator::Calculator(){
-	inputData.reserve(0);
-	doubleData.reserve(0);
+    inputData.reserve(0);
+    doubleData.reserve(0);
 }
 
 Calculator::~Calculator() {
@@ -16,11 +16,11 @@ Calculator::~Calculator() {
 }
 
 std::vector <std::string>& Calculator::getInputData() {
-	return this->inputData;
+		return this->inputData;
 }
 
 void Calculator::setInputData(std::vector<std::string> inputData) {
-	this->inputData = inputData;
+    this->inputData = inputData;
 }
 
 void Calculator::cleanInputData() {
@@ -47,8 +47,8 @@ void Calculator::setDoubleData(std::vector<double> doubleData) {
 std::vector<double>& Calculator::convertToDouble(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
-		 return std::stod(val);
- 	});
+         return std::stod(val);
+    });
     return this->getDoubleData();
 }
 
@@ -121,19 +121,19 @@ void Calculator::solveResult(int priority) {
 }
 
 std::string Calculator::solve(std::vector<std::string>& input, unsigned int type) {
-	this->cleanInputData();
-	this->setInputData(input);
+    this->cleanInputData();
+    this->setInputData(input);
 
 	unsigned int maxPriority = 3;
 
-	// priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
-	if (type == 0) {
-		for (int i = maxPriority; i >= 0; i--) {
-			this->solveResult(i);
-		}
-	} else {
-		this->solveResult(-1); // sums, averages, deviations
-	}		
-		// expected output after the for cycle should be class variable vector<string> containing only one item = result
-	return this->getInputData().at(0);
+    // priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
+    if (type == 0) {
+        for (int i = maxPriority; i >= 0; i--) {
+            this->solveResult(i);
+        }
+    } else {
+        this->solveResult(-1); // sums, averages, deviations
+    }
+        // expected output after the for cycle should be class variable vector<string> containing only one item = result
+    return this->getInputData().at(0);
 }

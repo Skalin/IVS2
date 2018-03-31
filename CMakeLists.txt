@@ -5,6 +5,11 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_CXX_FLAGS "-Wall -Werror -pedantic")
 
+find_package(Qt COMPONENTS QtOpenGL QtXml)
+if ( NOT Qt_FOUND OR NOT QtXml_FOUND )
+	message(FATAL_ERROR "Package Qt and component QtXml required, but not found!")
+endif( NOT Qt_FOUND OR NOT QtXml_FOUND )
+
 set(SOURCE_FILES
 		src/calc.cpp
 		src/Doxyfile

@@ -38,7 +38,7 @@ public:
 	*/
 	std::string solve(std::vector<std::string>& input, unsigned int type);
 	
-protected:	
+protected:
 	//! \brief Getter for inputData
 	//! Getting data from class variable inputData
 	/*!

@@ -3,10 +3,10 @@
  *
  */
 
-#include "calculator.h"
+#include "mainwindow.h"
 
-int main() {
-	
+int main(int argc, char *argv) {
+	/*
 	Calculator Calculator1;
 	
 	std::cout << Calculator1.addition(1.0, 2.0) << std::endl;
@@ -58,4 +58,11 @@ int main() {
 	
 	std::cout << "Sample Calculator1 source code" << std::endl;
 	return 0;
+	*/
+	
+	QApplication a(argc, argv);
+	MainWindow w;
+	w.show();
+	
+	return a.exec();
 }
