@@ -36,7 +36,7 @@ void Calculator::cleanDoubleData() {
 }
 
 std::vector <double>& Calculator::getDoubleData() {
-	return this->doubleData;
+    return this->doubleData;
 }
 
 void Calculator::setDoubleData(std::vector<double> doubleData) {
@@ -121,8 +121,8 @@ void Calculator::solveResult(int priority) {
 }
 
 std::string Calculator::solve(std::vector<std::string>& input, unsigned int type) {
-    this->cleanInputData();
-    this->setInputData(input);
+	this->cleanInputData();
+	this->setInputData(input);
 
 	unsigned int maxPriority = 3;
 
