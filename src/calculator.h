@@ -82,14 +82,14 @@ private:
 	*/
 	void deleteItemsFromInputDataVector(unsigned int start, unsigned int amount);
 	
-	//! \brief Initialiazes inputData vector
+	//! \brief Initializes inputData vector
 	//! Deleting all the data from string vector
 	/*!
 		Function for deleting all the data from string vector inputData
 	*/
 	void cleanInputData();
 	
-	//! \brief Initialiazes doubleData vector
+	//! \brief Initializes doubleData vector
 	//! Deleting all the data from double vector
 	/*!
 		Function for deleting all the data from double vector doubleData
