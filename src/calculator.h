@@ -56,6 +56,7 @@ protected:
 		\return doubleData Vector of doubles
 	*/
 	std::vector <double>& getDoubleData();
+	
 	//! Setter fot doubleData
 	//! Storing data to class variable doubleData
 	/*!
