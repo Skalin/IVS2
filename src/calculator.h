@@ -13,6 +13,7 @@ protected:
 	std::vector <double> &getDoubleData();
 private:
 	std::vector<double> &convertToDouble();
+	void deleteItemsFromVector(unsigned int start, unsigned int amount);
 	void cleanInputData();
 	void solveResult(int priority);
 	std::vector<std::string> inputData;

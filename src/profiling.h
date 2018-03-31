@@ -5,7 +5,7 @@
 
 class Profiling : public Math {
 public:
-	double deviation(std::vector <double> *arrayOfDoubles);
+    double deviation(std::vector <double> *arrayOfDoubles);
 protected:
 private:
 };
