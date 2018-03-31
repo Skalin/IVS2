@@ -1,3 +1,8 @@
+//! Header file containing the declaration of class for interacting with calculator interface
+/*! \file mainwindow.h
+ *
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
