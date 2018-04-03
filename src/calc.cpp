@@ -136,7 +136,7 @@ double Math::average(std::vector <double>* arrayOfDoubles) {
 }
 
 
-double Math::sum(std::vector <double>* arrayOfDoubles, unsigned int amount) {
+double Math::sum(std::vector <double>* arrayOfDoubles, unsigned long amount) {
 	double sum = 0.0;
 	try {
 		for (unsigned int i = 0; i < amount; i++){
@@ -148,8 +148,8 @@ double Math::sum(std::vector <double>* arrayOfDoubles, unsigned int amount) {
 	return sum;
 }
 
-double Math::average(std::vector <double>* arrayOfDoubles, unsigned int amount) {
-	unsigned int realAmount = amount;
+double Math::average(std::vector <double>* arrayOfDoubles, unsigned long amount) {
+	unsigned long realAmount = amount;
 	if (realAmount > arrayOfDoubles->size()) {
 		realAmount = arrayOfDoubles->size();
 	}
