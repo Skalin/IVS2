@@ -77,6 +77,10 @@ void Calculator::solveResult(int priority) {
 	} else {
 		for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 			std::string str;
+			if (i == 0 && this->getInputData().at(i) == "-") {
+				this->deleteItemsFromInputDataVector(i, 1);
+				this->getInputData().at(i) = std::to_string(negate(std::stod(this->getInputData().at(i))));
+			}
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
 					this->getInputData().at(i - 1) = std::to_string(this->factorial(stoi(this->getInputData().at(i - 1))));

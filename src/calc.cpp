@@ -77,14 +77,14 @@ double Math::powerOf(double operand, int exponent) {
 	return 0.0;
 }
 
-int Math::factorial(int operand) {
-	int result = 1;
+double Math::factorial(int operand) {
+	double result = 1;
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
 			for (int i = 1; i <= operand; i++) {
-				result = multiplication(result, i);
+				result = multiplication(result, double(i));
 			}
 		}
 	} catch (std::range_error &e) {
@@ -154,4 +154,8 @@ double Math::average(std::vector <double>* arrayOfDoubles, unsigned int amount) 
 		realAmount = arrayOfDoubles->size();
 	}
 	return this->sum(arrayOfDoubles, realAmount)/realAmount;
+}
+
+double Math::negate(double number) {
+	return -number;
 }
