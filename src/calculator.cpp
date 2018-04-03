@@ -68,10 +68,17 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 	}
 }
 
+void Calculator::replaceCommaWithDot() {
+	ulong pos = this->getInputData().at(0).find(',');
+	this->getInputData().at(0).replace(pos, 1, ".");
+}
+
+
 void Calculator::improveOutput() {
 	bool stillZero = true;
+	this->replaceCommaWithDot();
 	for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
-		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.' || this->getInputData().at(0).at(i-1) == ',')) {
+		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
 			this->getInputData().at(0).pop_back();
 		} else {
 			stillZero = false;
