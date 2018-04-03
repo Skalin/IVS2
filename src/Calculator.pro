@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = IVS-kalkulacka
+TARGET = Calculator
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,21 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-	basic.cpp \
-	calc.cpp \
-	calculator.cpp \
-	profiling.cpp
+        *.cpp \
 
 HEADERS += \
-        mainwindow.h \
-	basic.h \
-	calc.h \
-	calculator.h \
-	profiling.h
+        *.h \
 
-
+MAKEFILE += \
+        qtMakefile \
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
