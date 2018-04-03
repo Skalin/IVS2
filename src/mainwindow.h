@@ -17,10 +17,7 @@
 
 
 
-#include "basic.h"
-#include "calc.h"
 #include "calculator.h"
-#include "profiling.h"
 
 //! User interface namespace
 /*!
@@ -248,7 +245,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = true; /*!< variable for showing debug log in console */
 };
 
 #endif // MAINWINDOW_H

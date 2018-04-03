@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+extern bool debug; /*!< variable for showing debug log in console */
+
 //! Basic class
 /*!
 	Class of help functions which are used across the whole project
