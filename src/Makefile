@@ -25,6 +25,8 @@ clean-target:
 clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target
 
 pack:
+	make clean
+	# todo
 
 test:
 
