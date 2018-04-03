@@ -129,34 +129,13 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
     QString tmp,last;
     tmp = arg1;
-    last = tmp.at(tmp.size()-1);
+
     //input restrictons
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
 
     //seg fault
     if (tmp.size()>1){
-        /*
-        //+-
-        if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '-'){
-            on_deleteButton_clicked();
-            on_deleteButton_clicked();
-            ui->resultArea->setText(ui->resultArea->text()+ "-");
-        }
-        //-+
-        if (tmp.at(tmp.size()-2) == '-' && tmp.at(tmp.size()-1) == '+'){
-            on_deleteButton_clicked();
-            on_deleteButton_clicked();
-            ui->resultArea->setText(ui->resultArea->text()+ "+");
-        }
-        //--
-        if (tmp.at(tmp.size()-2) == '-' && tmp.at(tmp.size()-1) == '-'){
-            on_deleteButton_clicked();
-        }
-        //++
-        if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '+'){
-            on_deleteButton_clicked();
-        }
-        */
+        last = tmp.at(tmp.size()-1);
         QString sndToLast = tmp.at(tmp.size()-2);
         if ( last == "√"){
             return;
