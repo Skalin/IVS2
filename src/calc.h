@@ -78,7 +78,7 @@ public:
 		\param operand positive integer
 		\return Result of factorial
 	*/
-	int factorial(int operand);
+	double factorial(int operand);
 	
 	//! Calculation of square root
 	/*!
