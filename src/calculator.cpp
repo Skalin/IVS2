@@ -111,8 +111,11 @@ void Calculator::solveResult(int priority) {
 			this->setInputData({str});
 		}
 	} else {
-		std::cout << "Vector size: " << this->getInputData().size() << std::endl;
-		this->printVector();
+		if (debug) {
+			std::cout << "Vector size: " << this->getInputData().size() << std::endl;
+			this->printVector();
+		}
+
 		if (!this->getInputData().empty()) {
 			for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 				if (i == 0 && this->getInputData().at(i) == "-") {
