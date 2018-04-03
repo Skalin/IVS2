@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <locale>
 
 
 #include "basic.h"
@@ -187,6 +188,13 @@ private slots:
     */
    std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
 
+   //! Checks if character is digit
+   /*! \brief Checks if character is digit
+       \param input character that is tested
+       \return true if is digit, else false
+   */
+    bool isDigit (QString input);
+
     //! \brief Prints out result of calculation
     /*!
         Function for printing out the result of calculation
@@ -231,15 +239,9 @@ private slots:
     */
     bool checkInput(QString input, int mode);
 
-    //! \brief Function checks if given QString is number
-    /*! \param input string to check
-        \return true if input is number
-    */
-    bool isDigit(QString input);
-
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = false; /*!< Debug variable, if true, debug output is on */
+    bool debug = true; /*!< variable for showing debug log in console */
 };
 
 #endif // MAINWINDOW_H
