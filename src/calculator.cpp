@@ -69,33 +69,21 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 }
 
 void Calculator::replaceCommaWithDot() {
-	for (unsigned long i = 0; i < this->getInputData().size(); i++) {
-		for (unsigned long j = this->getInputData().at(i).length(); j > 0; j--) {
-
-			long dotPosition = -1, commaPosition = -1;
-			if (this->getInputData().at(i).at(j) == '.') {
-				dotPosition = this->getInputData().at(i).length()-1-j;
-			}
-			if (this->getInputData().at(i).at(j) == ',') {
-				commaPosition = this->getInputData().at(i).length()-1-j;
-			}
-			if (commaPosition >= 0 && dotPosition < 0) {
-				if ((commaPosition-this->getInputData().at(i).length() != 3)) {
-					this->getInputData().at(i).replace(commaPosition, 1, ".");
-				}
-			}
-		}
-	}
+	unsigned long pos = this->getInputData().at(0).find(',');
+	this->getInputData().at(0).replace(pos, 11, ".");
 }
 
 
 void Calculator::improveOutput() {
 	bool stillZero = true;
-	for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
-		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
-			this->getInputData().at(0).pop_back();
-		} else {
-			stillZero = false;
+	if (!this->getInputData().empty()) {
+		this->replaceCommaWithDot();
+		for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
+			if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
+				this->getInputData().at(0).pop_back();
+			} else {
+				stillZero = false;
+			}
 		}
 	}
 }
@@ -189,23 +177,26 @@ void Calculator::solveResult(int priority) {
 std::string Calculator::solve(std::vector<std::string>& input, unsigned int type) {
 	this->cleanInputData();
 	this->setInputData(input);
-	this->replaceCommaWithDot();
+	if (!this->getInputData().empty()) {
+		this->replaceCommaWithDot();
 
-	unsigned int maxPriority = 3;
+		unsigned int maxPriority = 3;
 
 
-    // priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
-    if (type == 0) {
-		for (int i = maxPriority; i >= 0; i--) {
-			this->solveResult(i);
+		// priority  -1 for sums, averages and deviations, 3 factorials, 2 powers and roots, 1 multiplication and division, 0 addition and subtraction
+		if (type == 0) {
+			for (int i = maxPriority; i >= 0; i--) {
+				this->solveResult(i);
+			}
+		} else {
+			this->solveResult(-1); // sums, averages, deviations
 		}
-    } else {
-        this->solveResult(-1); // sums, averages, deviations
-    }
-        // expected output after the for cycle should be class variable vector<string> containing only one item = result
-	if (this->getInputData().size() != 1) {
-		throw this->getInputData().size();
+			// expected output after the for cycle should be class variable vector<string> containing only one item = result
+		if (this->getInputData().size() != 1) {
+			throw this->getInputData().size();
+		}
+		this->improveOutput();
+		return this->getInputData().at(0);
 	}
-	this->improveOutput();
-    return this->getInputData().at(0);
+	return "";
 }
