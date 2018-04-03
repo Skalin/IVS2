@@ -415,7 +415,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
         
         if( pressedKeys.contains(Qt::Key_Shift) && pressedKeys.contains(Qt::Key_Delete) )
         {
-            this->on_allClear_clicked();
+            on_allClear_clicked();
         }
     } else if (event->type() == QEvent::KeyRelease)
     {
