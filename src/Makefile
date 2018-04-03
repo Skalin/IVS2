@@ -9,6 +9,7 @@ all:
 	qmake Calculator.pro
 	make -f $(QTMAKE)
 	make clean-qtmake
+	make clean-mainwindow
 
 clean-doc:
 	rm -rf ../doc
