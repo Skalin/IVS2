@@ -408,6 +408,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
     }
+    QSet<int> pressedKeys;
     if (event->type() == QEvent::KeyPress) {
         pressedKeys += ((QKeyEvent*)event->key());
         
