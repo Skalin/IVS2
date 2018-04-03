@@ -78,8 +78,8 @@ void Calculator::solveResult(int priority) {
 		for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 			std::string str;
 			if (i == 0 && this->getInputData().at(i) == "-") {
-				this->deleteItemsFromInputDataVector(i, 1);
-				this->getInputData().at(i) = std::to_string(negate(std::stod(this->getInputData().at(i))));
+				this->getInputData().at(i) = std::to_string(negate(stod(this->getInputData().at(i+1))));
+				this->deleteItemsFromInputDataVector(i+1, 1);
 			}
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
@@ -88,15 +88,24 @@ void Calculator::solveResult(int priority) {
 					i--;
 				}
 			} else if (priority <= 2 && priority >= 0) {
+
+				// TODO priorita 2 musí být zpracována opačným cyklem, zprava doleva, aby došlo ke korektním výpočtům odmocnin
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "√") {
-						this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
-						this->deleteItemsFromInputDataVector(i, 2);
-						i--;
+						if (i > 0) {
+							if (this->getInputData().at(i - 1) != "+" && this->getInputData().at(i - 1) != "-" && this->getInputData().at(i - 1) != "*" && this->getInputData().at(i - 1) != "/" && this->getInputData().at(i - 1) != "^") {
+								this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i + 1)), stoi(this->getInputData().at(i - 1))));
+								this->deleteItemsFromInputDataVector(i, 2);
+								i--;
+							}
+						} else {
+							this->getInputData().at(i) = std::to_string(this->root(stod(this->getInputData().at(i + 1))));
+							this->deleteItemsFromInputDataVector(i + 1, 1);
+						}
 					}
 				} else if (priority == 1) {
 					if (this->getInputData().at(i) == "*") {
@@ -139,5 +148,8 @@ std::string Calculator::solve(std::vector<std::string>& input, unsigned int type
         this->solveResult(-1); // sums, averages, deviations
     }
         // expected output after the for cycle should be class variable vector<string> containing only one item = result
+	if (this->getInputData().size() > 1) {
+		throw this->getInputData().size();
+	}
     return this->getInputData().at(0);
 }
