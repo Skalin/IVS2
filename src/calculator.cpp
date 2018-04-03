@@ -69,8 +69,10 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 }
 
 void Calculator::replaceCommaWithDot() {
-	unsigned long pos = this->getInputData().at(0).find(',');
-	this->getInputData().at(0).replace(pos, 11, ".");
+	unsigned long pos;
+	if ((pos = this->getInputData().at(0).find(',')) != std::string::npos) {
+		this->getInputData().at(0).replace(pos, 11, ".");
+	}
 }
 
 
