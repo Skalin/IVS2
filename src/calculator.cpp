@@ -3,6 +3,7 @@
  *
  */
 
+#include <sstream>
 #include "calculator.h"
 
 Calculator::Calculator(){
@@ -52,6 +53,15 @@ std::vector<double>& Calculator::convertToDouble(){
     return this->getDoubleData();
 }
 
+double Calculator::convertToDouble(const std::string number) {
+	double num = 0.0;
+	std::stringstream ss;
+	ss << number;
+	ss >> num;
+
+	return num;
+}
+
 void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int amount) {
 	for (unsigned int i = start+amount-1; i >= start; i--) {
 		this->getInputData().erase(this->getInputData().begin() + i);
@@ -62,7 +72,7 @@ void Calculator::improveOutput() {
 	bool stillZero = true;
 	for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
 		std::cout << this->getInputData().at(0).at(i-1) << std::endl;
-		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == ',')) {
+		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
 			this->getInputData().at(0).pop_back();
 		} else {
 			stillZero = false;
@@ -88,7 +98,6 @@ void Calculator::solveResult(int priority) {
 		}
 	} else {
 		for (unsigned int i = 0; i < this->getInputData().size(); i++) {
-			std::string str;
 			if (i == 0 && this->getInputData().at(i) == "-") {
 				this->getInputData().at(i) = std::to_string(negate(stod(this->getInputData().at(i+1))));
 				this->deleteItemsFromInputDataVector(i+1, 1);
@@ -100,42 +109,43 @@ void Calculator::solveResult(int priority) {
 					i--;
 				}
 			} else if (priority <= 2 && priority >= 0) {
+				std::string toConvert;
 
 				// TODO priorita 2 musí být zpracována opačným cyklem, zprava doleva, aby došlo ke korektním výpočtům odmocnin
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
-						this->getInputData().at(i - 1) = std::to_string(this->powerOf(stod(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->powerOf(convertToDouble(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "√") {
 						if (i > 0) {
 							if (this->getInputData().at(i - 1) != "+" && this->getInputData().at(i - 1) != "-" && this->getInputData().at(i - 1) != "*" && this->getInputData().at(i - 1) != "/" && this->getInputData().at(i - 1) != "^") {
-								this->getInputData().at(i - 1) = std::to_string(this->root(stod(this->getInputData().at(i + 1)), stoi(this->getInputData().at(i - 1))));
+								this->getInputData().at(i - 1) = std::to_string(this->root(convertToDouble(this->getInputData().at(i + 1)), stoi(this->getInputData().at(i - 1))));
 								this->deleteItemsFromInputDataVector(i, 2);
 								i--;
 							}
 						} else {
-							this->getInputData().at(i) = std::to_string(this->root(stod(this->getInputData().at(i + 1))));
+							this->getInputData().at(i) = std::to_string(this->root(convertToDouble(this->getInputData().at(i + 1))));
 							this->deleteItemsFromInputDataVector(i + 1, 1);
 						}
 					}
 				} else if (priority == 1) {
 					if (this->getInputData().at(i) == "*") {
-						this->getInputData().at(i - 1) = std::to_string(this->multiplication(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->multiplication(convertToDouble(this->getInputData().at(i - 1)), convertToDouble(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "/") {
-						this->getInputData().at(i - 1) = std::to_string(this->division(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->division(convertToDouble(this->getInputData().at(i - 1)), convertToDouble(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					}
 				} else if (priority == 0) {
 					if (this->getInputData().at(i) == "+") {
-						this->getInputData().at(i - 1) = std::to_string(this->addition(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->addition(convertToDouble(this->getInputData().at(i - 1)), convertToDouble(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "-") {
-						this->getInputData().at(i - 1) = std::to_string(this->subtraction(stod(this->getInputData().at(i - 1)), stod(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->subtraction(convertToDouble(this->getInputData().at(i - 1)), convertToDouble(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					}
