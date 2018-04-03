@@ -408,4 +408,15 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
     }
+    if (event->type() == QEvent::KeyPress) {
+        pressedKeys += ((QKeyEvent*)event->key());
+        
+        if( pressedKeys.contains(Qt::Key_Shift) && pressedKeys.contains(Qt::Key_Delete) )
+        {
+            this->on_allClear_clicked();
+        }
+    } else if (event->type() == QEvent::KeyRelease)
+    {
+        pressedKeys -= ((QKeyEvent*)event)->key();
+    }
 }
