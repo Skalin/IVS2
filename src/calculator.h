@@ -79,6 +79,14 @@ private:
 		\return converted vector of doubles, doubleData
 	*/
 	std::vector<double>& convertToDouble();
+
+	//! \brief Converts a string into double
+	//! Converting data from string to double
+	/*!
+		Function for converting data from string to double
+	    \return converted string into double
+	*/
+	double convertToDouble(std::string number);
 	
 	//! \brief Deletes certain amount of items from vector
 	//! Deleting certain data from string vector
