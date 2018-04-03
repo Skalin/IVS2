@@ -5,15 +5,24 @@ CFLAGS := -Wall -g
 TARGET := Calculator
 QTMAKE := qtMakefile
 
-
 all:
-	qmake IVS-kalkulacka.pro
+	qmake configs/Calculator.pro
 	make -f $(QTMAKE)
+	make clean-qtmake
+
+clean-doc:
+	rm -rf ../doc
+clean-objects:
+	rm -f *.o
+clean-mainwindow:
+	rm -f *_mainwindow.*
+clean-qtmake:
+	rm -f $(QTMAKE)
+
+
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake
 
 pack:
-
-clean:
-	rm -rf $(TARGET) *.o ../doc *_mainwindow.* $(QTMAKE)
 
 test:
 
