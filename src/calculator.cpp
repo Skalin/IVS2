@@ -71,7 +71,6 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 void Calculator::improveOutput() {
 	bool stillZero = true;
 	for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
-		std::cout << this->getInputData().at(0).at(i-1) << std::endl;
 		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
 			this->getInputData().at(0).pop_back();
 		} else {
