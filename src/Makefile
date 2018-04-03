@@ -18,9 +18,11 @@ clean-mainwindow:
 	rm -f *_mainwindow.*
 clean-qtmake:
 	rm -f $(QTMAKE)
+clean-target:
+	rm -f $(TARGET)
 
 
-clean: clean-doc clean-objects clean-mainwindow clean-qtmake
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target
 
 pack:
 
