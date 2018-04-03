@@ -10,10 +10,11 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+#include <QKeyEvent>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <locale>
+
 
 
 #include "basic.h"
@@ -239,9 +240,15 @@ private slots:
     */
     bool checkInput(QString input, int mode);
 
+    //! \brief Keyboard key handler
+    /*!
+        \param event invoked event when pressed button
+    */
+    void keyPressEvent(QKeyEvent* event);
+
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = false; /*!< variable for showing debug log in console */
+    bool debug = true; /*!< variable for showing debug log in console */
 };
 
 #endif // MAINWINDOW_H

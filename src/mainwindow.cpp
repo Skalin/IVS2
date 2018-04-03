@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //ui->resultArea->setInputMask("9999999");
+    ui->resultArea->setFocusPolicy(Qt::StrongFocus);
+    ui->resultArea->setFocus();
 }
 
 MainWindow::~MainWindow()
@@ -386,4 +388,10 @@ void MainWindow::on_helpButton_clicked()
                            "TODO");
     msgBox.exec();
 
+}
+void MainWindow::keyPressEvent(QKeyEvent* event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
+        on_equalSign_clicked();
+    }
 }
