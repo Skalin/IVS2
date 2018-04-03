@@ -125,6 +125,14 @@ public:
 	*/
 	double average(std::vector<double>* vector, unsigned int amount);
 	
+	//! Negates given number
+	/*!
+		Function for negating the number
+		\param number that should be negated
+		\return Negated number
+	*/
+	double negate(double number);
+	
 protected:
 private:
 };
