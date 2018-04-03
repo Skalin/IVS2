@@ -155,3 +155,7 @@ double Math::average(std::vector <double>* arrayOfDoubles, unsigned int amount) 
 	}
 	return this->sum(arrayOfDoubles, realAmount)/realAmount;
 }
+
+double Math::negate(double number) {
+	return -number;
+}
