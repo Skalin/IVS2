@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->resultArea->setInputMask("9999999");
     ui->resultArea->setFocusPolicy(Qt::StrongFocus);
     ui->resultArea->setFocus();
+    this->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
