@@ -209,7 +209,7 @@ bool MainWindow::checkInput(QString input, int mode){
             msgBox.exec();
             return false;
         }
-        //mode specific condition
+        //mode specific conditions
         if (mode == 1){
             if (tmp.find(',') == std::string::npos){
                 msgBox.setText("Špatný vstup!\n"
@@ -219,6 +219,20 @@ bool MainWindow::checkInput(QString input, int mode){
                 return false;
             }
         }else{
+            if (debug){
+                qDebug() <<"neco "<< endl;
+            }
+            if (input.contains(",")){
+                if (debug){
+                    qDebug() <<"lasdasdasd " << endl;
+                }
+                msgBox.setText("Čárka na vstupu není povolena!\n"
+                               "Prosím použijte desetinou tečku\n"
+                               "př. 5.231");
+                msgBox.exec();
+                return false;
+
+            }
         }
     }
 
