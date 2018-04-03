@@ -3,26 +3,31 @@
 CC := g++
 CFLAGS := -Wall -g
 TARGET := Calculator
+QTMAKE := qtMakefile
 
-# $(wildcard *.cpp /xxx/xxx/*.cpp): get all .cpp files from the current directory and dir "/xxx/xxx/"
-SRCS := $(wildcard *.cpp)
-# $(patsubst %.cpp,%.o,$(SRCS)): substitute all ".cpp" file name strings to ".o" file name strings
-OBJS := $(patsubst %.cpp,%.o,$(SRCS))
+all:
+	qmake configs/Calculator.pro
+	make -f $(QTMAKE)
+	make clean-qtmake
 
-all: $(TARGET)
-$(TARGET): $(OBJS)
-	$(CC) -o $@ $^
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $<
+clean-doc:
+	rm -rf ../doc
+clean-objects:
+	rm -f *.o
+clean-mainwindow:
+	rm -f *_mainwindow.*
+clean-qtmake:
+	rm -f $(QTMAKE)
+
+
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake
 
 pack:
-
-clean:
-	rm -rf $(TARGET) *.o doc
 
 test:
 
 doc:
 	doxygen
+
 run:
 	./$(TARGET)

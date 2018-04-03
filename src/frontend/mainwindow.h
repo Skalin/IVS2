@@ -13,13 +13,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <locale>
 
 
-#include "basic.h"
-#include "calc.h"
-#include "calculator.h"
-#include "profiling.h"
+#include "../backend/basic.h"
+#include "../backend/calc.h"
+#include "../backend/calculator.h"
+#include "../backend/profiling.h"
 
 //! User interface namespace
 /*!
@@ -188,13 +187,6 @@ private slots:
     */
    std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
 
-   //! Checks if character is digit
-   /*! \brief Checks if character is digit
-       \param input character that is tested
-       \return true if is digit, else false
-   */
-    bool isDigit (QString input);
-
     //! \brief Prints out result of calculation
     /*!
         Function for printing out the result of calculation
@@ -241,7 +233,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = true; /*!< variable for showing debug log in console */
 };
 
 #endif // MAINWINDOW_H
