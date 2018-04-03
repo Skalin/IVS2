@@ -78,7 +78,7 @@ public:
 		\param operand positive integer
 		\return Result of factorial
 	*/
-	int factorial(int operand);
+	double factorial(int operand);
 	
 	//! Calculation of square root
 	/*!
@@ -87,7 +87,7 @@ public:
 		\param exponent exponent of the root
 		\return Result of square root
 	*/
-	double root(double operand, int exponent);
+	double root(double operand, int exponent = 2);
 	
 	//! Calculation of sum
 	/*!
@@ -124,6 +124,14 @@ public:
 		\sa average()
 	*/
 	double average(std::vector<double>* vector, unsigned int amount);
+	
+	//! Negates given number
+	/*!
+		Function for negating the number
+		\param number that should be negated
+		\return Negated number
+	*/
+	double negate(double number);
 	
 protected:
 private:
