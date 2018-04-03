@@ -407,5 +407,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 {
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
+    } else if (event->key() == Qt::Key_Shift && event->key() == Qt::Key_Delete) {
+        on_allClear_clicked();
     }
 }
