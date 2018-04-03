@@ -410,7 +410,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     }
     QSet<int> pressedKeys;
     if (event->type() == QEvent::KeyPress) {
-        pressedKeys += ((QKeyEvent*)event->key());
+        pressedKeys += ((QKeyEvent*)event)->key();
         
         if( pressedKeys.contains(Qt::Key_Shift) && pressedKeys.contains(Qt::Key_Delete) )
         {
