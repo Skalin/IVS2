@@ -5,6 +5,8 @@
 
 #include "basic.h"
 
+bool debug = true;
+
 void Basic::printError() {
 	std::cerr << "Unexpected error occurred!\n" << std::endl;
 }
