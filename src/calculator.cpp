@@ -121,7 +121,7 @@ void Calculator::solveResult(int priority) {
 		if (!this->getInputData().empty()) {
 			for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 				if (i == 0 && this->getInputData().at(i) == "-") {
-					this->getInputData().at(i) = std::to_string(negate(stod(this->getInputData().at(i+1))));
+					this->getInputData().at(i) = std::to_string(negate(convertToDouble(this->getInputData().at(i+1))));
 					this->deleteItemsFromInputDataVector(i+1, 1);
 				}
 				if (priority == 3) {
