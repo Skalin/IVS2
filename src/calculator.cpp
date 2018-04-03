@@ -79,7 +79,7 @@ void Calculator::solveResult(int priority) {
 			std::string str;
 			if (i == 0 && this->getInputData().at(i) == "-") {
 				this->deleteItemsFromInputDataVector(i, 1);
-				this->getInputData().at(i) = std::to_string(negate(std::stod(this->getInputData().at(i))));
+				this->getInputData().at(i) = std::to_string(this->negate(std::stod(this->getInputData().at(i))));
 			}
 			if (priority == 3) {
 				if (this->getInputData().at(i) == "!") {
