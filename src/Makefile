@@ -13,7 +13,7 @@ all:
 pack:
 
 clean:
-	rm -rf $(TARGET) *.o ../doc *mainwindow.* $(QTMAKE)
+	rm -rf $(TARGET) *.o ../doc *_mainwindow.* $(QTMAKE)
 
 test:
 
