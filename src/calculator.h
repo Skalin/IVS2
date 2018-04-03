@@ -132,6 +132,8 @@ private:
 		Improves the output by replacing comma with dot, so that in return, the string looks like **.***, which works better at string conversions to double
 	*/
 	void replaceCommaWithDot();
+
+	void printVector();
 	
 	std::vector<std::string> inputData; /*!< String vector representing data entered into calculator */
 	
