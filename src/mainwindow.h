@@ -241,7 +241,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = false; /*!< variable for showing debug log in console */
+    bool debug = true; /*!< variable for showing debug log in console */
 };
 
 #endif // MAINWINDOW_H
