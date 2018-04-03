@@ -127,13 +127,15 @@ void MainWindow::on_plusSign_clicked()
 /*@brief forbids invalid characters in input*/
 void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
-    QString tmp;
+    QString tmp,last;
     tmp = arg1;
+    last = tmp.at(tmp.size()-1);
     //input restrictons
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
 
     //seg fault
     if (tmp.size()>1){
+        /*
         //+-
         if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '-'){
             on_deleteButton_clicked();
@@ -153,6 +155,17 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
         //++
         if (tmp.at(tmp.size()-2) == '+' && tmp.at(tmp.size()-1) == '+'){
             on_deleteButton_clicked();
+        }
+        */
+        QString sndToLast = tmp.at(tmp.size()-2);
+        if ( last == "√"){
+            return;
+        }else {
+            if (!isDigit(last) && !isDigit(sndToLast)){
+                on_deleteButton_clicked();
+                on_deleteButton_clicked();
+                ui->resultArea->setText(ui->resultArea->text()+ last);
+            }
         }
 
     }
@@ -181,6 +194,19 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
         listKeywords.push_back(tmp);
     }
     return listKeywords;
+}
+bool MainWindow::isDigit(QString input){
+
+    if (input == "0" || input == "1"
+       || input == "2" ||input == "3"
+       || input == "4" || input == "5"
+       || input == "6" || input == "7"
+       || input == "8" || input == "9"){
+        return true;
+    }else{
+        return false;
+    }
+
 }
 
 bool MainWindow::checkInput(QString input, int mode){
