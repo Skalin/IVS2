@@ -110,6 +110,13 @@ private:
 		\param priority priority of operation
 	*/
 	void solveResult(int priority);
+
+	//! \brief Improved output of first item in vector
+	//! Improved output of first item in vector so it doesn't show spare zeroes
+	/*!
+		Function removes any spare zeroes and if available, also decimal point and leaves a nice number in vector
+	*/
+	void improveOutput();
 	
 	std::vector<std::string> inputData; /*!< String vector representing data entered into calculator */
 	
