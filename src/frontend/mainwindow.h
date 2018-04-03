@@ -15,10 +15,10 @@
 #include <algorithm>
 
 
-#include "basic.h"
-#include "calc.h"
-#include "calculator.h"
-#include "profiling.h"
+#include "../backend/basic.h"
+#include "../backend/calc.h"
+#include "../backend/calculator.h"
+#include "../backend/profiling.h"
 
 //! User interface namespace
 /*!
