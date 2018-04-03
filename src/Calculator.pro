@@ -26,15 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        frontend/*.cpp \
-        backend/*.cpp \
+        *.cpp \
 
 HEADERS += \
-        backend/*.h \
-        frontend/*.h \
+        *.h \
 
 MAKEFILE += \
         qtMakefile \
 
 FORMS += \
-        frontend/mainwindow.ui \
+        mainwindow.ui \

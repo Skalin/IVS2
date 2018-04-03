@@ -15,10 +15,10 @@
 #include <algorithm>
 
 
-#include "../backend/basic.h"
-#include "../backend/calc.h"
-#include "../backend/calculator.h"
-#include "../backend/profiling.h"
+#include "basic.h"
+#include "calc.h"
+#include "calculator.h"
+#include "profiling.h"
 
 //! User interface namespace
 /*!
@@ -231,8 +231,11 @@ private slots:
     */
     bool checkInput(QString input, int mode);
 
+    bool isDigit(QString input);
+
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
+    bool debug = true;
 };
 
 #endif // MAINWINDOW_H

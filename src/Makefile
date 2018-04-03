@@ -6,7 +6,7 @@ TARGET := Calculator
 QTMAKE := qtMakefile
 
 all:
-	qmake configs/Calculator.pro
+	qmake Calculator.pro
 	make -f $(QTMAKE)
 	make clean-qtmake
 

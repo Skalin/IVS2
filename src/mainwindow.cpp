@@ -174,6 +174,7 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
     }
     return listKeywords;
 }
+
 bool MainWindow::isDigit(QString input){
 
     if (input == "0" || input == "1"
