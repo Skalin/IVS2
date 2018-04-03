@@ -113,7 +113,7 @@ public:
 		\return Result of partial sum
 		\sa sum()
 	*/
-	double sum(std::vector<double>* vector, unsigned int amount);
+	double sum(std::vector<double>* vector, unsigned long amount);
 	
 	//! Calculation of partial average
 	/*!
@@ -123,7 +123,7 @@ public:
 		\return Result of partial average
 		\sa average()
 	*/
-	double average(std::vector<double>* vector, unsigned int amount);
+	double average(std::vector<double>* vector, unsigned long amount);
 	
 	//! Negates given number
 	/*!
