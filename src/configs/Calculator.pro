@@ -26,21 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-	basic.cpp \
-	calc.cpp \
-	calculator.cpp \
-	profiling.cpp
+        frontend/*.cpp \
+        backend/*.cpp \
 
 HEADERS += \
-        mainwindow.h \
-	basic.h \
-	calc.h \
-	calculator.h \
-	profiling.h
+        backend/*.h \
+        frontend/*.h \
 
-MAKEFILE += qtMakefile
+MAKEFILE += \
+        qtMakefile \
 
 FORMS += \
-        mainwindow.ui
+        frontend/mainwindow.ui \
