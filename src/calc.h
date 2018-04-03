@@ -87,7 +87,7 @@ public:
 		\param exponent exponent of the root
 		\return Result of square root
 	*/
-	double root(double operand, int exponent);
+	double root(double operand, int exponent = 2);
 	
 	//! Calculation of sum
 	/*!
