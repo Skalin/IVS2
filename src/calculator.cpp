@@ -58,6 +58,18 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 	}
 }
 
+void Calculator::improveOutput() {
+	bool stillZero = true;
+	for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
+		std::cout << this->getInputData().at(0).at(i-1) << std::endl;
+		if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == ',')) {
+			this->getInputData().at(0).pop_back();
+		} else {
+			stillZero = false;
+		}
+	}
+}
+
 void Calculator::solveResult(int priority) {
 	if (priority == -1) {
 		std::string operation = *&getInputData().at(0);
@@ -151,5 +163,6 @@ std::string Calculator::solve(std::vector<std::string>& input, unsigned int type
 	if (this->getInputData().size() > 1) {
 		throw this->getInputData().size();
 	}
+	this->improveOutput();
     return this->getInputData().at(0);
 }
