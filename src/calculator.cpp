@@ -70,7 +70,7 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 
 void Calculator::replaceCommaWithDot() {
 	unsigned long pos = this->getInputData().at(0).find(',');
-	this->getInputData().at(0).replace(pos, 11, ".");
+	this->getInputData().at(0).replace(pos, 1, ".");
 }
 
 
@@ -181,8 +181,6 @@ std::string Calculator::solve(std::vector<std::string>& input, unsigned int type
 	this->cleanInputData();
 	this->setInputData(input);
 	if (!this->getInputData().empty()) {
-		this->replaceCommaWithDot();
-
 		unsigned int maxPriority = 3;
 
 
