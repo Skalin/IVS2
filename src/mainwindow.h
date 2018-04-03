@@ -231,11 +231,15 @@ private slots:
     */
     bool checkInput(QString input, int mode);
 
+    //! \brief Function checks if given QString is number
+    /*! \param input string to check
+        \return true if input is number
+    */
     bool isDigit(QString input);
 
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
-    bool debug = true;
+    bool debug = false; /*!< Debug variable, if true, debug output is on */
 };
 
 #endif // MAINWINDOW_H
