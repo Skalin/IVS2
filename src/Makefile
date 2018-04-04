@@ -23,9 +23,11 @@ clean-qtmake:
 	rm -f $(QTMAKE)
 clean-target:
 	rm -f $(TARGET)
+clean-zip:
+	rm -f $(PACKFOLDER).zip
 
 
-clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip
 
 pack:
 	# pre packing cleanup
