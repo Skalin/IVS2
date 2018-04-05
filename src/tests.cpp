@@ -10,50 +10,113 @@
 
 using namespace std;
 
+
+string delimiter = "=======================";
+
 int basic_addition(Math Calculator1) {
     int i = 0;
+    int testScenario = 0;
+    double expectedResult;
+    double result;
 
-    if (Calculator1.addition(1.0, 2) == 3) {
+    expectedResult = 3;
+    result = Calculator1.addition(1.0,2);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
     } else {
-        cout << "Expected output: " << 3 << endl;
-        cout << "Given output: " << Calculator1.addition(1.0,2) << endl;
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1.0, 2.0) == 3) {
+    expectedResult = 3;
+    result = Calculator1.addition(1.0,2.0);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1, 2) == 3) {
+    expectedResult = 3;
+    result = Calculator1.addition(1,2);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1.0, -2.0) == -1) {
+    expectedResult = -1;
+    result = Calculator1.addition(1.0,-2.0);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1.0, -2) == -1) {
+    expectedResult = -1;
+    result = Calculator1.addition(1.0,-2);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1, -2) == -1) {
+    expectedResult = -1;
+    result = Calculator1.addition(1,-2);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(-1, -2) == -3) {
+    expectedResult = -3;
+    result = Calculator1.addition(-1, -2);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(999999999999999999, 999999999999999999) == 2e+18) {
+    expectedResult = 2e+18;
+    result = Calculator1.addition(999999999999999999, 999999999999999999);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(-999999999999999999, 999999999999999999) == 0) {
+    expectedResult = 0;
+    result = Calculator1.addition(-999999999999999999, 999999999999999999);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
-    if (Calculator1.addition(1, 9999999999) == 10000000000) {
+    expectedResult = 10000000000;
+    result = Calculator1.addition(1, 9999999999);
+    testScenario++;
+    if (result == expectedResult) {
         i += 1;
+    } else {
+        cout << "Expected output: " << expectedResult << endl;
+        cout << "Given output: " << result << endl;
     }
 
     return i;
@@ -176,61 +239,72 @@ int basic_multiplication(Math Calculator1) {
 }
 
 int basic_division(Math Calculator1) {
-    int i = 0;
+    int passedTests = 0;
+    int testScenario = 0;
+    string testType = "DIVISION TESTS";
 
-    if (Calculator1.division(0, 5.651) == 0.0) {
-        i += 1;
+    cout << testType << endl;
+
+    vector <double> expectedResults = {
+            0.0,
+            0.5,
+            0.5,
+            0.5,
+            -0.5,
+            -0.5,
+            -0.5,
+            0.5,
+            1,
+            -1,
+            fabs(Calculator1.division(1, 9999999999))+fabs(1e-10),
+            fabs(Calculator1.division(5.156, 2.651))+fabs(1.94493),
+            fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493)
+    };
+    vector <double> results = {
+            Calculator1.division(0, 5.651),
+            Calculator1.division(1.0, 2),
+            Calculator1.division(1.0, 2.0),
+            Calculator1.division(1, 2),
+            Calculator1.division(1.0, -2.0),
+            Calculator1.division(1.0, -2.0),
+            Calculator1.division(1, -2),
+            Calculator1.division(-1, -2),
+            Calculator1.division(999999999999999999, 999999999999999999),
+            Calculator1.division(-999999999999999999, 999999999999999999),
+            fabs(Calculator1.division(1, 9999999999) + 1e-10),
+            fabs(Calculator1.division(5.156, 2.651) + 1.94493),
+            fabs(Calculator1.division(-5.156, 2.651) - 1.94493)
+    };
+
+    if (results.size() != expectedResults.size()) {
+        return -1;
+    } else {
+        for (unsigned long i = 0; i < 10; i++) {
+            testScenario++;
+            if (results.at(i) == expectedResults.at(i)) {
+                passedTests++;
+            } else {
+                cout << delimiter << endl;
+                cout << "Test case no.: " << testScenario << endl;
+                cout << "Expected output: " << expectedResults.at(i) << endl;
+                cout << "Given output: " << results.at(i) << endl;
+                cout << delimiter << endl;
+            }
+        }
+        for (unsigned long i = 10; i < results.size(); i++) {
+            testScenario++;
+            if (results.at(i) <= expectedResults.at(i)) {
+                passedTests++;
+            } else {
+                cout << delimiter << endl;
+                cout << "Test case no.: " << testScenario << endl;
+                cout << "Expected output: " << expectedResults.at(i) << endl;
+                cout << "Given output: " << results.at(i) << endl;
+                cout << delimiter << endl;
+            }
+        }
     }
-
-    if (Calculator1.division(1.0, 2) == 0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(1.0, 2.0) == 0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(1, 2) == 0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(1.0, -2.0) == -0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(1.0, -2) == -0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(1, -2) == -0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(-1, -2) == 0.5) {
-        i += 1;
-    }
-
-    if (Calculator1.division(999999999999999999, 999999999999999999) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.division(-999999999999999999, 999999999999999999) == -1) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.division(1, 9999999999) + 1e-10) < fabs(Calculator1.division(1, 9999999999))+fabs(1e-10)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.division(5.156, 2.651) + 1.94493) < fabs(Calculator1.division(5.156, 2.651))+fabs(1.94493)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.division(-5.156, 2.651) - 1.94493) < fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493)) {
-        i += 1;
-    }
-
-    return i;
+    return passedTests;
 }
 
 int basic_powerOf(Math Calculator1) {
@@ -600,7 +674,7 @@ int main() {
     cout << "addition tests: " + to_string(basic_addition(Calculator1)) + "/10 PASSED" << endl;
     cout << "subtraction tests: " + to_string(basic_subtraction(Calculator1)) + "/10 PASSED" << endl;
     cout << "multiplication tests: " + to_string(basic_multiplication(Calculator1)) + "/16 PASSED" << endl;
-    cout << "division tests: " + to_string(basic_division(Calculator1)) + "/13 PASSED" << endl;
+    cout << "DIVISION RESULTS: " + to_string(basic_division(Calculator1)) + "/13 PASSED" << endl;
     cout << "power tests: " + to_string(basic_powerOf(Calculator1)) + "/20 PASSED" << endl;
     cout << "factorial tests: " + to_string(basic_factorial(Calculator1)) + "/5 PASSED" << endl;
     cout << "root tests: " + to_string(basic_root(Calculator1)) + "/5 PASSED" << endl;
