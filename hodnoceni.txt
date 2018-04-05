@@ -1,4 +1,4 @@
-xlogin01 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xskala11 100 (matematická knihovna, make frontend + backend)
+xvalka03 100 (frontend)
+xhrbot01 100 (profiling, backend kalkulačky)
+xkysel12 100 (testy, makefile matematická knihovna)
