@@ -51,7 +51,7 @@ pack:
 	make clean
 
 test:
-	$(CC) -o tests tests.cpp calc.cpp basic.cpp
+	$(CC) $(CFLAGS) -o tests tests.cpp calc.cpp basic.cpp
 	./tests
 
 doc:
