@@ -26,12 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        *.cpp \
+        basic.cpp \
+        calc.cpp \
+        calculator.cpp \
+        main.cpp \
+        mainwindow.cpp \
+        profiling.cpp \
 
 HEADERS += \
-        *.h \
-
-SOURCES -= tests.cpp \
+        basic.h \
+        calc.h \
+        calculator.h \
+        mainwindow.h \
+        profiling.h \
 
 MAKEFILE += \
         qtMakefile \
