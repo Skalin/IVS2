@@ -31,6 +31,8 @@ SOURCES += \
 HEADERS += \
         *.h \
 
+SOURCES -= tests.cpp \
+
 MAKEFILE += \
         qtMakefile \
 
