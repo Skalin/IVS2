@@ -85,119 +85,156 @@ int basic_addition(Math Calculator1) {
 }
 
 int basic_subtraction(Math Calculator1) {
-    int i = 0;
+    unsigned int passedTests = 0;
+    unsigned int testScenario = 0;
+    unsigned int amountOfComparisonTests = 10;
+    unsigned int failedTests = 0;
+    string testType = "SUBTRACTION TESTS";
 
-    if (Calculator1.subtraction(1.0, 2) == -1) {
-        i += 1;
+    vector <double> expectedResults = {
+            -1,
+            -1,
+            -1,
+            3.0,
+            3,
+            3,
+            1,
+            0,
+            -2e+18,
+            -9999999998
+    };
+    vector <double> results = {
+            Calculator1.subtraction(1.0, 2),
+            Calculator1.subtraction(1.0, 2.0),
+            Calculator1.subtraction(1, 2),
+            Calculator1.subtraction(1.0, -2.0),
+            Calculator1.subtraction(1.0, -2),
+            Calculator1.subtraction(1, -2),
+            Calculator1.subtraction(-1, -2),
+            Calculator1.subtraction(999999999999999999, 999999999999999999),
+            Calculator1.subtraction(-999999999999999999, 999999999999999999),
+            Calculator1.subtraction(1, 9999999999)
+    };
+
+    if (results.size() != expectedResults.size()) {
+        return -1;
+    } else {
+        for (unsigned long i = 0; i < results.size(); i++) {
+            testScenario++;
+            if (testScenario <= amountOfComparisonTests) {
+                if (results.at(i) == expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    failedTests++;
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            } else {
+                if (results.at(i) <= expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            }
+        }
     }
-
-    if (Calculator1.subtraction(1.0, 2.0) == -1) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(1, 2) == -1) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(1.0, -2.0) == 3.0) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(1.0, -2) == 3) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(1, -2) == 3) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(-1, -2) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(999999999999999999, 999999999999999999) == 0) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(-999999999999999999, 999999999999999999) == -2e+18) {
-        i += 1;
-    }
-
-    if (Calculator1.subtraction(1, 9999999999) == -9999999998) {
-        i += 1;
-    }
-
-    return i;
+    return passedTests;
 }
 
 int basic_multiplication(Math Calculator1) {
-    int i = 0;
+    unsigned int passedTests = 0;
+    unsigned int testScenario = 0;
+    unsigned int amountOfComparisonTests = 11;
+    unsigned int failedTests = 0;
+    string testType = "MULTIPLICATION TESTS";
 
-    if (Calculator1.multiplication(0.0, 2.0) == 0) {
-        i += 1;
+    vector <double> expectedResults = {
+            0,
+            2.0,
+            2,
+            -2,
+            -2.0,
+            4,
+            20.0,
+            20,
+            1e+36,
+            -1e+36,
+            9999999999.0,
+            fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589),
+            fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589),
+            fabs(Calculator1.multiplication(2.35163, 665.6533))+fabs(1565.37026988),
+            fabs(Calculator1.multiplication(-2.35163, -665.6533))+fabs(1565.37026988),
+            fabs(Calculator1.multiplication(2.35163, -665.6533))+fabs(1565.37026988)
+    };
+    vector <double> results = {
+            Calculator1.multiplication(0.0, 2.0),
+            Calculator1.multiplication(1.0, 2.0),
+            Calculator1.multiplication(1, 2),
+            Calculator1.multiplication(1, -2),
+            Calculator1.multiplication(1.0, -2.0),
+            Calculator1.multiplication(-1.0, -4.0),
+            Calculator1.multiplication(-10, -2),
+            Calculator1.multiplication(-10, -2),
+            Calculator1.multiplication(999999999999999999.0, 999999999999999999.0),
+            Calculator1.multiplication(-999999999999999999.0, 999999999999999999.0),
+            Calculator1.multiplication(1.0, 9999999999.0),
+            fabs(Calculator1.multiplication(2.33, 3.33) - 7.7589),
+            fabs(Calculator1.multiplication(2.33, -3.33) + 7.7589),
+            fabs(Calculator1.multiplication(2.35163, 665.6533) - 1565.37026988),
+            fabs(Calculator1.multiplication(-2.35163, -665.6533) - 1565.37026988),
+            fabs(Calculator1.multiplication(2.35163, -665.6533) + 1565.37026988)
+    };
+
+    if (results.size() != expectedResults.size()) {
+        return -1;
+    } else {
+        for (unsigned long i = 0; i < results.size(); i++) {
+            testScenario++;
+            if (testScenario <= amountOfComparisonTests) {
+                if (results.at(i) == expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    failedTests++;
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            } else {
+                if (results.at(i) <= expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            }
+        }
     }
 
-    if (Calculator1.multiplication(1.0, 2.0) == 2.0) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(1, 2) == 2) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(1, -2) == -2) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(1.0, -2.0) == -2.0) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(-1.0, -4.0) == 4) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(-10, -2) == 20.0) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(-10, -2) == 20) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(999999999999999999.0, 999999999999999999.0) == 1e+36) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(-999999999999999999.0, 999999999999999999.0) == -1e+36) {
-        i += 1;
-    }
-
-    if (Calculator1.multiplication(1.0, 9999999999.0) == 9999999999.0) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.multiplication(2.33, 3.33) - 7.7589) < fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.multiplication(2.33, -3.33) + 7.7589) < fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.multiplication(2.35163, 665.6533) - 1565.37026988) < fabs(Calculator1.multiplication(2.35163, 665.6533))+fabs(1565.37026988)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.multiplication(-2.35163, -665.6533) - 1565.37026988) < fabs(Calculator1.multiplication(-2.35163, -665.6533))+fabs(1565.37026988)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.multiplication(2.35163, -665.6533) + 1565.37026988) < fabs(Calculator1.multiplication(2.35163, -665.6533))+fabs(1565.37026988)) {
-        i += 1;
-    }
-
-    return i;
+    return passedTests;
 }
 
 unsigned int basic_division(Math Calculator1) {
