@@ -57,6 +57,7 @@ int basic_addition(Math Calculator1) {
 					if (failedTests == 0) {
 						cout << testType << endl;
 					}
+                    failedTests++;
                     cout << delimiter << endl;
                     cout << "Test case no.: " << testScenario << endl;
                     cout << "Expected output: " << expectedResults.at(i) << endl;
@@ -70,6 +71,7 @@ int basic_addition(Math Calculator1) {
 					if (failedTests == 0) {
 						cout << testType << endl;
 					}
+                    failedTests++;
                     cout << delimiter << endl;
                     cout << "Test case no.: " << testScenario << endl;
                     cout << "Expected output: " << expectedResults.at(i) << endl;
