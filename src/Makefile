@@ -1,7 +1,7 @@
 .PHONY: all pack clean test doc run
 
 CC := g++
-CFLAGS := -Wall -g
+CFLAGS := -std=c++11 -Wall -g
 TARGET := Calculator
 QTMAKE := qtMakefile
 TEST := tests
