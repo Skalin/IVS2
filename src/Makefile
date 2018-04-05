@@ -4,7 +4,7 @@ CC := g++
 CFLAGS := -std=c++11 -Wall -g
 TARGET := Calculator
 QTMAKE := qtMakefile
-TEST := tests
+TEST := testCalculator
 PACKFOLDER := xskala11_xvalka03_xhrbot01_xkysel12
 
 all:
@@ -51,8 +51,8 @@ pack:
 	make clean
 
 test:
-	$(CC) $(CFLAGS) -o tests tests.cpp calc.cpp basic.cpp
-	./tests
+	$(CC) $(CFLAGS) -o $(TEST) tests.cpp calc.cpp basic.cpp
+	./$(TEST)
 
 doc:
 	doxygen
