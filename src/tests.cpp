@@ -238,12 +238,11 @@ int basic_multiplication(Math Calculator1) {
     return i;
 }
 
-int basic_division(Math Calculator1) {
-    int passedTests = 0;
-    int testScenario = 0;
+unsigned int basic_division(Math Calculator1) {
+    unsigned int passedTests = 0;
+    unsigned int testScenario = 0;
+	unsigned int amountOfComparisonTests = 10;
     string testType = "DIVISION TESTS";
-
-    cout << testType << endl;
 
     vector <double> expectedResults = {
             0.0,
@@ -276,32 +275,33 @@ int basic_division(Math Calculator1) {
             fabs(Calculator1.division(-5.156, 2.651) - 1.94493)
     };
 
+	cout << testType << endl;
     if (results.size() != expectedResults.size()) {
         return -1;
     } else {
-        for (unsigned long i = 0; i < 10; i++) {
-            testScenario++;
-            if (results.at(i) == expectedResults.at(i)) {
-                passedTests++;
-            } else {
-                cout << delimiter << endl;
-                cout << "Test case no.: " << testScenario << endl;
-                cout << "Expected output: " << expectedResults.at(i) << endl;
-                cout << "Given output: " << results.at(i) << endl;
-                cout << delimiter << endl;
-            }
-        }
-        for (unsigned long i = 10; i < results.size(); i++) {
-            testScenario++;
-            if (results.at(i) <= expectedResults.at(i)) {
-                passedTests++;
-            } else {
-                cout << delimiter << endl;
-                cout << "Test case no.: " << testScenario << endl;
-                cout << "Expected output: " << expectedResults.at(i) << endl;
-                cout << "Given output: " << results.at(i) << endl;
-                cout << delimiter << endl;
-            }
+        for (unsigned long i = 0; i < results.size(); i++) {
+			testScenario++;
+			if (testScenario <= amountOfComparisonTests) {
+				if (results.at(i) == expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			} else {
+				if (results.at(i) <= expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			}
         }
     }
     return passedTests;
@@ -358,15 +358,15 @@ int basic_powerOf(Math Calculator1) {
         i += 1;
     }
 
+	if (Calculator1.powerOf(-0, 99) == 0) {
+		i += 1;
+	}
+
     if (fabs(Calculator1.powerOf(99, 99) - 3.6973e+197) < fabs(Calculator1.powerOf(99, 99))+fabs(3.6973e+197)) {
         i += 1;
     }
 
     if (fabs(Calculator1.powerOf(-99, 99) + 3.6973e+197) < fabs(Calculator1.powerOf(-99, 99))+fabs(3.6973e+197)) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-0, 99) == 0) {
         i += 1;
     }
 
@@ -408,15 +408,15 @@ int basic_factorial(Math Calculator1) {
         i += 1;
     }
 
-    if (fabs(Calculator1.factorial(52) - 8.06582e+67) < fabs(Calculator1.factorial(52))+fabs(8.06582e+67)) {
-        i += 1;
-    }
-
     if (Calculator1.factorial(10) == 3628800) {
         i += 1;
     }
 
-    return i;
+	if (fabs(Calculator1.factorial(52) - 8.06582e+67) < fabs(Calculator1.factorial(52))+fabs(8.06582e+67)) {
+		i += 1;
+	}
+
+	return i;
 }
 
 int basic_root(Math Calculator1) {
