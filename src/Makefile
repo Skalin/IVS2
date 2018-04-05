@@ -42,7 +42,7 @@ pack:
 	cp -rf ../*.* ../$(PACKFOLDER)/repo
 	cp -rf ../LICENSE ../$(PACKFOLDER)/repo
 	# cp -rf ../install ../$(PACKFOLDER)
-	zip -r ../$(PACKFOLDER).zip ../$(PACKFOLDER)
+	zip -r ../$(PACKFOLDER)
 	rm -rf ../$(PACKFOLDER)
 	# cleanup after packing
 	make clean
