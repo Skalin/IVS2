@@ -1,3 +1,8 @@
+//! Tests for math library
+/*! \file tests.cpp
+ *
+ */
+
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -5,7 +10,6 @@
 
 using namespace std;
 
-// basic addition() tests
 int basic_addition(Math Calculator1) {
     int i = 0;
 
@@ -52,7 +56,6 @@ int basic_addition(Math Calculator1) {
     return i;
 }
 
-// basic subtraction() tests
 int basic_subtraction(Math Calculator1) {
     int i = 0;
 
@@ -99,7 +102,6 @@ int basic_subtraction(Math Calculator1) {
     return i;
 }
 
-// basic multiplication() tests
 int basic_multiplication(Math Calculator1) {
     int i = 0;
 
@@ -170,7 +172,6 @@ int basic_multiplication(Math Calculator1) {
     return i;
 }
 
-// basic division() tests
 int basic_division(Math Calculator1) {
     int i = 0;
 
@@ -229,7 +230,6 @@ int basic_division(Math Calculator1) {
     return i;
 }
 
-// basic powerOf() tests
 int basic_powerOf(Math Calculator1) {
     int i = 0;
 
@@ -316,7 +316,6 @@ int basic_powerOf(Math Calculator1) {
     return i;
 }
 
-// basic factorial() tests
 int basic_factorial(Math Calculator1) {
     int i = 0;
 
@@ -343,7 +342,6 @@ int basic_factorial(Math Calculator1) {
     return i;
 }
 
-// basic root() tests
 int basic_root(Math Calculator1) {
     int i = 0;
 
@@ -370,7 +368,6 @@ int basic_root(Math Calculator1) {
     return i;
 }
 
-// basic sum() tests
 int basic_sum(Math Calculator1) {
     int i = 0;
     vector<double> arrayOfDoubles;
@@ -461,7 +458,6 @@ int basic_sum(Math Calculator1) {
     return i;
 }
 
-// basic average() tests
 int basic_average(Math Calculator1) {
     int i = 0;
     vector<double> arrayOfDoubles;
@@ -540,7 +536,6 @@ int basic_average(Math Calculator1) {
     return i;
 }
 
-// advanced tests
 int advanced(Math Calculator1) {
     int i = 0;
     vector<double> arrayOfDoubles;
