@@ -1,8 +1,22 @@
-Rozd�l v�voje:
-- Pl�n
-	dle pl�nu do 20.3. hotov� pl�n x
-	pl�n byl hotov 16.3.
+Původní plán:
+    - do 20.3. rozdělení práce a plán práce
+    - do 1.4. mockup aplikace frontend
+    - do 5.4. testy
+    - do 15.4. vytvoření programu, matematických operací, profilingu a frontendu
+    - do 17.4. napojední backendu na frontend
+    - do 20.4. kompletace dokumentace (+ uživatelská příručka) a finalizace instalátorů a ověření funkčnosti instalace aplikace, mockupy další verze aplikace
+    - do 20.4. soupis hodnocení členů
+    - do 23.4. sepsání souboru skutecnost.txt a porovnání plánu vůči reálnému postupu vývoje
+    - do 24.4. rezerva pro případné chyby a doladění problémů při implementaci, při psaní dokumentace
 
-- Mockupy
-	dle pl�nu do 1.4. 
-	hotovy prakticky ji� 16.3.
+
+Realita
+	- 16.3.
+	    - plán hotový
+        - hotové mockupy aplikace frontendu
+    - 24.3.
+    	- matematická knihovna základní dokoncena 24.3., 25.3. i s bugfindingem, první testy v calc.cpp a main.cpp
+	    - prototyp frontendu, prakticky funkční, řeší se již napojování na backend
+	- 25.3.
+	    - napojení frontendu na backend dokončeno, provádí se ošetřování vstupů a testoval se backend, nalezeno pár chyb
+	    - profiling dokončený, napojení frontend <-> backend hotovo, nalezeny a opraveny chyby při práci s vektory a prakticky zbývá pouze otestovat profiling

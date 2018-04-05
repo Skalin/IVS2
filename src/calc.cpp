@@ -1,39 +1,64 @@
-#include <iostream>
-#include <stdexcept>
-#include <cassert>
+//! Math operations implementation
+/*! \file calc.cpp
+ *
+ */
 
-#define TESTS 1 // if tests = 0, application will not run tests, otherwise the testing will be turned on
+#include "calc.h"
 
-class Math {
-public:
-	double addition(double operand1, double operand2);
-	double subtraction(double operand1, double operand2);
-	double multiplication(double operand1, double operand2);
-	double division(double operand1, double operand2);
-	double powerOf(double operand, int exponent);
-	double factorial(int operand);
-	double root(double operand, int exponent);
-};
-
-Math::addition(double operand1, double operand2) {
-	return (operand1 + operand2);
+double Math::addition(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 + operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::subtraction(double operand1, double operand2) {
-	return (operand1 - operand2);
+double Math::subtraction(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 - operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::multiplication(double operand1, double operand2) {
-	return (operand1 * operand2);
+double Math::multiplication(double operand1, double operand2) {
+	double result;
+	try {
+		result = operand1 * operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::division(double operand1, double operand2) {
-	if (operand2 == 0)
-		throw std::overflow_error("Division by zero!");
-	return (operand1/operand2);
+int Math::multiplication(int operand1, int operand2) {
+	int result;
+	try {
+		result = operand1 * operand2;
+	} catch (...) {
+		printError();
+	}
+	return result;
 }
 
-Math::powerOf(double operand, int exponent) {
+double Math::division(double operand1, double operand2) {
+	try {
+		if (operand2 == 0)
+			throw std::overflow_error("Division by zero!");
+		return (operand1/operand2);
+	} catch (std::overflow_error &e) {
+		printError(e.what());
+	} catch (...) {
+		printError();
+	}
+	return 0.0;
+}
+
+double Math::powerOf(double operand, int exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
@@ -44,34 +69,39 @@ Math::powerOf(double operand, int exponent) {
 			}
 			return result;
 		}
-	} catch (...){
+	} catch (std::range_error &e) {
+		printError(e.what());
+	} catch (...) {
 		printError();
 	}
+	return 0.0;
 }
 
-Math::factorial(int operand) {
+double Math::factorial(int operand) {
+	double result = 1;
 	try {
 		if (operand < 0) {
 			throw std::range_error("Number cannot be negative!");
 		} else {
-			int result = 1;
 			for (int i = 1; i <= operand; i++) {
-				result = multiplication(result, i)
+				result = multiplication(result, double(i));
 			}
-			return result;
 		}
+	} catch (std::range_error &e) {
+		printError(e.what());
 	} catch (...) {
 		printError();
 	}
+	return result;
 }
 
 // Newton's method
-Math::root(double operand, int exponent) {
+double Math::root(double operand, int exponent) {
+	double x = 1.0;
 	try {
 		if (exponent <= 0) {
 			throw std::range_error("Number cannot be negative or zero!");
 		} else {
-			double x;
 			double dx;
 			double eps(10e-6);
 			x = operand * 0.5;
@@ -80,33 +110,52 @@ Math::root(double operand, int exponent) {
 				x = x + dx;
 				dx = (operand/powerOf(x,exponent-1)-x)/exponent;
 			}
-			return x;
+		}
+	} catch (std::range_error &e) {
+		printError(e.what());
+	} catch (...) {
+		printError();
+	}
+	return x;
+}
+
+double Math::sum(std::vector <double>* arrayOfDoubles) {
+	double sum = 0.0;
+	try {
+		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
+			sum += arrayOfDoubles->at(i);
 		}
 	} catch (...) {
 		printError();
 	}
+	return sum;
 }
 
-void printError() {
-	std::cerr << "Unexpected error occured!\n" << std::endl;
+double Math::average(std::vector <double>* arrayOfDoubles) {
+	return this->sum(arrayOfDoubles)/arrayOfDoubles->size();
 }
 
-int main() {
-	
-	Math math;
-	
-	if (TESTS) {
-		assert();
-	} else {
-		std::cout << Math.addition(1, 2) << std::endl;
-		std::cout << Math.subtraction(5, 2) << std::endl;
-		std::cout << Math.multiplication(5, 2) << std::endl;
-		std::cout << Math.division(6, 2) << std::endl;
-		std::cout << Math.powerOf(5, 2) << std::endl;
-		std::cout << Math.factorial(5) << std::endl;
-		std::cout << Math.root(81, 4) << std::endl;
-		
-		cout << "Sample calculator source code" << endl;
+
+double Math::sum(std::vector <double>* arrayOfDoubles, unsigned long amount) {
+	double sum = 0.0;
+	try {
+		for (unsigned int i = 0; i < amount; i++){
+			sum += arrayOfDoubles->at(i);
+		}
+	} catch (...) {
+		printError();
 	}
-	return 0;
+	return sum;
+}
+
+double Math::average(std::vector <double>* arrayOfDoubles, unsigned long amount) {
+	unsigned long realAmount = amount;
+	if (realAmount > arrayOfDoubles->size()) {
+		realAmount = arrayOfDoubles->size();
+	}
+	return this->sum(arrayOfDoubles, realAmount)/realAmount;
+}
+
+double Math::negate(double number) {
+	return -number;
 }
