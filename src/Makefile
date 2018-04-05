@@ -48,6 +48,8 @@ pack:
 	make clean
 
 test:
+	$(CC) -o tests tests.cpp calc.cpp basic.cpp
+	./tests
 
 doc:
 	doxygen
