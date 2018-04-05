@@ -461,55 +461,65 @@ int basic_factorial(Math Calculator1) {
         }
     }
     return passedTests;
-    int i = 0;
-
-    if (Calculator1.factorial(0) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.factorial(1) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.factorial(5) == 120) {
-        i += 1;
-    }
-
-    if (Calculator1.factorial(10) == 3628800) {
-        i += 1;
-    }
-
-	if (fabs(Calculator1.factorial(52) - 8.06582e+67) < fabs(Calculator1.factorial(52))+fabs(8.06582e+67)) {
-		i += 1;
-	}
-
-	return i;
 }
 
-int basic_root(Math Calculator1) {
-    int i = 0;
+int basic_root(Math Calculator1) {unsigned int passedTests = 0;
+	unsigned int testScenario = 0;
+	unsigned int amountOfComparisonTests = 1;
+	unsigned int failedTests = 0;
+	string testType = "FACTORIAL TESTS";
 
-    if (Calculator1.root(0,2) == 0) {
-        i += 1;
-    }
+	vector <double> expectedResults = {
+			0,
+			fabs(Calculator1.root(2.255,2))+fabs(1.5017),
+			fabs(Calculator1.root(25,2))+fabs(5),
+			fabs(Calculator1.root(0.3165,2))+fabs(0.5626),
+			fabs(Calculator1.root(616165.3165,2))+fabs(784.962),
+	};
+	vector <double> results = {
+			Calculator1.root(0,2),
+			fabs(Calculator1.root(2.255,2) - 1.5017),
+			fabs(Calculator1.root(25,2) - 5),
+			fabs(Calculator1.root(0.3165,2) - 0.5626),
+			fabs(Calculator1.root(616165.3165,2) - 784.962)
+	};
 
-    if (fabs(Calculator1.root(2.255,2) - 1.5017) < fabs(Calculator1.root(2.255,2))+fabs(1.5017)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.root(25,2) - 5) < fabs(Calculator1.root(25,2))+fabs(5)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.root(0.3165,2) - 0.5626) < fabs(Calculator1.root(0.3165,2))+fabs(0.5626)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.root(616165.3165,2) - 784.962) < fabs(Calculator1.root(616165.3165,2))+fabs(784.962)) {
-        i += 1;
-    }
-
-    return i;
+	if (results.size() != expectedResults.size()) {
+		return -1;
+	} else {
+		for (unsigned long i = 0; i < results.size(); i++) {
+			testScenario++;
+			if (testScenario <= amountOfComparisonTests) {
+				if (results.at(i) == expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			} else {
+				if (results.at(i) <= expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			}
+		}
+	}
+	return passedTests;
 }
 
 int basic_sum(Math Calculator1) {
