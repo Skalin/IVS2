@@ -11,13 +11,14 @@
 using namespace std;
 
 
-string delimiter = "=======================";
+string delimiter = "==============================================";
 
 int basic_addition(Math Calculator1) {
     unsigned int passedTests = 0;
     unsigned int testScenario = 0;
     unsigned int amountOfComparisonTests = 10;
-    string testType = "ADDITION TESTS";
+	unsigned int failedTests = 0;
+    string testType = "ADDITION TESTS INFORMATION";
 
     vector <double> expectedResults = {
             3,
@@ -44,7 +45,6 @@ int basic_addition(Math Calculator1) {
             Calculator1.addition(1, 9999999999)
     };
 
-    cout << testType << endl;
     if (results.size() != expectedResults.size()) {
         return -1;
     } else {
@@ -54,6 +54,9 @@ int basic_addition(Math Calculator1) {
                 if (results.at(i) == expectedResults.at(i)) {
                     passedTests++;
                 } else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
                     cout << delimiter << endl;
                     cout << "Test case no.: " << testScenario << endl;
                     cout << "Expected output: " << expectedResults.at(i) << endl;
@@ -64,6 +67,9 @@ int basic_addition(Math Calculator1) {
                 if (results.at(i) <= expectedResults.at(i)) {
                     passedTests++;
                 } else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
                     cout << delimiter << endl;
                     cout << "Test case no.: " << testScenario << endl;
                     cout << "Expected output: " << expectedResults.at(i) << endl;
@@ -196,6 +202,7 @@ unsigned int basic_division(Math Calculator1) {
     unsigned int passedTests = 0;
     unsigned int testScenario = 0;
 	unsigned int amountOfComparisonTests = 10;
+	unsigned int failedTests = 0;
     string testType = "DIVISION TESTS";
 
     vector <double> expectedResults = {
@@ -229,7 +236,6 @@ unsigned int basic_division(Math Calculator1) {
             fabs(Calculator1.division(-5.156, 2.651) - 1.94493)
     };
 
-	cout << testType << endl;
     if (results.size() != expectedResults.size()) {
         return -1;
     } else {
@@ -239,6 +245,10 @@ unsigned int basic_division(Math Calculator1) {
 				if (results.at(i) == expectedResults.at(i)) {
 					passedTests++;
 				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
 					cout << delimiter << endl;
 					cout << "Test case no.: " << testScenario << endl;
 					cout << "Expected output: " << expectedResults.at(i) << endl;
@@ -249,6 +259,9 @@ unsigned int basic_division(Math Calculator1) {
 				if (results.at(i) <= expectedResults.at(i)) {
 					passedTests++;
 				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
 					cout << delimiter << endl;
 					cout << "Test case no.: " << testScenario << endl;
 					cout << "Expected output: " << expectedResults.at(i) << endl;
@@ -625,16 +638,27 @@ int advanced(Math Calculator1) {
 int main() {
     Math Calculator1;
 
+	cout << delimiter << endl;
     cout << "ADDITION RESULTS: " + to_string(basic_addition(Calculator1)) + "/10 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "SUBTRACTION RESULTS: " + to_string(basic_subtraction(Calculator1)) + "/10 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "MULTIPLICATION RESULTS: " + to_string(basic_multiplication(Calculator1)) + "/16 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "DIVISION RESULTS: " + to_string(basic_division(Calculator1)) + "/13 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "POWER RESULTS: " + to_string(basic_powerOf(Calculator1)) + "/20 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "FACTORIAL RESULTS: " + to_string(basic_factorial(Calculator1)) + "/5 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "ROOT RESULTS: " + to_string(basic_root(Calculator1)) + "/5 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "SUM RESULTS: " + to_string(basic_sum(Calculator1)) + "/16 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "AVERAGE RESULTS: " + to_string(basic_average(Calculator1)) + "/14 PASSED" << endl;
+	cout << delimiter << endl;
     cout << "ADVANCED TESTS RESULTS: " + to_string(advanced(Calculator1)) + "/10 PASSED" << endl;
+	cout << delimiter << endl;
 
     return 0;
 }
