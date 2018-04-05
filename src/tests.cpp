@@ -1,0 +1,609 @@
+//! Tests for math library
+/*! \file tests.cpp
+ *
+ */
+
+#include <iostream>
+#include <math.h>
+#include <vector>
+#include "calc.h"
+
+using namespace std;
+
+int basic_addition(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.addition(1.0, 2) == 3) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1.0, 2.0) == 3) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1, 2) == 3) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1.0, -2.0) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1.0, -2) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1, -2) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(-1, -2) == -3) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(999999999999999999, 999999999999999999) == 2e+18) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(-999999999999999999, 999999999999999999) == 0) {
+        i += 1;
+    }
+
+    if (Calculator1.addition(1, 9999999999) == 10000000000) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_subtraction(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.subtraction(1.0, 2) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1.0, 2.0) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1, 2) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1.0, -2.0) == 3.0) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1.0, -2) == 3) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1, -2) == 3) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(-1, -2) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(999999999999999999, 999999999999999999) == 0) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(-999999999999999999, 999999999999999999) == -2e+18) {
+        i += 1;
+    }
+
+    if (Calculator1.subtraction(1, 9999999999) == -9999999998) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_multiplication(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.multiplication(0.0, 2.0) == 0) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(1.0, 2.0) == 2.0) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(1, 2) == 2) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(1, -2) == -2) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(1.0, -2.0) == -2.0) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(-1.0, -4.0) == 4) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(-10, -2) == 20.0) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(-10, -2) == 20) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(999999999999999999.0, 999999999999999999.0) == 1e+36) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(-999999999999999999.0, 999999999999999999.0) == -1e+36) {
+        i += 1;
+    }
+
+    if (Calculator1.multiplication(1.0, 9999999999.0) == 9999999999.0) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.multiplication(2.33, 3.33) - 7.7589) < fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.multiplication(2.33, -3.33) + 7.7589) < fabs(Calculator1.multiplication(2.33, 3.33))+fabs(7.7589)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.multiplication(2.35163, 665.6533) - 1565.37026988) < fabs(Calculator1.multiplication(2.35163, 665.6533))+fabs(1565.37026988)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.multiplication(-2.35163, -665.6533) - 1565.37026988) < fabs(Calculator1.multiplication(-2.35163, -665.6533))+fabs(1565.37026988)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.multiplication(2.35163, -665.6533) + 1565.37026988) < fabs(Calculator1.multiplication(2.35163, -665.6533))+fabs(1565.37026988)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_division(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.division(0, 5.651) == 0.0) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1.0, 2) == 0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1.0, 2.0) == 0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1, 2) == 0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1.0, -2.0) == -0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1.0, -2) == -0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(1, -2) == -0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(-1, -2) == 0.5) {
+        i += 1;
+    }
+
+    if (Calculator1.division(999999999999999999, 999999999999999999) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.division(-999999999999999999, 999999999999999999) == -1) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.division(1, 9999999999) + 1e-10) < fabs(Calculator1.division(1, 9999999999))+fabs(1e-10)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.division(5.156, 2.651) + 1.94493) < fabs(Calculator1.division(5.156, 2.651))+fabs(1.94493)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.division(-5.156, 2.651) - 1.94493) < fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_powerOf(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.powerOf(0, 5) == 0) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(5, 0) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(5, 2) == 25) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(2, 5) == 32) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(1, 5543453) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(543543, 1) == 543543) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(0, 0) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-1, 5) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-1, 5555) == -1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-1, 4) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-5, 2) == 25) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-5, 3) == -125) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(99, 99) - 3.6973e+197) < fabs(Calculator1.powerOf(99, 99))+fabs(3.6973e+197)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(-99, 99) + 3.6973e+197) < fabs(Calculator1.powerOf(-99, 99))+fabs(3.6973e+197)) {
+        i += 1;
+    }
+
+    if (Calculator1.powerOf(-0, 99) == 0) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(5.2, 2) - 27.04) < fabs(Calculator1.powerOf(5.2, 2))+fabs(27.04)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(-5.2, 2) + 27.04) < fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.04)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(-5.256, 2) - 27.6255) < fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.6255)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(-5.256, 3) + 145.1998) < fabs(Calculator1.powerOf(-5.2, 3))+fabs(145.1998)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.powerOf(-5.2, 0) - 1) < fabs(Calculator1.powerOf(-5.2, 0))+fabs(1)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_factorial(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.factorial(0) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.factorial(1) == 1) {
+        i += 1;
+    }
+
+    if (Calculator1.factorial(5) == 120) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.factorial(52) - 8.06582e+67) < fabs(Calculator1.factorial(52))+fabs(8.06582e+67)) {
+        i += 1;
+    }
+
+    if (Calculator1.factorial(10) == 3628800) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_root(Math Calculator1) {
+    int i = 0;
+
+    if (Calculator1.root(0,2) == 0) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.root(2.255,2) - 1.5017) < fabs(Calculator1.root(2.255,2))+fabs(1.5017)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.root(25,2) - 5) < fabs(Calculator1.root(25,2))+fabs(5)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.root(0.3165,2) - 0.5626) < fabs(Calculator1.root(0.3165,2))+fabs(0.5626)) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.root(616165.3165,2) - 784.962) < fabs(Calculator1.root(616165.3165,2))+fabs(784.962)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_sum(Math Calculator1) {
+    int i = 0;
+    vector<double> arrayOfDoubles;
+    vector<double> arrayOfDoubles2;
+
+    arrayOfDoubles = {1, 2, 65};
+    if (Calculator1.sum(&arrayOfDoubles) == 68) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, -65};
+    if (Calculator1.sum(&arrayOfDoubles) == -62) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, -65.6};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) + 62.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(62.6)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.2, 2.651, -65.6};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) + 61.749) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(61.749)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {0, 0, -0};
+    if (Calculator1.sum(&arrayOfDoubles) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
+    if (Calculator1.sum(&arrayOfDoubles) == 1) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) - 1) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(1)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, 65};
+    arrayOfDoubles2 = {60, 5, 3};
+    if (Calculator1.sum(&arrayOfDoubles) == Calculator1.sum(&arrayOfDoubles2)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, 65};
+    if (Calculator1.sum(&arrayOfDoubles, 2) == 3) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -2, -65};
+    if (Calculator1.sum(&arrayOfDoubles, 2) == -1) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2.3, -65.6};
+    if (fabs(Calculator1.sum(&arrayOfDoubles, 2) - 3.3) < fabs(Calculator1.sum(&arrayOfDoubles, 2))+fabs(3.3)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {-1.2, 2.651, -65.6};
+    if (fabs(Calculator1.sum(&arrayOfDoubles, 1) + 1.2) < fabs(Calculator1.sum(&arrayOfDoubles, 1))+fabs(1.2)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {0, 0, -0};
+    if (Calculator1.sum(&arrayOfDoubles, 2) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
+    if (Calculator1.sum(&arrayOfDoubles, 8) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
+    if (fabs(Calculator1.sum(&arrayOfDoubles, 9) - 0.5) < fabs(Calculator1.sum(&arrayOfDoubles, 9))+fabs(0.5)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, 65};
+    arrayOfDoubles2 = {3, 5, 60};
+    if (Calculator1.sum(&arrayOfDoubles, 2) == Calculator1.sum(&arrayOfDoubles2, 1)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int basic_average(Math Calculator1) {
+    int i = 0;
+    vector<double> arrayOfDoubles;
+    vector<double> arrayOfDoubles2;
+
+    arrayOfDoubles = {1, 2, 65};
+    if (fabs(Calculator1.average(&arrayOfDoubles) - 22.6667) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(22.6667)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, -65};
+    if (fabs(Calculator1.average(&arrayOfDoubles) + 20.6667) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(20.6667)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, -65.6, 2};
+    if (fabs(Calculator1.average(&arrayOfDoubles) + 15.15) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(15.15)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.2, 2.651, -65.6};
+    if (fabs(Calculator1.average(&arrayOfDoubles) + 20.583) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(20.583)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {0, 0, -0};
+    if (Calculator1.average(&arrayOfDoubles) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
+    if (fabs(Calculator1.average(&arrayOfDoubles) - 0.037) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.037)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
+    if (fabs(Calculator1.average(&arrayOfDoubles) - 0.037) < fabs(Calculator1.average(&arrayOfDoubles))+fabs(0.037)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2, 65};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 1.5) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.5)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -2, -65};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 2) + 1.5) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.5)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, 2.3, -65.6};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 1.65) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.65)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {-1.2, 2.651, -65.6};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 1) + 1.2) < fabs(Calculator1.average(&arrayOfDoubles, 1))+fabs(1.2)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {0, 0, -0};
+    if (Calculator1.average(&arrayOfDoubles, 2) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
+    if (Calculator1.average(&arrayOfDoubles, 8) == 0) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 9) - 0.0556) < fabs(Calculator1.average(&arrayOfDoubles, 9))+fabs(0.0556)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int advanced(Math Calculator1) {
+    int i = 0;
+    vector<double> arrayOfDoubles;
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.addition(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.addition(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) + 0.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.4)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.subtraction(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) + 0.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.4)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.subtraction(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) + 1.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(1.4)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) - 4.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(4.6)) {
+        i += 1;
+    }
+
+    if (Calculator1.factorial(4) == Calculator1.multiplication(4, Calculator1.multiplication(3, Calculator1.multiplication(2, 1)))) {
+        i += 1;
+    }
+
+    if (fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2) - 5) < fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2))+fabs(5)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
+    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 3) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(3)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles, 1) - 3) < fabs(Calculator1.sum(&arrayOfDoubles, 1))+fabs(3)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
+    if (fabs(Calculator1.sum(&arrayOfDoubles) - 10.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(10.6)) {
+        i += 1;
+    }
+
+    arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, Calculator1.factorial(3)), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
+    if (fabs(Calculator1.average(&arrayOfDoubles) - 2.6) < fabs(Calculator1.average(&arrayOfDoubles))+fabs(2.6)) {
+        i += 1;
+    }
+
+    return i;
+}
+
+int main() {
+    Math Calculator1;
+
+    cout << "addition tests: " + to_string(basic_addition(Calculator1)) + "/10 PASSED" << endl;
+    cout << "subtraction tests: " + to_string(basic_subtraction(Calculator1)) + "/10 PASSED" << endl;
+    cout << "multiplication tests: " + to_string(basic_multiplication(Calculator1)) + "/16 PASSED" << endl;
+    cout << "division tests: " + to_string(basic_division(Calculator1)) + "/13 PASSED" << endl;
+    cout << "power tests: " + to_string(basic_powerOf(Calculator1)) + "/20 PASSED" << endl;
+    cout << "factorial tests: " + to_string(basic_factorial(Calculator1)) + "/5 PASSED" << endl;
+    cout << "root tests: " + to_string(basic_root(Calculator1)) + "/5 PASSED" << endl;
+    cout << "sum tests: " + to_string(basic_sum(Calculator1)) + "/16 PASSED" << endl;
+    cout << "average tests: " + to_string(basic_average(Calculator1)) + "/14 PASSED" << endl;
+    cout << "advanced tests: " + to_string(advanced(Calculator1)) + "/10 PASSED" << endl;
+
+    return 0;
+}
