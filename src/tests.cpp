@@ -314,92 +314,153 @@ unsigned int basic_division(Math Calculator1) {
 }
 
 int basic_powerOf(Math Calculator1) {
-    int i = 0;
+    unsigned int passedTests = 0;
+    unsigned int testScenario = 0;
+    unsigned int amountOfComparisonTests = 13;
+    unsigned int failedTests = 0;
+    string testType = "FACTORIAL TESTS";
 
-    if (Calculator1.powerOf(0, 5) == 0) {
-        i += 1;
+    vector <double> expectedResults = {
+            0,
+            1,
+            25,
+            32,
+            1,
+            543543,
+            1,
+            -1,
+            -1,
+            1,
+            25,
+            -125,
+            0,
+            fabs(Calculator1.powerOf(99, 99))+fabs(3.6973e+197),
+            fabs(Calculator1.powerOf(-99, 99))+fabs(3.6973e+197),
+            fabs(Calculator1.powerOf(5.2, 2))+fabs(27.04),
+            fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.04),
+            fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.6255),
+            fabs(Calculator1.powerOf(-5.2, 3))+fabs(145.1998),
+            fabs(Calculator1.powerOf(-5.2, 0))+fabs(1)
+    };
+    vector <double> results = {
+            Calculator1.powerOf(0, 5),
+            Calculator1.powerOf(5, 0),
+            Calculator1.powerOf(5, 2),
+            Calculator1.powerOf(2, 5),
+            Calculator1.powerOf(1, 5543453),
+            Calculator1.powerOf(543543, 1),
+            Calculator1.powerOf(0, 0),
+            Calculator1.powerOf(-1, 5),
+            Calculator1.powerOf(-1, 5555),
+            Calculator1.powerOf(-1, 4),
+            Calculator1.powerOf(-5, 2),
+            Calculator1.powerOf(-5, 3),
+            Calculator1.powerOf(-0, 99),
+            fabs(Calculator1.powerOf(99, 99) - 3.6973e+197),
+            fabs(Calculator1.powerOf(-99, 99) + 3.6973e+197),
+            fabs(Calculator1.powerOf(5.2, 2) - 27.04),
+            fabs(Calculator1.powerOf(-5.2, 2) + 27.04),
+            fabs(Calculator1.powerOf(-5.256, 2) - 27.6255),
+            fabs(Calculator1.powerOf(-5.256, 3) + 145.1998),
+            fabs(Calculator1.powerOf(-5.2, 0) - 1)
+    };
+
+    if (results.size() != expectedResults.size()) {
+        return -1;
+    } else {
+        for (unsigned long i = 0; i < results.size(); i++) {
+            testScenario++;
+            if (testScenario <= amountOfComparisonTests) {
+                if (results.at(i) == expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    failedTests++;
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            } else {
+                if (results.at(i) <= expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            }
+        }
     }
-
-    if (Calculator1.powerOf(5, 0) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(5, 2) == 25) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(2, 5) == 32) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(1, 5543453) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(543543, 1) == 543543) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(0, 0) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-1, 5) == -1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-1, 5555) == -1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-1, 4) == 1) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-5, 2) == 25) {
-        i += 1;
-    }
-
-    if (Calculator1.powerOf(-5, 3) == -125) {
-        i += 1;
-    }
-
-	if (Calculator1.powerOf(-0, 99) == 0) {
-		i += 1;
-	}
-
-    if (fabs(Calculator1.powerOf(99, 99) - 3.6973e+197) < fabs(Calculator1.powerOf(99, 99))+fabs(3.6973e+197)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(-99, 99) + 3.6973e+197) < fabs(Calculator1.powerOf(-99, 99))+fabs(3.6973e+197)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(5.2, 2) - 27.04) < fabs(Calculator1.powerOf(5.2, 2))+fabs(27.04)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(-5.2, 2) + 27.04) < fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.04)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(-5.256, 2) - 27.6255) < fabs(Calculator1.powerOf(-5.2, 2))+fabs(27.6255)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(-5.256, 3) + 145.1998) < fabs(Calculator1.powerOf(-5.2, 3))+fabs(145.1998)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.powerOf(-5.2, 0) - 1) < fabs(Calculator1.powerOf(-5.2, 0))+fabs(1)) {
-        i += 1;
-    }
-
-    return i;
+    return passedTests;
 }
 
 int basic_factorial(Math Calculator1) {
+    unsigned int passedTests = 0;
+    unsigned int testScenario = 0;
+    unsigned int amountOfComparisonTests = 4;
+    unsigned int failedTests = 0;
+    string testType = "FACTORIAL TESTS";
+
+    vector <double> expectedResults = {
+            1,
+            1,
+            120,
+            3628800,
+            fabs(Calculator1.factorial(52))+fabs(8.06582e+67)
+    };
+    vector <double> results = {
+            Calculator1.factorial(0),
+            Calculator1.factorial(1),
+            Calculator1.factorial(5),
+            Calculator1.factorial(10),
+            fabs(Calculator1.factorial(52) - 8.06582e+67)
+    };
+
+    if (results.size() != expectedResults.size()) {
+        return -1;
+    } else {
+        for (unsigned long i = 0; i < results.size(); i++) {
+            testScenario++;
+            if (testScenario <= amountOfComparisonTests) {
+                if (results.at(i) == expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    failedTests++;
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            } else {
+                if (results.at(i) <= expectedResults.at(i)) {
+                    passedTests++;
+                } else {
+                    if (failedTests == 0) {
+                        cout << testType << endl;
+                    }
+                    cout << delimiter << endl;
+                    cout << "Test case no.: " << testScenario << endl;
+                    cout << "Expected output: " << expectedResults.at(i) << endl;
+                    cout << "Given output: " << results.at(i) << endl;
+                    cout << delimiter << endl;
+                }
+            }
+        }
+    }
+    return passedTests;
     int i = 0;
 
     if (Calculator1.factorial(0) == 1) {
