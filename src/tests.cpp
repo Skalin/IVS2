@@ -15,6 +15,9 @@ int basic_addition(Math Calculator1) {
 
     if (Calculator1.addition(1.0, 2) == 3) {
         i += 1;
+    } else {
+        cout << "Expected output: " << 3 << endl;
+        cout << "Given output: " << Calculator1.addition(1.0,2) << endl;
     }
 
     if (Calculator1.addition(1.0, 2.0) == 3) {
