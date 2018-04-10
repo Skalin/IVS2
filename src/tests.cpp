@@ -303,99 +303,72 @@ int basic_root(Math Calculator1) {
 }
 
 int basic_sum(Math Calculator1) {
-    int i = 0;
-    vector<double> arrayOfDoubles;
-    vector<double> arrayOfDoubles2;
+	unsigned int amountOfComparisonTests = 10;
+	string testType = "SUM TESTS INFORMATION";
 
-    arrayOfDoubles = {1, 2, 65};
-    if (Calculator1.sum(&arrayOfDoubles) == 68) {
-        i += 1;
-    }
+	vector<double> arrayOfDoubles = {};
+	vector<double> arrayOfDoubles2 = {};
 
-    arrayOfDoubles = {1, 2, -65};
-    if (Calculator1.sum(&arrayOfDoubles) == -62) {
-        i += 1;
-    }
+	vector <double> expectedResults = {
+			68,
+			-62,
+			0,
+			1,
+			Calculator1.sum(&(arrayOfDoubles2 = {60, 5, 3})),
+			3,
+			-1,
+			0,
+			0,
+			Calculator1.sum(&(arrayOfDoubles2 = {3, 5, 60}), 1),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2, -65.6})))+fabs(62.6),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.2, 2.651, -65.6})))+fabs(61.749),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1})))+fabs(1),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2.3, -65.6}), 1))+fabs(1.2),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {-1.2, 2.651, -65.6}), 1))+fabs(1.2),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1}), 9))+fabs(0.5)
+	};
 
-    arrayOfDoubles = {1, 2, -65.6};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) + 62.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(62.6)) {
-        i += 1;
-    }
+	vector <double> results = {
+			Calculator1.sum(&(arrayOfDoubles = {1, 2, 65})),
+			Calculator1.sum(&(arrayOfDoubles = {1, 2, -65})),
+			Calculator1.sum(&(arrayOfDoubles = {0, 0, -0})),
+			Calculator1.sum(&(arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1})),
+			Calculator1.sum(&(arrayOfDoubles = {1, 2, 65})),
+			Calculator1.sum(&(arrayOfDoubles = {1, 2, 65}), 2),
+			Calculator1.sum(&(arrayOfDoubles = {1, -2, -65}), 2),
+			Calculator1.sum(&(arrayOfDoubles = {0, 0, -0}), 2),
+			Calculator1.sum(&(arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1}), 8),
+			Calculator1.sum(&(arrayOfDoubles = {1, 2, 65}), 2),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2, -65.6})) + 62.6),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.2, 2.651, -65.6})) + 61.749),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1})) - 1),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2.3, -65.6}), 2) - 3.3),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {-1.2, 2.651, -65.6}), 1) + 1.2),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1}), 9) - 0.5)
+	};
 
-    arrayOfDoubles = {1.2, 2.651, -65.6};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) + 61.749) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(61.749)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {0, 0, -0};
-    if (Calculator1.sum(&arrayOfDoubles) == 0) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
-    if (Calculator1.sum(&arrayOfDoubles) == 1) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) - 1) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(1)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, 65};
-    arrayOfDoubles2 = {60, 5, 3};
-    if (Calculator1.sum(&arrayOfDoubles) == Calculator1.sum(&arrayOfDoubles2)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, 65};
-    if (Calculator1.sum(&arrayOfDoubles, 2) == 3) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, -2, -65};
-    if (Calculator1.sum(&arrayOfDoubles, 2) == -1) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2.3, -65.6};
-    if (fabs(Calculator1.sum(&arrayOfDoubles, 2) - 3.3) < fabs(Calculator1.sum(&arrayOfDoubles, 2))+fabs(3.3)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {-1.2, 2.651, -65.6};
-    if (fabs(Calculator1.sum(&arrayOfDoubles, 1) + 1.2) < fabs(Calculator1.sum(&arrayOfDoubles, 1))+fabs(1.2)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {0, 0, -0};
-    if (Calculator1.sum(&arrayOfDoubles, 2) == 0) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
-    if (Calculator1.sum(&arrayOfDoubles, 8) == 0) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
-    if (fabs(Calculator1.sum(&arrayOfDoubles, 9) - 0.5) < fabs(Calculator1.sum(&arrayOfDoubles, 9))+fabs(0.5)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, 65};
-    arrayOfDoubles2 = {3, 5, 60};
-    if (Calculator1.sum(&arrayOfDoubles, 2) == Calculator1.sum(&arrayOfDoubles2, 1)) {
-        i += 1;
-    }
-
-    return i;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_average(Math Calculator1) {
     int i = 0;
     vector<double> arrayOfDoubles;
     vector<double> arrayOfDoubles2;
+
+	arrayOfDoubles = {0, 0, -0};
+	if (Calculator1.average(&arrayOfDoubles) == 0) {
+		i += 1;
+	}
+
+	arrayOfDoubles = {0, 0, -0};
+	if (Calculator1.average(&arrayOfDoubles, 2) == 0) {
+		i += 1;
+	}
+
+	arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
+	if (Calculator1.average(&arrayOfDoubles, 8) == 0) {
+		i += 1;
+	}
 
     arrayOfDoubles = {1, 2, 65};
     if (fabs(Calculator1.average(&arrayOfDoubles) - 22.6667) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(22.6667)) {
@@ -417,10 +390,6 @@ int basic_average(Math Calculator1) {
         i += 1;
     }
 
-    arrayOfDoubles = {0, 0, -0};
-    if (Calculator1.average(&arrayOfDoubles) == 0) {
-        i += 1;
-    }
 
     arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
     if (fabs(Calculator1.average(&arrayOfDoubles) - 0.037) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.037)) {
@@ -452,15 +421,6 @@ int basic_average(Math Calculator1) {
         i += 1;
     }
 
-    arrayOfDoubles = {0, 0, -0};
-    if (Calculator1.average(&arrayOfDoubles, 2) == 0) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
-    if (Calculator1.average(&arrayOfDoubles, 8) == 0) {
-        i += 1;
-    }
 
     arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
     if (fabs(Calculator1.average(&arrayOfDoubles, 9) - 0.0556) < fabs(Calculator1.average(&arrayOfDoubles, 9))+fabs(0.0556)) {
@@ -470,9 +430,18 @@ int basic_average(Math Calculator1) {
     return i;
 }
 
+int basic_deviation(Math Calculator1) {
+	return 1;
+}
+
 int advanced(Math Calculator1) {
     int i = 0;
     vector<double> arrayOfDoubles;
+
+
+	if (Calculator1.factorial(4) == Calculator1.multiplication(4, Calculator1.multiplication(3, Calculator1.multiplication(2, 1)))) {
+		i += 1;
+	}
 
     arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.addition(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.addition(-8, 2)};
     if (fabs(Calculator1.sum(&arrayOfDoubles) + 0.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.4)) {
@@ -491,10 +460,6 @@ int advanced(Math Calculator1) {
 
     arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
     if (fabs(Calculator1.sum(&arrayOfDoubles) - 4.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(4.6)) {
-        i += 1;
-    }
-
-    if (Calculator1.factorial(4) == Calculator1.multiplication(4, Calculator1.multiplication(3, Calculator1.multiplication(2, 1)))) {
         i += 1;
     }
 
