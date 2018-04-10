@@ -5,6 +5,17 @@
 
 #include "profilingApplication.h"
 
+ProfilingApplication::ProfilingApplication(std::string input) {
+	this->input = input;
+	this->vectorOfDoubles.reserve(0);
+}
+
+ProfilingApplication::~ProfilingApplication() {
+	this->input = "";
+	this->vectorOfDoubles.reserve(0);
+}
+
+
 std::vector<double>& ProfilingApplication::getDoubleVector() {
 	return this->vectorOfDoubles;
 }
