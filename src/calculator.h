@@ -37,8 +37,7 @@ public:
 		\return Result of calculation converted to string
 	*/
 	std::string solve(std::vector<std::string>& input, unsigned int type);
-	
-protected:
+
 	//! \brief Getter for inputData
 	//! Getting data from class variable inputData
 	/*!
@@ -46,7 +45,7 @@ protected:
 		\return inputData
 	*/
 	std::vector<std::string>& getInputData();
-	
+protected:
 	//! \brief Setter for inputData
 	//! Storing data to class variable inputData
 	/*!
@@ -67,7 +66,7 @@ protected:
 	//! Storing data to class variable doubleData
 	/*!
 		Function for storing data to class variable doubleData
-		\param doubleData vector for storing
+		\param doubleData vector for storing converted strings into doubles
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
