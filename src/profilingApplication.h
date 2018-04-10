@@ -50,6 +50,7 @@ public:
 	//! Converting data from string to double vector
 	/*!
 		Function for converting data from string to double vector
+	    \warning Do not touch this function, comparison in cycle with file should contain npos, but it does only work with -1
 		\return converted vector of doubles, doubleVector
 	*/
 	void convertStringToDoubleVector();
