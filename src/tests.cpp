@@ -94,7 +94,7 @@ int basic_addition(Math Calculator1) {
 
 int basic_subtraction(Math Calculator1) {
     unsigned int amountOfComparisonTests = 10;
-    string testType = "SUBTRACTION TESTS";
+    string testType = "SUBTRACTION TESTS INFORMATION";
 
     vector <double> expectedResults = {
             -1,
@@ -126,7 +126,7 @@ int basic_subtraction(Math Calculator1) {
 
 int basic_multiplication(Math Calculator1) {
     unsigned int amountOfComparisonTests = 11;
-    string testType = "MULTIPLICATION TESTS";
+    string testType = "MULTIPLICATION TESTS INFORMATION";
 
     vector <double> expectedResults = {
             0,
@@ -170,7 +170,7 @@ int basic_multiplication(Math Calculator1) {
 
 unsigned int basic_division(Math Calculator1) {
 	unsigned int amountOfComparisonTests = 10;
-    string testType = "DIVISION TESTS";
+    string testType = "DIVISION TESTS INFORMATION";
 
     vector <double> expectedResults = {
             0.0,
@@ -208,7 +208,7 @@ unsigned int basic_division(Math Calculator1) {
 
 int basic_powerOf(Math Calculator1) {
     unsigned int amountOfComparisonTests = 13;
-    string testType = "FACTORIAL TESTS";
+    string testType = "POWER OF TESTS INFORMATION";
 
     vector <double> expectedResults = {
             0,
@@ -260,7 +260,7 @@ int basic_powerOf(Math Calculator1) {
 
 int basic_factorial(Math Calculator1) {
     unsigned int amountOfComparisonTests = 4;
-    string testType = "FACTORIAL TESTS";
+    string testType = "FACTORIAL TESTS INFORMATION";
 
     vector <double> expectedResults = {
             1,
@@ -282,7 +282,7 @@ int basic_factorial(Math Calculator1) {
 
 int basic_root(Math Calculator1) {
 	unsigned int amountOfComparisonTests = 1;
-	string testType = "FACTORIAL TESTS";
+	string testType = "ROOT TESTS INFORMATION";
 
 	vector <double> expectedResults = {
 			0,
