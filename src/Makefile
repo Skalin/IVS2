@@ -1,9 +1,10 @@
 .PHONY: all pack clean test doc run
 
 CC := g++
-CFLAGS := -Wall -g
+CFLAGS := -std=c++11 -Wall -g
 TARGET := Calculator
 QTMAKE := qtMakefile
+TEST := testCalculator
 PACKFOLDER := xskala11_xvalka03_xhrbot01_xkysel12
 
 all:
@@ -25,9 +26,11 @@ clean-target:
 	rm -f $(TARGET)
 clean-zip:
 	rm -f $(PACKFOLDER).zip
+clean-test:
+	rm -f $(TEST)
 
 
-clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test
 
 pack:
 	# pre packing cleanup
@@ -48,6 +51,8 @@ pack:
 	make clean
 
 test:
+	$(CC) $(CFLAGS) -o $(TEST) tests.cpp profiling.cpp calc.cpp basic.cpp
+	./$(TEST)
 
 doc:
 	doxygen
