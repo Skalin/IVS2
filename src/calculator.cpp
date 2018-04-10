@@ -3,7 +3,6 @@
  *
  */
 
-#include <sstream>
 #include "calculator.h"
 
 Calculator::Calculator(){

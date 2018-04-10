@@ -7,6 +7,7 @@
 #define IVS2_BASIC_H
 
 #include <iostream>
+#include <sstream>
 
 extern bool debug; /*!< variable for showing debug log in console */
 
