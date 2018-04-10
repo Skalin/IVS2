@@ -21,7 +21,7 @@ private:
 	void setInput(std::string input);
 	std::string input;
 	std::vector<double> vectorOfDoubles;
-	void setDoubleVector(std::vector<double> &);
+	void setDoubleVector(std::vector<double> vectorOfDoubles);
 };
 
 #endif //IVS2_PROFILINGAPPLICATION_H
