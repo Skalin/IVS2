@@ -9,18 +9,70 @@
 
 #include "profiling.h"
 
+//! ProfilingApplication class
+/*!
+	Class inheriting classes Basic, Math and Profiling
+	\sa Basic, Math, Profiling
+*/
 class ProfilingApplication : public Profiling {
 public:
+
+	//! Constructor
+	/*!
+	 *  \param input input string of numbers
+		\brief Function for initializing class
+	*/
 	ProfilingApplication(std::string input);
+
+	//! Destructor
+	/*!
+	 	\brief Function for destructing and cleaning the class
+	 */
 	~ProfilingApplication();
+
+	//! \brief Getter for input
+	//! Getting data from class variable input
+	/*!
+		Function for getting data from class variable input
+		\return input string input of program
+	*/
 	std::string getInput();
+
+	//! \brief Getter for doubleVector
+	//! Getting data from class variable doubleVector
+	/*!
+		Function for getting data from class variable doubleVector
+		\return doubleVector Vector of doubles
+	*/
 	std::vector<double>& getDoubleVector();
+
+	//! \brief Converts input string to vector of doubles
+	//! Converting data from string to double vector
+	/*!
+		Function for converting data from string to double vector
+		\return converted vector of doubles, doubleVector
+	*/
 	void convertStringToDoubleVector();
 protected:
 private:
+
+	//! Setter fot input
+	//! Storing data to class variable input
+	/*!
+		Function for storing data to class variable input
+		\param input string for storing input from standard input
+	*/
 	void setInput(std::string input);
-	std::string input;
-	std::vector<double> vectorOfDoubles;
+
+	std::string input; /*!< String representing data entered into ProfilingApplication */
+	std::vector<double> vectorOfDoubles; /*!< Double vector representing data entered into ProfilingApplication converted from string */
+
+	//! Setter fot doubleVector
+	//! Storing data to class variable doubleVector
+	/*!
+		Function for storing data to class variable doubleVector
+		\param doubleVector vector for storing double numbers converted from string
+	*/
 	void setDoubleVector(std::vector<double> vectorOfDoubles);
 };
 
