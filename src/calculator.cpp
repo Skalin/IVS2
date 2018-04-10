@@ -53,15 +53,6 @@ std::vector<double>& Calculator::convertToDouble(){
     return this->getDoubleData();
 }
 
-double Calculator::convertToDouble(const std::string number) {
-	double num = 0.0;
-	std::stringstream ss;
-	ss << number;
-	ss >> num;
-
-	return num;
-}
-
 void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int amount) {
 	for (unsigned int i = start+amount-1; i >= start; i--) {
 		this->getInputData().erase(this->getInputData().begin() + i);
