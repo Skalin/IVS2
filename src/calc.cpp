@@ -35,16 +35,6 @@ double Math::multiplication(double operand1, double operand2) {
 	return result;
 }
 
-int Math::multiplication(int operand1, int operand2) {
-	int result;
-	try {
-		result = operand1 * operand2;
-	} catch (...) {
-		printError();
-	}
-	return result;
-}
-
 double Math::division(double operand1, double operand2) {
 	try {
 		if (operand2 == 0)
