@@ -13,11 +13,55 @@ using namespace std;
 
 string delimiter = "==============================================";
 
-int basic_addition(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
-    unsigned int amountOfComparisonTests = 10;
+
+int testScenario(Math Calculator1, string testType, vector<double> expectedResults, vector<double> results, unsigned int amountOfComparisonTests) {
+	unsigned int passedTests = 0;
+	unsigned int testScenario = 0;
 	unsigned int failedTests = 0;
+
+
+	if (results.size() != expectedResults.size()) {
+		return -1;
+	} else {
+		for (unsigned long i = 0; i < results.size(); i++) {
+			testScenario++;
+			if (testScenario <= amountOfComparisonTests) {
+				if (results.at(i) == expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			} else {
+				if (results.at(i) <= expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			}
+		}
+	}
+	return passedTests;
+
+}
+
+int basic_addition(Math Calculator1) {
+    unsigned int amountOfComparisonTests = 10;
     string testType = "ADDITION TESTS INFORMATION";
 
     vector <double> expectedResults = {
@@ -45,50 +89,11 @@ int basic_addition(Math Calculator1) {
             Calculator1.addition(1, 9999999999)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-            testScenario++;
-            if (testScenario <= amountOfComparisonTests) {
-                if (results.at(i) == expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            } else {
-                if (results.at(i) <= expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            }
-        }
-    }
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_subtraction(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
     unsigned int amountOfComparisonTests = 10;
-    unsigned int failedTests = 0;
     string testType = "SUBTRACTION TESTS";
 
     vector <double> expectedResults = {
@@ -116,49 +121,11 @@ int basic_subtraction(Math Calculator1) {
             Calculator1.subtraction(1, 9999999999)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-            testScenario++;
-            if (testScenario <= amountOfComparisonTests) {
-                if (results.at(i) == expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            } else {
-                if (results.at(i) <= expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            }
-        }
-    }
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_multiplication(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
     unsigned int amountOfComparisonTests = 11;
-    unsigned int failedTests = 0;
     string testType = "MULTIPLICATION TESTS";
 
     vector <double> expectedResults = {
@@ -198,50 +165,11 @@ int basic_multiplication(Math Calculator1) {
             fabs(Calculator1.multiplication(2.35163, -665.6533) + 1565.37026988)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-            testScenario++;
-            if (testScenario <= amountOfComparisonTests) {
-                if (results.at(i) == expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            } else {
-                if (results.at(i) <= expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            }
-        }
-    }
-
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 unsigned int basic_division(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
 	unsigned int amountOfComparisonTests = 10;
-	unsigned int failedTests = 0;
     string testType = "DIVISION TESTS";
 
     vector <double> expectedResults = {
@@ -275,49 +203,11 @@ unsigned int basic_division(Math Calculator1) {
             fabs(Calculator1.division(-5.156, 2.651) - 1.94493)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-			testScenario++;
-			if (testScenario <= amountOfComparisonTests) {
-				if (results.at(i) == expectedResults.at(i)) {
-					passedTests++;
-				} else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-					failedTests++;
-					cout << delimiter << endl;
-					cout << "Test case no.: " << testScenario << endl;
-					cout << "Expected output: " << expectedResults.at(i) << endl;
-					cout << "Given output: " << results.at(i) << endl;
-					cout << delimiter << endl;
-				}
-			} else {
-				if (results.at(i) <= expectedResults.at(i)) {
-					passedTests++;
-				} else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-					cout << delimiter << endl;
-					cout << "Test case no.: " << testScenario << endl;
-					cout << "Expected output: " << expectedResults.at(i) << endl;
-					cout << "Given output: " << results.at(i) << endl;
-					cout << delimiter << endl;
-				}
-			}
-        }
-    }
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_powerOf(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
     unsigned int amountOfComparisonTests = 13;
-    unsigned int failedTests = 0;
     string testType = "FACTORIAL TESTS";
 
     vector <double> expectedResults = {
@@ -365,49 +255,11 @@ int basic_powerOf(Math Calculator1) {
             fabs(Calculator1.powerOf(-5.2, 0) - 1)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-            testScenario++;
-            if (testScenario <= amountOfComparisonTests) {
-                if (results.at(i) == expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            } else {
-                if (results.at(i) <= expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            }
-        }
-    }
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_factorial(Math Calculator1) {
-    unsigned int passedTests = 0;
-    unsigned int testScenario = 0;
     unsigned int amountOfComparisonTests = 4;
-    unsigned int failedTests = 0;
     string testType = "FACTORIAL TESTS";
 
     vector <double> expectedResults = {
@@ -425,48 +277,11 @@ int basic_factorial(Math Calculator1) {
             fabs(Calculator1.factorial(52) - 8.06582e+67)
     };
 
-    if (results.size() != expectedResults.size()) {
-        return -1;
-    } else {
-        for (unsigned long i = 0; i < results.size(); i++) {
-            testScenario++;
-            if (testScenario <= amountOfComparisonTests) {
-                if (results.at(i) == expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    failedTests++;
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            } else {
-                if (results.at(i) <= expectedResults.at(i)) {
-                    passedTests++;
-                } else {
-                    if (failedTests == 0) {
-                        cout << testType << endl;
-                    }
-                    cout << delimiter << endl;
-                    cout << "Test case no.: " << testScenario << endl;
-                    cout << "Expected output: " << expectedResults.at(i) << endl;
-                    cout << "Given output: " << results.at(i) << endl;
-                    cout << delimiter << endl;
-                }
-            }
-        }
-    }
-    return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
-int basic_root(Math Calculator1) {unsigned int passedTests = 0;
-	unsigned int testScenario = 0;
+int basic_root(Math Calculator1) {
 	unsigned int amountOfComparisonTests = 1;
-	unsigned int failedTests = 0;
 	string testType = "FACTORIAL TESTS";
 
 	vector <double> expectedResults = {
@@ -484,42 +299,7 @@ int basic_root(Math Calculator1) {unsigned int passedTests = 0;
 			fabs(Calculator1.root(616165.3165,2) - 784.962)
 	};
 
-	if (results.size() != expectedResults.size()) {
-		return -1;
-	} else {
-		for (unsigned long i = 0; i < results.size(); i++) {
-			testScenario++;
-			if (testScenario <= amountOfComparisonTests) {
-				if (results.at(i) == expectedResults.at(i)) {
-					passedTests++;
-				} else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-					failedTests++;
-					cout << delimiter << endl;
-					cout << "Test case no.: " << testScenario << endl;
-					cout << "Expected output: " << expectedResults.at(i) << endl;
-					cout << "Given output: " << results.at(i) << endl;
-					cout << delimiter << endl;
-				}
-			} else {
-				if (results.at(i) <= expectedResults.at(i)) {
-					passedTests++;
-				} else {
-					if (failedTests == 0) {
-						cout << testType << endl;
-					}
-					cout << delimiter << endl;
-					cout << "Test case no.: " << testScenario << endl;
-					cout << "Expected output: " << expectedResults.at(i) << endl;
-					cout << "Given output: " << results.at(i) << endl;
-					cout << delimiter << endl;
-				}
-			}
-		}
-	}
-	return passedTests;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_sum(Math Calculator1) {
