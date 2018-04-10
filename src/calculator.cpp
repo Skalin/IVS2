@@ -104,7 +104,7 @@ void Calculator::solveResult(int priority) {
 		std::string operation = *&getInputData().at(0);
 		this->getInputData().erase(this->getInputData().begin());
 		std::string str;
-		
+
 		if (operation == "SUM") {
 			str = std::to_string(this->sum(&this->convertToDouble()));
 			this->setInputData({str});
@@ -137,19 +137,24 @@ void Calculator::solveResult(int priority) {
 				}
 			}
 
-			for (unsigned int i = this->getInputData().size(); i > 0; i--) {
+			for (int i = this->getInputData().size()-1; i >= 0; i--) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
 						this->getInputData().at(i - 1) = std::to_string(this->powerOf(convertToDouble(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "√") {
-						if (i > 0) {
-							if (this->getInputData().at(i - 1) != "+" && this->getInputData().at(i - 1) != "-" && this->getInputData().at(i - 1) != "*" && this->getInputData().at(i - 1) != "/" && this->getInputData().at(i - 1) != "^") {
-								this->getInputData().at(i - 1) = std::to_string(this->root(convertToDouble(this->getInputData().at(i + 1)), stoi(this->getInputData().at(i - 1))));
-								this->deleteItemsFromInputDataVector(i, 2);
-								i--;
-							}
+						if (i > 0 && this->getInputData().at(i-1) == "^") {
+							this->getInputData().at(i) = std::to_string(this->root(convertToDouble(this->getInputData().at(i + 1))));
+							this->deleteItemsFromInputDataVector(i + 1, 1);
+						} else if (i > 0) {
+								if (this->getInputData().at(i - 1) != "+" && this->getInputData().at(i - 1) != "-" && this->getInputData().at(i - 1) != "*" && this->getInputData().at(i - 1) != "/" && this->getInputData().at(i - 1) != "^") {
+									this->getInputData().at(i - 1) = std::to_string(
+											this->root(convertToDouble(this->getInputData().at(i + 1)),
+													   stoi(this->getInputData().at(i - 1))));
+									this->deleteItemsFromInputDataVector(i, 2);
+									i--;
+								}
 						} else {
 							this->getInputData().at(i) = std::to_string(this->root(convertToDouble(this->getInputData().at(i + 1))));
 							this->deleteItemsFromInputDataVector(i + 1, 1);
