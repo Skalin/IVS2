@@ -6,6 +6,7 @@ TARGET := Calculator
 QTMAKE := qtMakefile
 TEST := testCalculator
 PACKFOLDER := xskala11_xvalka03_xhrbot01_xkysel12
+PROFILING := profiling
 
 all:
 	make clean-objects
@@ -28,9 +29,16 @@ clean-zip:
 	rm -f $(PACKFOLDER).zip
 clean-test:
 	rm -f $(TEST)
+clean-profiling:
+	rm -f $(PROFILING)
 
 
-clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test clean-profiling
+
+profiling:
+	make clean-profiling
+	$(CC) $(CFLAGS) -o profiling -pg profilingApplication.cpp profiling.cpp calc.cpp basic.cpp
+
 
 pack:
 	# pre packing cleanup
