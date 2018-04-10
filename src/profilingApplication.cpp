@@ -5,6 +5,10 @@
 
 #include "profilingApplication.h"
 
+std::vector<double>& ProfilingApplication::getDoubleVector() {
+	return this->vectorOfDoubles;
+}
+
 int main(int argc, char *argv[]) {
 	std::string input;
 	getline(std::cin, input);
