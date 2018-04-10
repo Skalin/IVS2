@@ -1,9 +1,11 @@
 .PHONY: all pack clean test doc run
 
 CC := g++
-CFLAGS := -Wall -g
+CFLAGS := -std=c++11 -Wall -g
 TARGET := Calculator
 QTMAKE := qtMakefile
+TEST := testCalculator
+PACKFOLDER := xskala11_xvalka03_xhrbot01_xkysel12
 
 all:
 	make clean-objects
@@ -22,15 +24,35 @@ clean-qtmake:
 	rm -f $(QTMAKE)
 clean-target:
 	rm -f $(TARGET)
+clean-zip:
+	rm -f $(PACKFOLDER).zip
+clean-test:
+	rm -f $(TEST)
 
 
-clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target
+clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test
 
 pack:
+	# pre packing cleanup
 	make clean
-	# todo
+	make doc
+	mkdir -p ../$(PACKFOLDER)
+	mkdir -p ../$(PACKFOLDER)/repo
+	cp -rf ../doc ../$(PACKFOLDER)
+	cp -rf ../mockup ../$(PACKFOLDER)/repo
+	cp -rf ../p* ../$(PACKFOLDER)/repo
+	cp -rf ../src ../$(PACKFOLDER)/repo
+	cp -rf ../*.* ../$(PACKFOLDER)/repo
+	cp -rf ../LICENSE ../$(PACKFOLDER)/repo
+	# cp -rf ../install ../$(PACKFOLDER)
+	zip -r ../$(PACKFOLDER).zip ../$(PACKFOLDER)
+	rm -rf ../$(PACKFOLDER)
+	# cleanup after packing
+	make clean
 
 test:
+	$(CC) $(CFLAGS) -o $(TEST) tests.cpp profiling.cpp calc.cpp basic.cpp
+	./$(TEST)
 
 doc:
 	doxygen

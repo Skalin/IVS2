@@ -69,8 +69,10 @@ void Calculator::deleteItemsFromInputDataVector(unsigned int start, unsigned int
 }
 
 void Calculator::replaceCommaWithDot() {
-	unsigned long pos = this->getInputData().at(0).find(',');
-	this->getInputData().at(0).replace(pos, 1, ".");
+	unsigned long pos;
+	if ((pos = this->getInputData().at(0).find(',')) != std::string::npos) {
+		this->getInputData().at(0).replace(pos, 1, ".");
+	}
 }
 
 
@@ -80,6 +82,9 @@ void Calculator::improveOutput() {
 		this->replaceCommaWithDot();
 		for (unsigned long i = this->getInputData().at(0).length(); i > 0; i--) {
 			if (stillZero && (this->getInputData().at(0).at(i-1) == '0' || this->getInputData().at(0).at(i-1) == '.')) {
+				if (this->getInputData().at(0).at(i-1) == '.') {
+					stillZero = false;
+				}
 				this->getInputData().at(0).pop_back();
 			} else {
 				stillZero = false;
@@ -119,7 +124,7 @@ void Calculator::solveResult(int priority) {
 		if (!this->getInputData().empty()) {
 			for (unsigned int i = 0; i < this->getInputData().size(); i++) {
 				if (i == 0 && this->getInputData().at(i) == "-") {
-					this->getInputData().at(i) = std::to_string(negate(stod(this->getInputData().at(i+1))));
+					this->getInputData().at(i) = std::to_string(negate(convertToDouble(this->getInputData().at(i+1))));
 					this->deleteItemsFromInputDataVector(i+1, 1);
 				}
 				if (priority == 3) {

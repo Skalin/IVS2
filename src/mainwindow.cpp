@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //ui->resultArea->setInputMask("9999999");
+    ui->resultArea->setFocusPolicy(Qt::StrongFocus);
+    ui->resultArea->setFocus();
+    this->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -207,7 +210,7 @@ bool MainWindow::checkInput(QString input, int mode){
             msgBox.exec();
             return false;
         }
-        //mode specific condition
+        //mode specific conditions
         if (mode == 1){
             if (tmp.find(',') == std::string::npos){
                 msgBox.setText("Špatný vstup!\n"
@@ -217,6 +220,20 @@ bool MainWindow::checkInput(QString input, int mode){
                 return false;
             }
         }else{
+            if (debug){
+                qDebug() <<"neco "<< endl;
+            }
+            if (input.contains(",")){
+                if (debug){
+                    qDebug() <<"lasdasdasd " << endl;
+                }
+                msgBox.setText("Čárka na vstupu není povolena!\n"
+                               "Prosím použijte desetinou tečku\n"
+                               "př. 5.231");
+                msgBox.exec();
+                return false;
+
+            }
         }
     }
 
@@ -386,4 +403,13 @@ void MainWindow::on_helpButton_clicked()
                            "TODO");
     msgBox.exec();
 
+}
+void MainWindow::keyPressEvent(QKeyEvent* event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
+        on_equalSign_clicked();
+    }
+    if (event->key() == Qt::Key_Shift) {
+        qDebug() << "handler for shift" << endl;
+    }
 }
