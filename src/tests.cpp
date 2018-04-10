@@ -458,7 +458,9 @@ int main() {
 	cout << delimiter << endl;
     cout << "SUM RESULTS: " + to_string(basic_sum(Calculator1)) + "/16 PASSED" << endl;
 	cout << delimiter << endl;
-    cout << "AVERAGE RESULTS: " + to_string(basic_average(Calculator1)) + "/14 PASSED" << endl;
+	cout << "AVERAGE RESULTS: " + to_string(basic_average(Calculator1)) + "/14 PASSED" << endl;
+	cout << delimiter << endl;
+	cout << "DEVIATION RESULTS: " + to_string(basic_deviation(Calculator1)) + "/NOT IMPLEMENTED PASSED" << endl;
 	cout << delimiter << endl;
     cout << "ADVANCED TESTS RESULTS: " + to_string(advanced(Calculator1)) + "/10 PASSED" << endl;
 	cout << delimiter << endl;
