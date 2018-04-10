@@ -21,6 +21,10 @@ int testScenario(Math Calculator1, string testType, vector<double> expectedResul
 
 
 	if (results.size() != expectedResults.size()) {
+		cout << delimiter << endl;
+		cout << testType << endl;
+		cout << "Amount of expected results does not match amount of real results!" << endl;
+		cout << delimiter << endl;
 		return -1;
 	} else {
 		for (unsigned long i = 0; i < results.size(); i++) {
@@ -351,83 +355,47 @@ int basic_sum(Math Calculator1) {
 }
 
 int basic_average(Math Calculator1) {
-    int i = 0;
-    vector<double> arrayOfDoubles;
-    vector<double> arrayOfDoubles2;
+	unsigned int amountOfComparisonTests = 3;
+	string testType = "AVERAGE TESTS INFORMATION";
 
-	arrayOfDoubles = {0, 0, -0};
-	if (Calculator1.average(&arrayOfDoubles) == 0) {
-		i += 1;
-	}
+	vector<double> arrayOfDoubles = {};
+	vector<double> arrayOfDoubles2 = {};
 
-	arrayOfDoubles = {0, 0, -0};
-	if (Calculator1.average(&arrayOfDoubles, 2) == 0) {
-		i += 1;
-	}
+	vector <double> expectedResults = {
+			0,
+			0,
+			0,
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2, 65})))+fabs(22.6667),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2, -65})))+fabs(20.6667),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, 2, -65.6, 2})))+fabs(15.15),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1.2, 2.651, -65.6})))+fabs(20.583),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1})))+fabs(0.037),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1})))+fabs(0.037),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2, 65}), 2))+fabs(1.5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, -2, -65}), 2))+fabs(1.5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2.3, -65.6}), 2))+fabs(1.65),
+			fabs(Calculator1.average(&(arrayOfDoubles = {-1.2, 2.651, -65.6}), 1))+fabs(1.2),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1}), 9))+fabs(0.0556)
+	};
 
-	arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
-	if (Calculator1.average(&arrayOfDoubles, 8) == 0) {
-		i += 1;
-	}
+	vector <double> results = {
+			Calculator1.average(&(arrayOfDoubles = {0, 0, -0})),
+			Calculator1.average(&(arrayOfDoubles = {0, 0, -0}), 2),
+			Calculator1.average(&(arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1}), 8),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2, 65})) - 22.6667),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2, -65})) + 20.6667),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2, -65.6, 2})) + 15.15),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1.2, 2.651, -65.6})) + 20.583),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1})) - 0.037),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1})) - 0.037),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2, 65}), 2) - 1.5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, -2, -65}), 2) + 1.5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1, 2.3, -65.6}), 2) - 1.65),
+			fabs(Calculator1.average(&(arrayOfDoubles = {-1.2, 2.651, -65.6}), 1) + 1.2),
+			fabs(Calculator1.average(&(arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1}), 9) - 0.0556),
+	};
 
-    arrayOfDoubles = {1, 2, 65};
-    if (fabs(Calculator1.average(&arrayOfDoubles) - 22.6667) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(22.6667)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, -65};
-    if (fabs(Calculator1.average(&arrayOfDoubles) + 20.6667) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(20.6667)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, -65.6, 2};
-    if (fabs(Calculator1.average(&arrayOfDoubles) + 15.15) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(15.15)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1.2, 2.651, -65.6};
-    if (fabs(Calculator1.average(&arrayOfDoubles) + 20.583) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(20.583)) {
-        i += 1;
-    }
-
-
-    arrayOfDoubles = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1};
-    if (fabs(Calculator1.average(&arrayOfDoubles) - 0.037) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.037)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
-    if (fabs(Calculator1.average(&arrayOfDoubles) - 0.037) < fabs(Calculator1.average(&arrayOfDoubles))+fabs(0.037)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2, 65};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 1.5) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.5)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, -2, -65};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 2) + 1.5) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.5)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {1, 2.3, -65.6};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 1.65) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(1.65)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {-1.2, 2.651, -65.6};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 1) + 1.2) < fabs(Calculator1.average(&arrayOfDoubles, 1))+fabs(1.2)) {
-        i += 1;
-    }
-
-
-    arrayOfDoubles = {1.0, -1, 1, -1.0, 1, -1, 1.0, -1, 1.5, -1, 1, -1.5, 1.1, -1.1, 1, -1, 1, -1.0, 1, -1.0, 1, -1, 1, -1, 1, -1, 1};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 9) - 0.0556) < fabs(Calculator1.average(&arrayOfDoubles, 9))+fabs(0.0556)) {
-        i += 1;
-    }
-
-    return i;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int basic_deviation(Math Calculator1) {
@@ -435,59 +403,39 @@ int basic_deviation(Math Calculator1) {
 }
 
 int advanced(Math Calculator1) {
-    int i = 0;
-    vector<double> arrayOfDoubles;
+	unsigned int amountOfComparisonTests = 1;
+	string testType = "AVERAGE TESTS INFORMATION";
 
+	vector<double> arrayOfDoubles = {};
 
-	if (Calculator1.factorial(4) == Calculator1.multiplication(4, Calculator1.multiplication(3, Calculator1.multiplication(2, 1)))) {
-		i += 1;
-	}
+	vector <double> expectedResults = {
+			Calculator1.multiplication(4, Calculator1.multiplication(3, Calculator1.multiplication(2, 1))),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.addition(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.addition(-8, 2)})))+fabs(0.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.subtraction(-8, 2)})))+fabs(0.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.subtraction(-8, 2)})))+fabs(1.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})))+fabs(4.6),
+			fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2))+fabs(5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)}), 2))+fabs(3),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)}), 1))+fabs(3),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})))+fabs(10.6),
+			fabs(Calculator1.average(&(arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, Calculator1.factorial(3)), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})))+fabs(2.6)
+	};
 
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.addition(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.addition(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) + 0.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.4)) {
-        i += 1;
-    }
+	vector <double> results = {
+			Calculator1.factorial(4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.addition(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.addition(-8, 2)})) + 0.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.subtraction(-8, 2)})) + 0.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.subtraction(-8, 2)})) + 1.4),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})) - 4.6),
+			fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2) - 5),
+			fabs(Calculator1.average(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)}), 2) - 3),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)}), 1) - 3),
+			fabs(Calculator1.sum(&(arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})) - 10.6),
+			fabs(Calculator1.average(&(arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, Calculator1.factorial(3)), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)})) - 2.6)
 
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.addition(1.0, 2.6), Calculator1.subtraction(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) + 0.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(0.4)) {
-        i += 1;
-    }
+	};
 
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.subtraction(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) + 1.4) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(1.4)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) - 4.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(4.6)) {
-        i += 1;
-    }
-
-    if (fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2) - 5) < fabs(Calculator1.root(Calculator1.powerOf(5, 2), 2))+fabs(5)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
-    if (fabs(Calculator1.average(&arrayOfDoubles, 2) - 3) < fabs(Calculator1.average(&arrayOfDoubles, 2))+fabs(3)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {Calculator1.addition(1.0, 2), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles, 1) - 3) < fabs(Calculator1.sum(&arrayOfDoubles, 1))+fabs(3)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, -2), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
-    if (fabs(Calculator1.sum(&arrayOfDoubles) - 10.6) < fabs(Calculator1.sum(&arrayOfDoubles))+fabs(10.6)) {
-        i += 1;
-    }
-
-    arrayOfDoubles = {Calculator1.addition(1.0, Calculator1.powerOf(2, 3)), Calculator1.subtraction(1.0, Calculator1.factorial(3)), Calculator1.multiplication(1.0, 2.6), Calculator1.division(-8, 2)};
-    if (fabs(Calculator1.average(&arrayOfDoubles) - 2.6) < fabs(Calculator1.average(&arrayOfDoubles))+fabs(2.6)) {
-        i += 1;
-    }
-
-    return i;
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
 }
 
 int main() {
