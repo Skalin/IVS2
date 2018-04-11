@@ -33,14 +33,14 @@ public:
 	//! \brief Getter for input
 	/*!
 		Function for getting data from class variable input.
-		\return input string input of program
+		\return input of program
 	*/
 	std::string getInput();
 
 	//! \brief Getter for vectorOfDoubles
 	/*!
 		Function for getting data from class variable vectorOfDoubles.
-		\return vectorOfDoubles Vector of doubles
+		\return vector of doubles, vectorOfDoubles
 	*/
 	std::vector<double>& getDoubleVector();
 
