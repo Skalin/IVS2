@@ -19,7 +19,7 @@ public:
 
 	//! Constructor
 	/*!
-	 *  \param input input string of numbers
+	 *  	\param input input string of numbers
 		\brief Function for initializing class
 	*/
 	ProfilingApplication(std::string input);
@@ -38,11 +38,11 @@ public:
 	*/
 	std::string getInput();
 
-	//! \brief Getter for doubleVector
-	//! Getting data from class variable doubleVector
+	//! \brief Getter for vectorOfDoubles
+	//! Getting data from class variable vectorOfDoubles
 	/*!
-		Function for getting data from class variable doubleVector
-		\return doubleVector Vector of doubles
+		Function for getting data from class variable vectorOfDoubles
+		\return vectorOfDoubles Vector of doubles
 	*/
 	std::vector<double>& getDoubleVector();
 
@@ -51,7 +51,7 @@ public:
 	/*!
 		Function for converting data from string to double vector
 	    \warning Do not touch this function, comparison in cycle with find should contain npos, but it does only work with -1
-		\return converted vector of doubles, doubleVector
+		\return converted vector of doubles, vectorOfDoubles
 	*/
 	void convertStringToDoubleVector();
 protected:
@@ -68,11 +68,11 @@ private:
 	std::string input; /*!< String representing data entered into ProfilingApplication */
 	std::vector<double> vectorOfDoubles; /*!< Double vector representing data entered into ProfilingApplication converted from string */
 
-	//! Setter fot doubleVector
-	//! Storing data to class variable doubleVector
+	//! Setter fot vectorOfDoubles
+	//! Storing data to class variable vectorOfDoubles
 	/*!
-		Function for storing data to class variable doubleVector
-		\param doubleVector vector for storing double numbers converted from string
+		Function for storing data to class variable vectorOfDoubles
+		\param vectorOfDoubles vector for storing double numbers converted from string
 	*/
 	void setDoubleVector(std::vector<double> vectorOfDoubles);
 };
