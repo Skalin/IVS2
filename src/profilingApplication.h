@@ -1,5 +1,5 @@
 //! Header file containing declaration of profiling functionality for Profiler functionality
-/*! \file profilingApplication.cpp
+/*! \file profilingApplication.h
  *
  */
 
