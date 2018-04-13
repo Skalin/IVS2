@@ -135,6 +135,7 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
 
     //input restrictons
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
+    ui->resultArea->setText(tmp);
 
     //seg fault
     if (tmp.size()>1){
@@ -409,11 +410,12 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
     }
-<<<<<<< HEAD
-    if (Qt::ShiftModifier && event->key() == Qt::Key_Delete) {
-=======
     if (event->key() == Qt::Key_Shift) {
->>>>>>> master
-        qDebug() << "handler for shift" << endl;
+        if (debug)
+            qDebug() << "handler for shift" << endl;
+    }
+    if (event->key() == Qt::Key_Delete) {
+        if (debug)
+            qDebug() << "handler for delete" << endl;
     }
 }
