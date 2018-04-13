@@ -243,6 +243,7 @@ private slots:
     */
     void keyPressEvent(QKeyEvent* event);
 
+
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */
 };
