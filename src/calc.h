@@ -44,16 +44,7 @@ public:
 		\return Result of multiplication
 	*/
 	double multiplication(double operand1, double operand2);
-	
-	//! Calculation of multiplication of two integers
-	/*!
-		Function for calculation of multiplication of two integers
-		\param operand1 first number
-		\param operand2 second number
-		\return Result of multiplication
-	*/
-	int multiplication(int operand1, int operand2);
-	
+
 	//! Calculation of division
 	/*!
 		Function for calculation of division of two numbers

@@ -14,3 +14,12 @@ void Basic::printError() {
 void Basic::printError(std::string error) {
 	std::cerr << error << "\n" << std::endl;
 }
+
+double Basic::convertToDouble(const std::string number) {
+	double num = 0.0;
+	std::stringstream ss;
+	ss << number;
+	ss >> num;
+
+	return num;
+}

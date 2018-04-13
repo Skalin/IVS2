@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->resultArea->setInputMask("9999999");
     ui->resultArea->setFocusPolicy(Qt::StrongFocus);
     ui->resultArea->setFocus();
+    this->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -408,7 +409,11 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
     }
+<<<<<<< HEAD
     if (Qt::ShiftModifier && event->key() == Qt::Key_Delete) {
+=======
+    if (event->key() == Qt::Key_Shift) {
+>>>>>>> master
         qDebug() << "handler for shift" << endl;
     }
 }
