@@ -77,7 +77,7 @@ private:
 		Function for converting data from string vector to double vector
 		\return converted vector of doubles, doubleData
 	*/
-	std::vector<double>& convertToDouble();
+	std::vector<double>& convertStringVectorToDoubleVector();
 	
 	//! \brief Deletes certain amount of items from vector
 	//! Deleting certain data from string vector

@@ -44,7 +44,7 @@ void Calculator::setDoubleData(std::vector<double> doubleData) {
 }
 
 
-std::vector<double>& Calculator::convertToDouble(){
+std::vector<double>& Calculator::convertStringVectorToDoubleVector(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
          return std::stod(val);
@@ -96,13 +96,13 @@ void Calculator::solveResult(int priority) {
 		std::string str;
 
 		if (operation == "SUM") {
-			str = std::to_string(this->sum(&this->convertToDouble()));
+			str = std::to_string(this->sum(&this->convertStringVectorToDoubleVector()));
 			this->setInputData({str});
 		} else if (operation == "AVG") {
-			str = std::to_string(this->average(&this->convertToDouble()));
+			str = std::to_string(this->average(&this->convertStringVectorToDoubleVector()));
 			this->setInputData({str});
 		} else if (operation == "DEV") {
-			str = std::to_string(this->deviation(&this->convertToDouble()));
+			str = std::to_string(this->deviation(&this->convertStringVectorToDoubleVector()));
 			this->setInputData({str});
 		}
 	} else {
