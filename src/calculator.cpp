@@ -43,7 +43,6 @@ void Calculator::setDoubleData(std::vector<double> doubleData) {
 	this->doubleData = doubleData;
 }
 
-
 std::vector<double>& Calculator::convertStringVectorToDoubleVector(){
     this->getDoubleData().resize(this->getInputData().size());
     std::transform(this->getInputData().begin(), this->getInputData().end(), this->getDoubleData().begin(), [](std::string &val) {
@@ -64,7 +63,6 @@ void Calculator::replaceCommaWithDot() {
 		this->getInputData().at(0).replace(pos, 1, ".");
 	}
 }
-
 
 void Calculator::improveOutput() {
 	bool stillZero = true;
