@@ -1,7 +1,7 @@
 .PHONY: all pack clean test doc run
 
 CC := g++
-CFLAGS := -std=c++11 -Wall -g
+CFLAGS := -std=c++11 -Wall -g -Werror -pedantic
 TARGET := Calculator
 QTMAKE := qtMakefile
 TEST := testCalculator
@@ -28,6 +28,7 @@ clean-zip:
 	rm -f $(PACKFOLDER).zip
 clean-test:
 	rm -f $(TEST)
+
 
 
 clean: clean-doc clean-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test
