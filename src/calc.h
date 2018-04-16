@@ -62,7 +62,7 @@ public:
 		\param exponent natural exponent
 		\return Result of power
 	*/
-	double powerOf(double operand, int exponent);
+	double powerOf(double operand, double exponent);
 	
 	//! Calculation of factorial
 	/*!

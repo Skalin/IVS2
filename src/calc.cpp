@@ -63,7 +63,7 @@ double Math::division(double operand1, double operand2) {
 		return (operand1/operand2);
 	} catch (std::invalid_argument &e) {
 		printError(e.what());
-		return nan("");
+		return NAN;
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
 		return INFINITY;
@@ -76,7 +76,7 @@ double Math::division(double operand1, double operand2) {
 	}
 }
 
-double Math::powerOf(double operand, int exponent) {
+double Math::powerOf(double operand, double exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
