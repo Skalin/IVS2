@@ -9,6 +9,12 @@ double Math::addition(double operand1, double operand2) {
 	double result;
 	try {
 		result = operand1 + operand2;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return nan("");
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return nan("");
 	} catch (...) {
 		printError();
 	}
@@ -48,10 +54,11 @@ int Math::multiplication(int operand1, int operand2) {
 double Math::division(double operand1, double operand2) {
 	try {
 		if (operand2 == 0)
-			throw std::overflow_error("Division by zero!");
+			throw std::invalid_argument("Division by zero!");
 		return (operand1/operand2);
-	} catch (std::overflow_error &e) {
+	} catch (std::invalid_argument &e) {
 		printError(e.what());
+		return nan("");
 	} catch (...) {
 		printError();
 	}
