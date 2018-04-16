@@ -399,7 +399,7 @@ int basic_average(Math Calculator1) {
 }
 
 int basic_deviation(Math Calculator1) {
-	return 1;
+	return -1;
 }
 
 int advanced(Math Calculator1) {
@@ -462,7 +462,7 @@ int main() {
 	cout << delimiter << endl;
     cout << "ADVANCED TESTS RESULTS: " + to_string(advanced(Calculator1)) + "/10 PASSED" << endl;
 	cout << delimiter << endl;
-	cout << "DEVIATION RESULTS: " + to_string(basic_deviation(Calculator1)) + "NOT YET IMPLEMENTED" << endl;
+	cout << "DEVIATION RESULTS: " + to_string(basic_deviation(Calculator1)) + "/0 -> NOT IMPLEMENTED" << endl;
 	cout << delimiter << endl;
 
     return 0;
