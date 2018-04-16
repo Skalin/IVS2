@@ -289,7 +289,7 @@ void MainWindow::on_equalSign_clicked()
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,0));
     //osetreni deleni nulou
-    if (result == "NaN"){
+    if (result == "nan"){
         msgBox.setText("Pokoušíte se dělit nulou\n"
                        "Prosím upravte svůj příklad\n");
         msgBox.exec();
