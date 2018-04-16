@@ -44,7 +44,7 @@ int Math::multiplication(int operand1, int operand2) {
 		result = operand1 * operand2;
 	} catch (...) {
 		printError();
-		return std::numeric_limits<double>::quiet_NaN();
+		return -1;
 	}
 	return result;
 }
