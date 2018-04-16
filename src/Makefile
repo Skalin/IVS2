@@ -71,7 +71,7 @@ pack:
 	cd ..;rm -rf $(PACK)
 	make clean
 	cd ..; rm -rf repo
-	cd ..; mkdir repo && rsync -r * repo; rm -rf repo/repo
+	cd ..; mkdir repo && rsync -r * repo; rm -rf repo/repo; cp -r .git repo
 	make doc
 	cd ..; zip -r $(PACK).zip repo doc install
 
