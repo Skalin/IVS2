@@ -301,7 +301,7 @@ void MainWindow::on_equalSign_clicked()
 
 void MainWindow::on_profiling_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -325,8 +325,9 @@ void MainWindow::on_profiling_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_commaButton_clicked()
@@ -336,7 +337,7 @@ void MainWindow::on_commaButton_clicked()
 
 void MainWindow::on_average_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -360,13 +361,14 @@ void MainWindow::on_average_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_sum_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -388,8 +390,9 @@ void MainWindow::on_sum_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_helpButton_clicked()
@@ -413,7 +416,9 @@ void MainWindow::on_helpButton_clicked()
                            "5,5,5   = 15\n"
                            "5,-5,-2 = -2\n"
                            "σ\n"
-                           "TODO");
+                           "1,2,3   = 1\n"
+                           "5,3,9   = 3.05505\n"
+                           );
     msgBox.exec();
 
 }

@@ -182,6 +182,7 @@ private slots:
     /*! \brief Converts string input into vector
         \param input input string that needs to be split
         \param splitter character to split the input with
+        \param indicator of for which mode the result is going to be used
         \return vector of strings
     */
    std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
