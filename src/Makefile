@@ -43,7 +43,7 @@ clean-profiling:
 	rm -f $(PROFILING)
 clean-repo:
 	cd ..; rm -rf repo
-clean: clean-doc clean-objects clean-qt-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test clean-repo clean-profiling
+clean: clean-doc clean-objects clean-qt-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test clean-repo clean-profiling clean profilingApp.o
 
 # object files
 calculator.o: calculator.cpp calculator.h
