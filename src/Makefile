@@ -41,9 +41,11 @@ clean-test:
 	rm -f $(TEST)
 clean-profiling:
 	rm -f $(PROFILING)
+	rm -f profilingApp.o
+	rm -f gmon.out
 clean-repo:
 	cd ..; rm -rf repo
-clean: clean-doc clean-objects clean-qt-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test clean-repo clean-profiling clean profilingApp.o
+clean: clean-doc clean-objects clean-qt-objects clean-mainwindow clean-qtmake clean-target clean-zip clean-test clean-repo clean-profiling
 
 # object files
 calculator.o: calculator.cpp calculator.h
