@@ -11,10 +11,10 @@ double Math::addition(double operand1, double operand2) {
 		result = operand1 + operand2;
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
-		return nan("");
+		return -INFINITY;
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (...) {
 		printError();
 		return nan("");
@@ -28,10 +28,10 @@ double Math::subtraction(double operand1, double operand2) {
 		result = operand1 - operand2;
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
-		return nan("");
+		return -INFINITY;
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (...) {
 		printError();
 		return nan("");
@@ -45,10 +45,10 @@ double Math::multiplication(double operand1, double operand2) {
 		result = operand1 * operand2;
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
-		return nan("");
+		return -INFINITY;
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (...) {
 		printError();
 		return nan("");
@@ -76,14 +76,14 @@ double Math::division(double operand1, double operand2) {
 		return nan("");
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return 0.0;
 }
 
 double Math::powerOf(double operand, int exponent) {
@@ -99,7 +99,7 @@ double Math::powerOf(double operand, int exponent) {
 		}
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (std::range_error &e) {
 		printError(e.what());
 		return nan("");
@@ -124,7 +124,7 @@ double Math::factorial(int operand) {
 		return nan("");
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (...) {
 		printError();
 		return nan("");
@@ -153,10 +153,10 @@ double Math::root(double operand, int exponent) {
 		return nan("");
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
-		return nan("");
+		return -INFINITY;
 	} catch (...) {
 		printError();
 		return nan("");
@@ -170,14 +170,15 @@ double Math::sum(std::vector <double>* arrayOfDoubles) {
 		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
 			sum += arrayOfDoubles->at(i);
 		}
-	} catch (std::underflow_error) {
-		printError("Underflow error!");
-		return nan("");
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
 	return sum;
 }
@@ -193,14 +194,15 @@ double Math::sum(std::vector <double>* arrayOfDoubles, unsigned long amount) {
 		for (unsigned int i = 0; i < amount; i++){
 			sum += arrayOfDoubles->at(i);
 		}
-	} catch (std::underflow_error) {
-		printError("Underflow error!");
-		return nan("");
 	} catch (std::overflow_error) {
 		printError("Overflow error!");
-		return nan("");
+		return INFINITY;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
 	return sum;
 }
