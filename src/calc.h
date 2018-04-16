@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include "basic.h"
 
 //! Math library class
@@ -44,16 +45,7 @@ public:
 		\return Result of multiplication
 	*/
 	double multiplication(double operand1, double operand2);
-	
-	//! Calculation of multiplication of two integers
-	/*!
-		Function for calculation of multiplication of two integers
-		\param operand1 first number
-		\param operand2 second number
-		\return Result of multiplication
-	*/
-	int multiplication(int operand1, int operand2);
-	
+
 	//! Calculation of division
 	/*!
 		Function for calculation of division of two numbers
@@ -70,7 +62,7 @@ public:
 		\param exponent natural exponent
 		\return Result of power
 	*/
-	double powerOf(double operand, int exponent);
+	double powerOf(double operand, double exponent);
 	
 	//! Calculation of factorial
 	/*!

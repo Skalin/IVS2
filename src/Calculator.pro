@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Calculator
 TEMPLATE = app
 
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,19 +27,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        basic.cpp \
-        calc.cpp \
-        calculator.cpp \
         main.cpp \
-        mainwindow.cpp \
-        profiling.cpp \
+        mainwindow.cpp
 
 HEADERS += \
-        basic.h \
-        calc.h \
-        calculator.h \
         mainwindow.h \
-        profiling.h \
+
+OBJECTS += \
+        *.o \
 
 MAKEFILE += \
         qtMakefile \

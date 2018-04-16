@@ -25,7 +25,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
                          a \
                          an \
                          the
-ALWAYS_DETAILED_SEC    = NO
+ALWAYS_DETAILED_SEC    = YES
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
 STRIP_FROM_PATH        =
@@ -105,7 +105,7 @@ WARNINGS               = YES
 WARN_IF_UNDOCUMENTED   = YES
 WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = NO
-WARN_AS_ERROR          = NO
+WARN_AS_ERROR          = YES
 WARN_FORMAT            = "$file:$line: $text"
 WARN_LOGFILE           =
 #---------------------------------------------------------------------------
@@ -113,9 +113,6 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 INPUT                  = ./ # change line here depending on where is doxyfile situated
 INPUT_ENCODING         = UTF-8
-                         *.cpp \
-                         *.h \
-                         *.dox \
 RECURSIVE              = YES
 EXCLUDE                = cmake-build-debug \
 EXCLUDE_SYMLINKS       = NO
@@ -165,7 +162,8 @@ HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100
 HTML_COLORSTYLE_GAMMA  = 80
 HTML_TIMESTAMP         = YES
-HTML_DYNAMIC_SECTIONS  = YES
+HTML_DYNAMIC_MENUS     = NO
+HTML_DYNAMIC_SECTIONS  = NO
 HTML_INDEX_NUM_ENTRIES = 100
 GENERATE_DOCSET        = NO
 DOCSET_FEEDNAME        = "Doxygen generated docs"
@@ -182,7 +180,7 @@ TOC_EXPAND             = NO
 GENERATE_QHP           = NO
 QCH_FILE               =
 QHP_NAMESPACE          = org.doxygen.Project
-QHP_VIRTUAL_FOLDER     = doc
+QHP_VIRTUAL_FOLDER     = ../doc
 QHP_CUST_FILTER_NAME   =
 QHP_CUST_FILTER_ATTRS  =
 QHP_SECT_FILTER_ATTRS  =
@@ -190,7 +188,7 @@ QHG_LOCATION           =
 GENERATE_ECLIPSEHELP   = NO
 ECLIPSE_DOC_ID         = org.doxygen.Project
 DISABLE_INDEX          = NO
-GENERATE_TREEVIEW      = NO
+GENERATE_TREEVIEW      = YES
 ENUM_VALUES_PER_LINE   = 4
 TREEVIEW_WIDTH         = 250
 EXT_LINKS_IN_WINDOW    = NO
@@ -306,13 +304,13 @@ DOT_FONTPATH           =
 CLASS_GRAPH            = YES
 COLLABORATION_GRAPH    = YES
 GROUP_GRAPHS           = YES
-UML_LOOK               = NO
+UML_LOOK               = YES
 UML_LIMIT_NUM_FIELDS   = 10
 TEMPLATE_RELATIONS     = NO
 INCLUDE_GRAPH          = YES
 INCLUDED_BY_GRAPH      = YES
-CALL_GRAPH             = NO
-CALLER_GRAPH           = NO
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
 GRAPHICAL_HIERARCHY    = YES
 DIRECTORY_GRAPH        = YES
 DOT_IMAGE_FORMAT       = png
@@ -328,4 +326,4 @@ MAX_DOT_GRAPH_DEPTH    = 0
 DOT_TRANSPARENT        = NO
 DOT_MULTI_TARGETS      = NO
 GENERATE_LEGEND        = YES
-DOT_CLEANUP            = YES
+DOT_CLEANUP            = NO

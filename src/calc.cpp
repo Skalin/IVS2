@@ -9,8 +9,15 @@ double Math::addition(double operand1, double operand2) {
 	double result;
 	try {
 		result = operand1 + operand2;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
 	return result;
 }
@@ -19,8 +26,15 @@ double Math::subtraction(double operand1, double operand2) {
 	double result;
 	try {
 		result = operand1 - operand2;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
 	return result;
 }
@@ -29,18 +43,15 @@ double Math::multiplication(double operand1, double operand2) {
 	double result;
 	try {
 		result = operand1 * operand2;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
 	} catch (...) {
 		printError();
-	}
-	return result;
-}
-
-int Math::multiplication(int operand1, int operand2) {
-	int result;
-	try {
-		result = operand1 * operand2;
-	} catch (...) {
-		printError();
+		return nan("");
 	}
 	return result;
 }
@@ -48,17 +59,24 @@ int Math::multiplication(int operand1, int operand2) {
 double Math::division(double operand1, double operand2) {
 	try {
 		if (operand2 == 0)
-			throw std::overflow_error("Division by zero!");
+			throw std::invalid_argument("Division by zero!");
 		return (operand1/operand2);
-	} catch (std::overflow_error &e) {
+	} catch (std::invalid_argument &e) {
 		printError(e.what());
+		return NAN;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return INFINITY;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return 0.0;
 }
 
-double Math::powerOf(double operand, int exponent) {
+double Math::powerOf(double operand, double exponent) {
 	try {
 		if (exponent < 0) {
 			throw std::range_error("Exponent is not natural number!");
@@ -69,12 +87,16 @@ double Math::powerOf(double operand, int exponent) {
 			}
 			return result;
 		}
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return nan("");
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return 0.0;
 }
 
 double Math::factorial(int operand) {
@@ -86,13 +108,18 @@ double Math::factorial(int operand) {
 			for (int i = 1; i <= operand; i++) {
 				result = multiplication(result, double(i));
 			}
+			return result;
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return nan("");
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return result;
 }
 
 // Newton's method
@@ -110,13 +137,21 @@ double Math::root(double operand, int exponent) {
 				x = x + dx;
 				dx = (operand/powerOf(x,exponent-1)-x)/exponent;
 			}
+			return x;
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return nan("");
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return x;
 }
 
 double Math::sum(std::vector <double>* arrayOfDoubles) {
@@ -125,10 +160,17 @@ double Math::sum(std::vector <double>* arrayOfDoubles) {
 		for (unsigned int i = 0; i < arrayOfDoubles->size(); i++){
 			sum += arrayOfDoubles->at(i);
 		}
+		return sum;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return sum;
 }
 
 double Math::average(std::vector <double>* arrayOfDoubles) {
@@ -142,10 +184,17 @@ double Math::sum(std::vector <double>* arrayOfDoubles, unsigned long amount) {
 		for (unsigned int i = 0; i < amount; i++){
 			sum += arrayOfDoubles->at(i);
 		}
+		return sum;
+	} catch (std::overflow_error) {
+		printError("Overflow error!");
+		return INFINITY;
+	} catch (std::underflow_error) {
+		printError("Underflow error!");
+		return -INFINITY;
 	} catch (...) {
 		printError();
+		return nan("");
 	}
-	return sum;
 }
 
 double Math::average(std::vector <double>* arrayOfDoubles, unsigned long amount) {
