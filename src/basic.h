@@ -7,6 +7,9 @@
 #define IVS2_BASIC_H
 
 #include <iostream>
+#include <sstream>
+
+extern bool debug; /*!< variable for showing debug log in console */
 
 //! Basic class
 /*!
@@ -27,6 +30,14 @@ public:
 		\param error text of specific error
 	*/
 	void printError(std::string error);
+
+	//! \brief Converts a string into double
+	//! Converting data from string to double
+	/*!
+		Function for converting data from string to double
+	    \return converted string into double
+	*/
+	double convertToDouble(std::string number);
 	
 protected:
 private:

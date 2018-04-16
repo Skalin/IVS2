@@ -44,16 +44,7 @@ public:
 		\return Result of multiplication
 	*/
 	double multiplication(double operand1, double operand2);
-	
-	//! Calculation of multiplication of two integers
-	/*!
-		Function for calculation of multiplication of two integers
-		\param operand1 first number
-		\param operand2 second number
-		\return Result of multiplication
-	*/
-	int multiplication(int operand1, int operand2);
-	
+
 	//! Calculation of division
 	/*!
 		Function for calculation of division of two numbers
@@ -78,7 +69,7 @@ public:
 		\param operand positive integer
 		\return Result of factorial
 	*/
-	int factorial(int operand);
+	double factorial(int operand);
 	
 	//! Calculation of square root
 	/*!
@@ -87,7 +78,7 @@ public:
 		\param exponent exponent of the root
 		\return Result of square root
 	*/
-	double root(double operand, int exponent);
+	double root(double operand, int exponent = 2);
 	
 	//! Calculation of sum
 	/*!
@@ -113,7 +104,7 @@ public:
 		\return Result of partial sum
 		\sa sum()
 	*/
-	double sum(std::vector<double>* vector, int amount);
+	double sum(std::vector<double>* vector, unsigned long amount);
 	
 	//! Calculation of partial average
 	/*!
@@ -123,7 +114,15 @@ public:
 		\return Result of partial average
 		\sa average()
 	*/
-	double average(std::vector<double>* vector, int amount);
+	double average(std::vector<double>* vector, unsigned long amount);
+	
+	//! Negates given number
+	/*!
+		Function for negating the number
+		\param number that should be negated
+		\return Negated number
+	*/
+	double negate(double number);
 	
 protected:
 private:

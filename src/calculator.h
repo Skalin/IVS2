@@ -18,9 +18,15 @@ public:
 	
 	//! Constructor
 	/*!
-		\brief Function for initializing class variables
+		\brief Function for initializing class
 	*/
 	Calculator();
+	
+	//! Destructor
+	/*!
+	 	\brief Function for destructing and cleaning the class
+	 */
+	~Calculator();
 	
 	//! Calculation of problem
 	/*!
@@ -31,8 +37,7 @@ public:
 		\return Result of calculation converted to string
 	*/
 	std::string solve(std::vector<std::string>& input, unsigned int type);
-	
-protected:	
+
 	//! \brief Getter for inputData
 	//! Getting data from class variable inputData
 	/*!
@@ -40,7 +45,7 @@ protected:
 		\return inputData
 	*/
 	std::vector<std::string>& getInputData();
-	
+protected:
 	//! \brief Setter for inputData
 	//! Storing data to class variable inputData
 	/*!
@@ -61,7 +66,7 @@ protected:
 	//! Storing data to class variable doubleData
 	/*!
 		Function for storing data to class variable doubleData
-		\param doubleData vector for storing
+		\param doubleData vector for storing converted strings into doubles
 	*/
 	void setDoubleData(std::vector<double> doubleData);
 private:
@@ -72,7 +77,7 @@ private:
 		Function for converting data from string vector to double vector
 		\return converted vector of doubles, doubleData
 	*/
-	std::vector<double>& convertToDouble();
+	std::vector<double>& convertStringVectorToDoubleVector();
 	
 	//! \brief Deletes certain amount of items from vector
 	//! Deleting certain data from string vector
@@ -104,6 +109,22 @@ private:
 		\param priority priority of operation
 	*/
 	void solveResult(int priority);
+
+	//! \brief Improved output of first item in vector
+	//! Improved output of first item in vector so it doesn't show spare zeroes
+	/*!
+		Function removes any spare zeroes and if available, also decimal point and leaves a nice number in vector
+	*/
+	void improveOutput();
+
+	//! \brief Replaces comma with dot
+	//! Replaces comma with dot in decimal numbers which are written as string
+	/*!
+		Improves the output by replacing comma with dot, so that in return, the string looks like **.***, which works better at string conversions to double
+	*/
+	void replaceCommaWithDot();
+
+	void printVector();
 	
 	std::vector<std::string> inputData; /*!< String vector representing data entered into calculator */
 	

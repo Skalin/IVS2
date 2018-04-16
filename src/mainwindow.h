@@ -7,10 +7,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
+#include <QMessageBox>
+#include <QDebug>
+#include <QKeyEvent>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <QDebug>
+
+
+
+#include "calculator.h"
 
 //! User interface namespace
 /*!
@@ -35,7 +42,7 @@ public:
         \param parent Defining the number of possible windows
     */
     explicit MainWindow(QWidget *parent = 0);
-    
+
     //! \brief Destructor
     /*!
         Function for destroying the calculator.
@@ -136,7 +143,7 @@ private slots:
     //! \brief Appends '!' to input
     /*!
         Function for appending '!' to input
-    */ 
+    */
     void on_factorialSign_clicked();
 
     //! \brief Appends '/' to input
@@ -177,8 +184,14 @@ private slots:
         \param splitter character to split the input with
         \return vector of strings
     */
-   std::vector<std::string> splitInputString(std::string input, char splitter);
+   std::vector<std::string> splitInputString(std::string input, char splitter, std::string mode);
 
+   //! Checks if character is digit
+   /*! \brief Checks if character is digit
+       \param input character that is tested
+       \return true if is digit, else false
+   */
+    bool isDigit (QString input);
 
     //! \brief Prints out result of calculation
     /*!
@@ -197,6 +210,38 @@ private slots:
         Function for appending ',' to input
     */
     void on_commaButton_clicked();
+
+    //! \brief Handles average button
+    /*!
+        Function for calling sum function
+    */
+    void on_average_clicked();
+
+    //! \brief Handles sum button
+    /*!
+        Function for calling average function
+    */
+    void on_sum_clicked();
+
+    //! \brief Shows help
+    /*!
+        Function for showing help
+    */
+    void on_helpButton_clicked();
+
+
+    //! \brief checks input
+    /*! \param input string to check
+        \param mode for wich operation its checking
+        \return true if input is ok
+    */
+    bool checkInput(QString input, int mode);
+
+    //! \brief Keyboard key handler
+    /*!
+        \param event invoked event when pressed button
+    */
+    void keyPressEvent(QKeyEvent* event);
 
 private:
     Ui::MainWindow *ui; /*!< Instance variable of class */

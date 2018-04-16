@@ -23,7 +23,7 @@ public:
 		\return Result of calculation of sample standard deviation
 		\sa Math
 	*/
-	double deviation(std::vector<double> *arrayOfDoubles);
+	double deviation(std::vector<double>* arrayOfDoubles);
 	
 protected:
 private:
