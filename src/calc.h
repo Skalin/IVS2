@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include "basic.h"
 
 //! Math library class
