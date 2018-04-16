@@ -1,4 +1,4 @@
-xskala11 100 (matematická knihovna, make frontend + backend)
-xvalka03 100 (frontend)
-xhrbot01 100 (profiling, backend kalkulačky)
+xskala11 100 (matematická knihovna, make, napojení frontend + backend, profiling aplikace)
+xvalka03 100 (frontend, mockupy, zpracování zpráv)
+xhrbot01 100 (odchylka, logika zpracování matematických operací a backend kalkulačky)
 xkysel12 100 (testy, makefile matematická knihovna)
