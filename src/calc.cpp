@@ -11,6 +11,7 @@ double Math::addition(double operand1, double operand2) {
 		result = operand1 + operand2;
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return result;
 }
@@ -21,6 +22,7 @@ double Math::subtraction(double operand1, double operand2) {
 		result = operand1 - operand2;
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return result;
 }
@@ -31,6 +33,7 @@ double Math::multiplication(double operand1, double operand2) {
 		result = operand1 * operand2;
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return result;
 }
@@ -41,21 +44,24 @@ int Math::multiplication(int operand1, int operand2) {
 		result = operand1 * operand2;
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return result;
 }
 
 double Math::division(double operand1, double operand2) {
 	try {
-		if (operand2 == 0)
+		if (operand2 == 0) {
 			throw std::overflow_error("Division by zero!");
+		}
 		return (operand1/operand2);
 	} catch (std::overflow_error &e) {
 		printError(e.what());
+		return std::numeric_limits<double>::infinity();
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
-	return 0.0;
 }
 
 double Math::powerOf(double operand, int exponent) {
@@ -71,10 +77,11 @@ double Math::powerOf(double operand, int exponent) {
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return std::numeric_limits<double>::quiet_NaN();
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
-	return 0.0;
 }
 
 double Math::factorial(int operand) {
@@ -89,8 +96,10 @@ double Math::factorial(int operand) {
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return std::numeric_limits<double>::quiet_NaN();
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return result;
 }
@@ -113,8 +122,10 @@ double Math::root(double operand, int exponent) {
 		}
 	} catch (std::range_error &e) {
 		printError(e.what());
+		return std::numeric_limits<double>::quiet_NaN();
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return x;
 }
@@ -127,6 +138,7 @@ double Math::sum(std::vector <double>* arrayOfDoubles) {
 		}
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return sum;
 }
@@ -144,6 +156,7 @@ double Math::sum(std::vector <double>* arrayOfDoubles, unsigned long amount) {
 		}
 	} catch (...) {
 		printError();
+		return std::numeric_limits<double>::quiet_NaN();
 	}
 	return sum;
 }
