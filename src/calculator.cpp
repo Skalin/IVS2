@@ -140,7 +140,7 @@ void Calculator::solveResult(int priority) {
 			for (int i = this->getInputData().size()-1; i >= 0; i--) {
 				if (priority == 2) {
 					if (this->getInputData().at(i) == "^") {
-						this->getInputData().at(i - 1) = std::to_string(this->powerOf(convertToDouble(this->getInputData().at(i - 1)), stoi(this->getInputData().at(i + 1))));
+						this->getInputData().at(i - 1) = std::to_string(this->powerOf(convertToDouble(this->getInputData().at(i - 1)), convertToDouble(this->getInputData().at(i + 1))));
 						this->deleteItemsFromInputDataVector(i, 2);
 						i--;
 					} else if (this->getInputData().at(i) == "√") {
@@ -151,7 +151,7 @@ void Calculator::solveResult(int priority) {
 								if (this->getInputData().at(i - 1) != "+" && this->getInputData().at(i - 1) != "-" && this->getInputData().at(i - 1) != "*" && this->getInputData().at(i - 1) != "/" && this->getInputData().at(i - 1) != "^") {
 									this->getInputData().at(i - 1) = std::to_string(
 											this->root(convertToDouble(this->getInputData().at(i + 1)),
-													   stoi(this->getInputData().at(i - 1))));
+													   convertToDouble(this->getInputData().at(i - 1))));
 									this->deleteItemsFromInputDataVector(i, 2);
 									i--;
 								}
