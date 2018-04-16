@@ -47,19 +47,22 @@ clean: clean-doc clean-objects clean-qt-objects clean-mainwindow clean-qtmake cl
 
 # object files
 calculator.o: calculator.cpp calculator.h
-	$(CC) $(CFLAGS) $(OBJFLAG) calculator.cpp
+	$(CC) $(CFLAGS) $(OBJFLAG) -c calculator.cpp
 calc.o: calc.cpp calc.h
 	$(CC) $(CFLAGS) $(OBJFLAG) calc.cpp
 profiling.o: profiling.cpp profiling.h
-	$(CC) $(CFLAGS) $(OBJFLAG) profiling.cpp
+	$(CC) $(CFLAGS) $(OBJFLAG) -c profiling.cpp
 basic.o: basic.cpp basic.h
-	$(CC) $(CFLAGS) $(OBJFLAG) basic.cpp
+	$(CC) $(CFLAGS) $(OBJFLAG) -c basic.cpp
+profilingApp.o: profilingApplication.cpp
+	$(CC) $(CFLAGS) $(OBJFLAG) -c -pg profilingApplication.cpp
 objects: basic.o calc.o calculator.o profiling.o
 
 # profiling
-profiling:
+profiling: objects profilingApp.o
 	make clean-profiling
-	$(CC) $(CFLAGS) -o profiling -pg profilingApplication.cpp profiling.cpp calc.cpp basic.cpp
+	$(CC) $(CFLAGS) -o $(PROFILING) -pg profilingApplication.o profiling.o calc.o basic.o
+	./$(PROFILING)
 
 #packing
 pack:
@@ -71,7 +74,7 @@ pack:
 	cd ..; zip -r $(PACK).zip repo doc install
 
 # tests
-test: basic.o calc.o profiling.o
+test: objects
 	$(CC) $(CFLAGS) -o $(TEST) tests.cpp basic.o calc.o profiling.o
 	./$(TEST)
 
