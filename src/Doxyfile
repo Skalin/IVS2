@@ -113,9 +113,6 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 INPUT                  = ./ # change line here depending on where is doxyfile situated
 INPUT_ENCODING         = UTF-8
-                         *.cpp \
-                         *.h \
-                         *.dox \
 RECURSIVE              = YES
 EXCLUDE                = cmake-build-debug \
 EXCLUDE_SYMLINKS       = NO
