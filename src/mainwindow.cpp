@@ -130,11 +130,15 @@ void MainWindow::on_plusSign_clicked()
 /*@brief forbids invalid characters in input*/
 void MainWindow::on_resultArea_textChanged(const QString &arg1)
 {
+    if (debug)
+        qDebug() <<"I changed " << endl;
+
     QString tmp,last;
     tmp = arg1;
 
     //input restrictons
     tmp.remove(QRegExp("[^0123456789./*+!√^-,]"));
+    ui->resultArea->setText(tmp);
 
     //seg fault
     if (tmp.size()>1){
@@ -244,6 +248,8 @@ bool MainWindow::checkInput(QString input, int mode){
 void MainWindow::on_equalSign_clicked()
 {
     QString tmp;
+    QString result;
+    QMessageBox msgBox;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -266,29 +272,36 @@ void MainWindow::on_equalSign_clicked()
     tmp.replace("!"," ! ");
 
      //debug
-    if (debug){
+    if (debug)
      qDebug() << tmp << endl;
-    }
-
-
 
      afterSplitting = splitInputString(tmp.toStdString(),' ',"");
      //debug
      if (debug){
-     for(auto &i: afterSplitting)
-         qDebug() << QString::fromStdString(i) << endl;
+         for(auto &i: afterSplitting)
+             qDebug() << QString::fromStdString(i) << endl;
      }
 
     if (debug){
-     qDebug() << "tady" << endl;
-     qDebug() << QString::fromStdString(Calculator1.solve(afterSplitting,0)) << endl;
+        qDebug() << "tady" << endl;
+        qDebug() << QString::fromStdString(Calculator1.solve(afterSplitting,0)) << endl;
     }
-     ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,0)));
+
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,0));
+    //osetreni deleni nulou
+    if (result == "NaN"){
+        msgBox.setText("Pokoušíte se dělit nulou\n"
+                       "Prosím upravte svůj příklad\n");
+        msgBox.exec();
+        return;
+    }else{
+        ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+    }
 }
 
 void MainWindow::on_profiling_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -312,8 +325,9 @@ void MainWindow::on_profiling_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_commaButton_clicked()
@@ -323,7 +337,7 @@ void MainWindow::on_commaButton_clicked()
 
 void MainWindow::on_average_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -347,13 +361,14 @@ void MainWindow::on_average_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_sum_clicked()
 {
-    QString tmp;
+    QString tmp,result;
     Calculator Calculator1;
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
@@ -375,8 +390,9 @@ void MainWindow::on_sum_clicked()
             qDebug() << QString::fromStdString(i) << endl;
     }
 
-    //placeholder
-   ui->resultArea->setText(QString::fromStdString(Calculator1.solve(afterSplitting,1)));
+    result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
+    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+
 }
 
 void MainWindow::on_helpButton_clicked()
@@ -400,16 +416,26 @@ void MainWindow::on_helpButton_clicked()
                            "5,5,5   = 15\n"
                            "5,-5,-2 = -2\n"
                            "σ\n"
-                           "TODO");
+                           "1,2,3   = 1\n"
+                           "5,3,9   = 3.05505\n"
+                           );
     msgBox.exec();
 
 }
 void MainWindow::keyPressEvent(QKeyEvent* event)
 {
+    if (debug)
+        qDebug() << event->key() << endl;
     if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
         on_equalSign_clicked();
     }
     if (event->key() == Qt::Key_Shift) {
-        qDebug() << "handler for shift" << endl;
+        if (debug)
+            qDebug() << "handler for shift" << endl;
+    }
+    if (event->key() == Qt::Key_PageDown) {
+        if (debug)
+            qDebug() << "handler for AC" << endl;
+        on_allClear_clicked();
     }
 }
