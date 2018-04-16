@@ -5,6 +5,15 @@
 
 #include "profilingApplication.h"
 
+void printInfo() {
+	std::cout << "Profiling application for deviation function of Calculator application." << std::endl << std::endl;
+	std::cout << "Function expects input of numbers on which the application runs profiling tests, which determine the efficiency of the deviation function from Math class in math.cpp" << std::endl;
+	std::cout << "Numbers must be entered as a list of numbers divided by one space." << std::endl;
+	std::cout << "Team: Must remove kebab" << std::endl << std::endl;
+
+	std::cout<< "Please enter input: ";
+}
+
 ProfilingApplication::ProfilingApplication(std::string input) {
 	this->input = input;
 	this->vectorOfDoubles.reserve(0);
@@ -55,6 +64,7 @@ std::vector<double>& ProfilingApplication::getDoubleVector() {
 }
 
 int main(int argc, char *argv[]) {
+	printInfo();
 	std::string input;
 	getline(std::cin, input);
 	ProfilingApplication Profiler(input);

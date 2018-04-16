@@ -51,6 +51,12 @@ public:
 		\return converted vector of doubles, vectorOfDoubles
 	*/
 	void convertStringToDoubleVector();
+
+	//! \brief Function prints basic info on how to use this profiler app
+	/*!
+	 	Function prints all info on how to use this app, prints info about how to insert data for profiling and also tells a user which team created it
+	 */
+	void printInfo();
 protected:
 private:
 
