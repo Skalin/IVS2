@@ -408,7 +408,7 @@ void MainWindow::on_helpButton_clicked()
     msgBox.setTextFormat(Qt::RichText);
     msgBox.setText("Vysvětlení jednotlivých tlačítek    ");
     msgBox.setInformativeText("<b>DEL</b>    smaže poslední znak ze vstupu<br>"
-                              "<b>AC</b>    vymaže celý vstup (možné zavolat klávesou Page Down)<br>"
+                              "<b>AC</b>    vymaže celý vstup (možné smazat klávesou Page Down)<br>"
                               "<br>"
                               "Pro následující operace se členové odělují čárkou (,)<br>"
                               "<br>"
