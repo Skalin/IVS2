@@ -254,6 +254,13 @@ void MainWindow::on_equalSign_clicked()
     tmp = ui->resultArea->text();
     std::vector<std::string> afterSplitting = {};
 
+    if (tmp.indexOf("=") != -1){
+        if (debug)
+         qDebug() << "nasel jsem =" << endl;
+        tmp.resize(tmp.indexOf("="));
+        if (debug)
+         qDebug() << "new tmp" <<tmp << endl;
+    }
 
     if (!checkInput(tmp,0)){
         if (debug){
@@ -295,7 +302,7 @@ void MainWindow::on_equalSign_clicked()
         msgBox.exec();
         return;
     }else{
-        ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+        ui->resultArea->setText(tmp + "=" + result);
     }
 }
 
