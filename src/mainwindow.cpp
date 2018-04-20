@@ -172,6 +172,8 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
         if (input.at(i) == splitter){
             tmp.erase(std::remove(tmp.begin(), tmp.end(), ','), tmp.end());
             if (!tmp.empty()){
+                if (debug)
+                    qDebug() <<"pred puhsnitim do key words "<< QString::fromStdString(tmp)<< endl;
                 if ( QString::fromStdString(tmp).count(".")>1){
                     msgBox.setText("Špatný vstup!\n"
                                    "Číslo nemůže obsahovat více desetiných čárek\n"
@@ -191,6 +193,13 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
     //push last member but only if not ','
     if (!tmp.empty() && tmp.find(',') == std::string::npos){
         listKeywords.push_back(tmp);
+        if ( QString::fromStdString(tmp).count(".")>1){
+            msgBox.setText("Špatný vstup!\n"
+                           "Číslo nemůže obsahovat více desetiných čárek\n"
+                           "př. 5.21");
+            msgBox.exec();
+            return listKeywords = {};
+        }
     }
     return listKeywords;
 }
@@ -262,24 +271,17 @@ bool MainWindow::checkInput(QString input, int mode){
             int posMinus = input.indexOf("-");
             bool chyba = false;
 
-
             if (posPlus>0){
                 if (debug)
                     qDebug() <<"pred plus "<< input.at(posPlus) << endl;
                 if (isDigit(QString(input.at(posPlus-1))))
-                    chyba = true;/*
-                if (input.at(posPlus) == QString(","))
-                    chyba = false;
-                    */
+                    chyba = true;
             }
             if (posMinus>0){
                 if (debug)
                     qDebug() <<"pred minus "<< input.at(posMinus) << endl;
                 if (isDigit(QString(input.at(posMinus-1))))
-                    chyba = true;/*
-                if (input.at(posPlus) == QString(","))
-                    chyba = false;
-                    */
+                    chyba = true;
             }
             if (chyba){
                 msgBox.setText("Špatný vstup!\n"
