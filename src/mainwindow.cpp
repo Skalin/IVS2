@@ -145,6 +145,9 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
     if (tmp.size()>1){
         last = tmp.at(tmp.size()-1);
         QString sndToLast = tmp.at(tmp.size()-2);
+        if ( sndToLast == ","){
+            return;
+        }
         if ( last == "√"){
             return;
         }else {
@@ -160,6 +163,7 @@ void MainWindow::on_resultArea_textChanged(const QString &arg1)
 }
 std::vector<std::string> MainWindow::splitInputString(std::string input, char splitter, std::string mode){
     std::vector<std::string> listKeywords = {};
+    QMessageBox msgBox;
     if (!mode.empty()){
         listKeywords.push_back(mode);
     }
@@ -168,8 +172,16 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
         if (input.at(i) == splitter){
             tmp.erase(std::remove(tmp.begin(), tmp.end(), ','), tmp.end());
             if (!tmp.empty()){
-                listKeywords.push_back(tmp);
-                tmp = "";
+                if ( QString::fromStdString(tmp).count(".")>1){
+                    msgBox.setText("Špatný vstup!\n"
+                                   "Číslo nemůže obsahovat více desetiných čárek\n"
+                                   "př. 5.21");
+                    msgBox.exec();
+                    return listKeywords;
+                }else{
+                    listKeywords.push_back(tmp);
+                    tmp = "";
+                }
             }
         }else{
             tmp = tmp + input[i];
@@ -202,43 +214,86 @@ bool MainWindow::checkInput(QString input, int mode){
     QMessageBox msgBox;
 
 
+    if (debug){
+        qDebug() <<"input "<< input << endl;
+    }
+
     if (tmp.size()>1){
         QString last = input.at(input.size()-1);
         if (debug){
             qDebug() <<"last "<< last << endl;
         }
         //general condition
-        if (last == "+" || last == "-" || last =="/" || last == "*" || last == "√" || last == "^"){
+        if (last == "+" || last == "-" || last =="/" || last == "*" || last == "√" || last == "^" || last == "."){
             msgBox.setText("Špatný vstup!\n"
                            "vstup nemůže být zakončen operátorem\n"
                            "př. 5+5");
             msgBox.exec();
             return false;
         }
-        //mode specific conditions
-        if (mode == 1){
-            if (tmp.find(',') == std::string::npos){
+    }else{
+        if (tmp == "+" || tmp == "-" || tmp =="/" || tmp == "*" || tmp == "√" || tmp == "^" || tmp == "." || tmp == "!"){
+            msgBox.setText("Špatný vstup!\n"
+                           "Prosím zadejte číslo\n"
+                           "př. 10");
+            msgBox.exec();
+            return false;
+        }
+    }
+    //mode specific conditions
+    if (mode == 1){
+        /*
+        if (tmp.find(',') == std::string::npos){
+            msgBox.setText("Špatný vstup!\n"
+                           "členove se oddělují čárkamy\n"
+                           "př. 5,5,5");
+            msgBox.exec();
+            return false;
+        }
+        */
+
+        if (input.contains("/")||input.contains("*")||input.contains("!")||input.contains("√")||input.contains("^")){
+            msgBox.setText("Špatný vstup!\n"
+                           "Operace /,*,!,√,^ v tomto režimu nejsou povoleny\n"
+                           "př. 5,5,5");
+            msgBox.exec();
+            return false;
+        }
+        if (input.contains("-")||input.contains("+")){
+            int posPlus = input.contains("+");
+            int posMinus = input.contains("-");
+            bool chyba = false;
+
+            if (posPlus>0){
+                if (isDigit(input.at(posPlus-1)))
+                    chyba = true;
+            }
+            if (posMinus>0){
+                if (isDigit(input.at(posMinus-1)))
+                    chyba = true;
+            }
+            if (chyba){
                 msgBox.setText("Špatný vstup!\n"
-                               "členove se oddělují čárkamy\n"
+                               "Výpočet v daném režimu není povolen\n"
                                "př. 5,5,5");
                 msgBox.exec();
                 return false;
             }
-        }else{
+        }
+    }else{
+        if (debug){
+            qDebug() <<"neco "<< endl;
+        }
+        if (input.contains(",")){
             if (debug){
-                qDebug() <<"neco "<< endl;
+                qDebug() <<"lasdasdasd " << endl;
             }
-            if (input.contains(",")){
-                if (debug){
-                    qDebug() <<"lasdasdasd " << endl;
-                }
-                msgBox.setText("Čárka na vstupu není povolena!\n"
-                               "Prosím použijte desetinou tečku\n"
-                               "př. 5.231");
-                msgBox.exec();
-                return false;
+            msgBox.setText("Čárka na vstupu není povolena!\n"
+                           "Prosím použijte desetinou tečku\n"
+                           "př. 5.231");
+            msgBox.exec();
+            return false;
 
-            }
         }
     }
 
