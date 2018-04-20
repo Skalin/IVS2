@@ -172,6 +172,8 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
         if (input.at(i) == splitter){
             tmp.erase(std::remove(tmp.begin(), tmp.end(), ','), tmp.end());
             if (!tmp.empty()){
+                if (debug)
+                    qDebug() <<"pred puhsnitim do key words "<< QString::fromStdString(tmp)<< endl;
                 if ( QString::fromStdString(tmp).count(".")>1){
                     msgBox.setText("Špatný vstup!\n"
                                    "Číslo nemůže obsahovat více desetiných čárek\n"
@@ -191,6 +193,13 @@ std::vector<std::string> MainWindow::splitInputString(std::string input, char sp
     //push last member but only if not ','
     if (!tmp.empty() && tmp.find(',') == std::string::npos){
         listKeywords.push_back(tmp);
+        if ( QString::fromStdString(tmp).count(".")>1){
+            msgBox.setText("Špatný vstup!\n"
+                           "Číslo nemůže obsahovat více desetiných čárek\n"
+                           "př. 5.21");
+            msgBox.exec();
+            return listKeywords = {};
+        }
     }
     return listKeywords;
 }
@@ -219,6 +228,7 @@ bool MainWindow::checkInput(QString input, int mode){
     }
 
     if (tmp.size()>1){
+        QString first = input.at(0);
         QString last = input.at(input.size()-1);
         if (debug){
             qDebug() <<"last "<< last << endl;
@@ -228,6 +238,13 @@ bool MainWindow::checkInput(QString input, int mode){
             msgBox.setText("Špatný vstup!\n"
                            "vstup nemůže být zakončen operátorem\n"
                            "př. 5+5");
+            msgBox.exec();
+            return false;
+        }
+        if (first == "+" || first == "*" || first == "/" || first == "."){
+            msgBox.setText("Špatný vstup!\n"
+                           "vstup nemůže být začínat operátorem\n"
+                           "př. 5+6");
             msgBox.exec();
             return false;
         }
@@ -242,16 +259,6 @@ bool MainWindow::checkInput(QString input, int mode){
     }
     //mode specific conditions
     if (mode == 1){
-        /*
-        if (tmp.find(',') == std::string::npos){
-            msgBox.setText("Špatný vstup!\n"
-                           "členove se oddělují čárkamy\n"
-                           "př. 5,5,5");
-            msgBox.exec();
-            return false;
-        }
-        */
-
         if (input.contains("/")||input.contains("*")||input.contains("!")||input.contains("√")||input.contains("^")){
             msgBox.setText("Špatný vstup!\n"
                            "Operace /,*,!,√,^ v tomto režimu nejsou povoleny\n"
@@ -260,22 +267,26 @@ bool MainWindow::checkInput(QString input, int mode){
             return false;
         }
         if (input.contains("-")||input.contains("+")){
-            int posPlus = input.contains("+");
-            int posMinus = input.contains("-");
+            int posPlus = input.indexOf("+");
+            int posMinus = input.indexOf("-");
             bool chyba = false;
 
             if (posPlus>0){
-                if (isDigit(input.at(posPlus-1)))
+                if (debug)
+                    qDebug() <<"pred plus "<< input.at(posPlus) << endl;
+                if (isDigit(QString(input.at(posPlus-1))))
                     chyba = true;
             }
             if (posMinus>0){
-                if (isDigit(input.at(posMinus-1)))
+                if (debug)
+                    qDebug() <<"pred minus "<< input.at(posMinus) << endl;
+                if (isDigit(QString(input.at(posMinus-1))))
                     chyba = true;
             }
             if (chyba){
                 msgBox.setText("Špatný vstup!\n"
                                "Výpočet v daném režimu není povolen\n"
-                               "př. 5,5,5");
+                               "př. 5,6,7");
                 msgBox.exec();
                 return false;
             }
