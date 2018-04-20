@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->resultArea->setFocusPolicy(Qt::StrongFocus);
     ui->resultArea->setFocus();
     this->installEventFilter(this);
+    ui->label->setTextInteractionFlags(Qt::TextSelectableByMouse);
 }
 
 MainWindow::~MainWindow()
@@ -302,7 +303,8 @@ void MainWindow::on_equalSign_clicked()
         msgBox.exec();
         return;
     }else{
-        ui->resultArea->setText(tmp + "=" + result);
+        ui->label->setText(tmp);
+        ui->resultArea->setText(result);
     }
 }
 
@@ -333,7 +335,8 @@ void MainWindow::on_profiling_clicked()
     }
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
-    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+    ui->label->setText(tmp);
+    ui->resultArea->setText(result);
 
 }
 
@@ -369,7 +372,8 @@ void MainWindow::on_average_clicked()
     }
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
-    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+    ui->resultArea->setText(result);
+    ui->label->setText(tmp);
 
 }
 
@@ -398,7 +402,8 @@ void MainWindow::on_sum_clicked()
     }
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
-    ui->resultArea->setText(ui->resultArea->text() + "=" + result);
+    ui->resultArea->setText(result);
+    ui->label->setText(tmp);
 
 }
 
