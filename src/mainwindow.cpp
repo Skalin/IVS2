@@ -335,7 +335,7 @@ void MainWindow::on_profiling_clicked()
     }
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
-    ui->label->setText(tmp);
+    ui->label->setText(QString("σ(") + tmp + QString(")"));
     ui->resultArea->setText(result);
 
 }
@@ -373,7 +373,7 @@ void MainWindow::on_average_clicked()
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
     ui->resultArea->setText(result);
-    ui->label->setText(tmp);
+    ui->label->setText(QString("μ(") + tmp + QString(")"));
 
 }
 
@@ -403,7 +403,7 @@ void MainWindow::on_sum_clicked()
 
     result = QString::fromStdString(Calculator1.solve(afterSplitting,1));
     ui->resultArea->setText(result);
-    ui->label->setText(tmp);
+    ui->label->setText(QString("Σ(") + tmp + QString(")"));
 
 }
 
