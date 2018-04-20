@@ -481,6 +481,19 @@ background-color: rgb(228, 79, 76);</string>
      <string>Σ</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>231</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <action name="actionKalkulacka">
    <property name="text">
