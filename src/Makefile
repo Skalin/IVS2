@@ -1,5 +1,5 @@
 # phony...
-.PHONY: all pack clean test doc run
+.PHONY: all clean install
 
 # defining variables
 CC := g++
@@ -11,6 +11,8 @@ PACK := xskala11_xvalka03_xhrbot01_xkysel12
 OBJDIR := obj
 OBJFLAG := -c
 PROFILING := profiling
+DESTDIR := $(HOME)
+INSFLAGS := -m 0755
 
 # make all
 all:
@@ -85,5 +87,10 @@ doc:
 	doxygen
 
 # run application
-run:
+run: all
 	./$(TARGET)
+
+# install application
+install: all
+	mkdir -p $(DESTDIR)/usr/bin
+	install $(INSFLAGS) Calculator $(DESTDIR)/usr/bin
