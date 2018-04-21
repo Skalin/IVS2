@@ -36,7 +36,7 @@ clean-qtmake:
 clean-target:
 	rm -f $(TARGET)
 clean-zip:
-	rm -f $(PACKFOLDER).zip
+	rm -f $(PACK).zip
 clean-test:
 	rm -f $(TEST)
 clean-profiling:
