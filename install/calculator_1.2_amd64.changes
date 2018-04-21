@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Fri, 20 Apr 2018 21:59:40 +0200
+Source: calculator
+Binary: calculator
+Architecture: source amd64
+Version: 1.2
+Distribution: unstable
+Urgency: medium
+Maintainer: ivs <xskala11@stud.fit.vutbr.cz>
+Changed-By: ivs <xskala11@stud.fit.vutbr.cz>
+Description:
+ calculator - Simple calculator for IVS subject
+Changes:
+ calculator (1.2) unstable; urgency=medium
+ .
+   * Initial Release.
+   * Updated Icon of application
+   * Unified design of application with icon
+   * Updated help of application
+   * Fixed some bugs in input
+Checksums-Sha1:
+ b9702af6b971c83246237c7c2f25c874f346f6cf 542 calculator_1.2.dsc
+ b68c3e3597de9f352d5e0d569ec8d305974f1b92 53716 calculator_1.2.tar.xz
+ 415dee12f7a57e3683be696e0d9ee5b2d6dabbad 40580 calculator_1.2_amd64.deb
+Checksums-Sha256:
+ c6ab9e1fab2db023c861e376bde43cbc35639652caeb45936972a5044695d852 542 calculator_1.2.dsc
+ 6f153111f3e55afe794a3e10faa8b2f71de352cc23021f54aa57c30605d55058 53716 calculator_1.2.tar.xz
+ 7e176ae23f166877c90f00645e38d2dcd353bf185a0cbc9c0abacb4e8255cc06 40580 calculator_1.2_amd64.deb
+Files:
+ 281d3a672f1717e9c0534ac585b777a6 542 science optional calculator_1.2.dsc
+ 5be49f459de94b99412d8c6c6b4765ae 53716 science optional calculator_1.2.tar.xz
+ 29af1e91ef35000202bc94ccf36bba85 40580 science optional calculator_1.2_amd64.deb

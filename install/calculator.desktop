@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Qt;Science;Calculator;
+Exec=Calculator
+GenericName=KBB Calculator
+Icon=/usr/share/pixmaps/calculator.png
+Name=Calculator
+Type=Application
+X-KDE-StartupNotify=false
