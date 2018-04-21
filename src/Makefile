@@ -38,7 +38,7 @@ clean-qtmake:
 clean-target:
 	rm -f $(TARGET)
 clean-zip:
-	rm -f $(PACKFOLDER).zip
+	rm -rf $(PACK).zip
 clean-test:
 	rm -f $(TEST)
 clean-profiling:
@@ -70,7 +70,7 @@ profiling: objects profilingApp.o
 
 #packing
 pack:
-	cd ..;rm -rf $(PACK)
+	cd ..; rm -rf $(PACK).zip
 	make clean
 	cd ..; rm -rf repo
 	cd ..; mkdir repo && rsync -r * repo; rm -rf repo/repo; cp -r .git repo
