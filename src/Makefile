@@ -74,8 +74,8 @@ pack:
 	cd ..; mkdir repo && rsync -r * repo; rm -rf repo/repo; cp -r .git repo
 	make doc
 	cd ..; mkdir $(PACK);
-	cd ..; mv repo $(PACK); mv doc $(PACK); mv install $(PACK)
-	cd ..; zip -r $(PACK).zip $(PACK)
+	cd ..; mv repo $(PACK); mv doc $(PACK); cp -r install $(PACK)
+	cd ..; zip -r $(PACK).zip $(PACK); rm -rf $(PACK)
 
 # tests
 test: objects
