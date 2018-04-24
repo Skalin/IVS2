@@ -12,11 +12,17 @@ Původní plán:
 
 Realita
 	- 16.3.
-	    - plán hotový
-        - hotové mockupy aplikace frontendu
-    - 24.3.
-    	- matematická knihovna základní dokoncena 24.3., 25.3. i s bugfindingem, první testy v calc.cpp a main.cpp
-	    - prototyp frontendu, prakticky funkční, řeší se již napojování na backend
+	   	- plán hotový
+		- hotové mockupy aplikace frontendu
+    	- 24.3.
+    		- matematická knihovna základní dokoncena 24.3., 25.3. i s bugfindingem, první testy v calc.cpp a main.cpp
+	 	- prototyp frontendu, prakticky funkční, řeší se již napojování na backend
 	- 25.3.
-	    - napojení frontendu na backend dokončeno, provádí se ošetřování vstupů a testoval se backend, nalezeno pár chyb
-	    - profiling dokončený, napojení frontend <-> backend hotovo, nalezeny a opraveny chyby při práci s vektory a prakticky zbývá pouze otestovat profiling
+		- napojení frontendu na backend dokončeno, provádí se ošetřování vstupů a testoval se backend, nalezeno pár chyb
+		- profiling dokončený, napojení frontend <-> backend hotovo, nalezeny a opraveny chyby při práci s vektory a prakticky zbývá pouze otestovat profiling
+	- 10.4
+		- hotové testy, ošetřeny vstupy, dokončena validace dokumentace
+		- instalátory se připravují
+	- 20.4. 
+		- instalátory dokončeny
+		- ošetřeny poslední chyby v aplikaci
