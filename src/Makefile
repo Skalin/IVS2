@@ -73,7 +73,11 @@ pack:
 	cd ..; rm -rf repo
 	cd ..; mkdir repo && rsync -r * repo; rm -rf repo/repo; cp -r .git repo
 	make doc
-	cd ..; zip -r $(PACK).zip repo doc install
+	mkdir $(PACK)
+	mv repo $(PACK)
+	mv doc $(PACK)
+	mv install $(PACK)
+	cd ..; zip -r $(PACK).zip $(PACK)
 
 # tests
 test: objects
