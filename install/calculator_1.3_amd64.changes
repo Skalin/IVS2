@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Tue, 24 Apr 2018 23:09:50 +0200
+Source: calculator
+Binary: calculator
+Architecture: source amd64
+Version: 1.3
+Distribution: unstable
+Urgency: medium
+Maintainer: ivs <xskala11@stud.fit.vutbr.cz>
+Changed-By: ivs <xskala11@stud.fit.vutbr.cz>
+Description:
+ calculator - Simple calculator for IVS subject
+Changes:
+ calculator (1.3) unstable; urgency=medium
+ .
+   * Initial Release.
+Checksums-Sha1:
+ 1ebad0579048d93568f61187b42c92f468ed0797 595 calculator_1.3.dsc
+ 461f24efe6de86ee852d90768e516bb85eb78cc6 28924 calculator_1.3.tar.xz
+ c7eb0c5a34d1f7ccbdd7221f8a9d8ce76324ecae 45560 calculator_1.3_amd64.deb
+Checksums-Sha256:
+ 80d502a98cc0c7d5b4c56807dfe3183892981c5d9ac07a031a7888df7a770a7b 595 calculator_1.3.dsc
+ 685bc8663ac96abc72d531474122905818f02fffbed83c6dd14bcabbb32be091 28924 calculator_1.3.tar.xz
+ 2d23e80214492c58c0b02c1a883e60ef8b3b5de54cb94507a76a3e2ac392d640 45560 calculator_1.3_amd64.deb
+Files:
+ 842c7d339fde62bbfdba1a3041eccb6f 595 utils optional calculator_1.3.dsc
+ 67a18ac747a3a06ed9d50284e2dc82bb 28924 utils optional calculator_1.3.tar.xz
+ 7d96da30d5e2b0b99ede4f8dec3550b8 45560 utils optional calculator_1.3_amd64.deb
