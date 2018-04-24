@@ -1,18 +1,20 @@
 # Simple calculator
 
 ## About program
-
+Simple calculator created for subject IVS 2017/2018
 
 
 ## Supported operating systems
 
-- Ubuntu 32bit
 - Ubuntu 64bit
 
-## Installation
+## Automatic installation
+Just run the debian installer package from `IVS2/install` folder using command: `[sudo] dpkg -i deb_package_file.deb`
+
+## Manual installation
 If you want to install this program, just follow these steps:
 1. `git clone https://github.com/Skalin/IVS2`
-2. `cd ./IVS2`
+2. `cd IVS2/src`
 3. `make all`
 
 ## Running program
