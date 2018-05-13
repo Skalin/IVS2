@@ -1,5 +1,6 @@
 //! Profiling program implementation
 /*! \file profilingApplication.cpp
+ *	\brief Profiling application implementation
  *
  */
 

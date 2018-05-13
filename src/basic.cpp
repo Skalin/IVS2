@@ -1,5 +1,6 @@
 //! Basic error handling functions implementation
 /*! \file basic.cpp
+ *  \brief Error handler implementation
  *
  */
 

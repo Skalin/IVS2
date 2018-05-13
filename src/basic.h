@@ -1,5 +1,6 @@
 //! Header file containing the declaration of basic error handling functions
 /*! \file basic.h
+ * 	\brief Basic class declaration
  *
  */
 

@@ -1,5 +1,6 @@
 //! Header file containing declaration of profiling functionality for Profiler functionality
 /*! \file profilingApplication.h
+ * 	\brief ProfilingApp class declaration
  *
  */
 

@@ -1,5 +1,6 @@
 //! Main file
 /*! \file main.cpp
+ * 	\brief Main file
  *
  */
 

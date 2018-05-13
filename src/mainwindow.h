@@ -1,5 +1,6 @@
 //! Header file containing the declaration of class for interacting with calculator interface
 /*! \file mainwindow.h
+ * 	\brief UI(MainWindow] class declaration
  *
  */
 

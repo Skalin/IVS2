@@ -1,5 +1,6 @@
 //! Header file containing the declaration of calculator logic functions
 /*! \file calculator.h
+ * 	\brief Calculator logic class declaration
  *
  */
 

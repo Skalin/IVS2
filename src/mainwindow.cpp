@@ -1,5 +1,6 @@
 //! Implementation of functions for user interface logic
 /*! \file mainwindow.cpp
+ * 	\brief UI(MainWindow) implementation
  *
  */
 

@@ -1,5 +1,6 @@
 //! Header file containing the declaration of deviation function
 /*! \file profiling.h
+ * 	\brief Profiling class declaration
  *
  */
 

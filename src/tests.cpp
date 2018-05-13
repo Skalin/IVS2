@@ -1,5 +1,6 @@
 //! Tests for math library
 /*! \file tests.cpp
+ * 	\brief Implementation of tests
  *
  */
 

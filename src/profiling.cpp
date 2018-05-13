@@ -1,5 +1,6 @@
 //! Deviation function implementation for Profiling
 /*! \file profiling.cpp
+ *  \brief Standard deviation func implementation
  *
  */
 

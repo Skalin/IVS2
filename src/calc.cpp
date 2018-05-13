@@ -1,5 +1,6 @@
 //! Math operations implementation
 /*! \file calc.cpp
+ *	\brief Math library implementation
  *
  */
 

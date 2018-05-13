@@ -1,5 +1,6 @@
 //! Header file containing the declaration of mathematical functions
 /*! \file calc.h
+ * 	\brief Math library class declaration
  *
  */
 

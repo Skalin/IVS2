@@ -1,6 +1,7 @@
 //! Calculator backend implementation
 /*! \file calculator.cpp
  *
+ * \brief Calculator logic implementation
  */
 
 #include "calculator.h"
