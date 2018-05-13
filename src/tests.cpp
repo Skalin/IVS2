@@ -190,7 +190,8 @@ unsigned int basic_division(Math Calculator1) {
             -1,
             fabs(Calculator1.division(1, 9999999999))+fabs(1e-10),
             fabs(Calculator1.division(5.156, 2.651))+fabs(1.94493),
-            fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493)
+            fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493),
+			NAN
     };
     vector <double> results = {
             Calculator1.division(0, 5.651),
@@ -205,7 +206,8 @@ unsigned int basic_division(Math Calculator1) {
             Calculator1.division(-999999999999999999, 999999999999999999),
             fabs(Calculator1.division(1, 9999999999) + 1e-10),
             fabs(Calculator1.division(5.156, 2.651) + 1.94493),
-            fabs(Calculator1.division(-5.156, 2.651) - 1.94493)
+            fabs(Calculator1.division(-5.156, 2.651) - 1.94493),
+			Calculator1.division(5, 0)
     };
 
 	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
