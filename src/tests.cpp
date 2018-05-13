@@ -65,6 +65,70 @@ int testScenario(Math Calculator1, string testType, vector<double> expectedResul
 
 }
 
+int testScenario(Math Calculator1, string testType, vector<double> expectedResults, vector<double> results, unsigned int amountOfComparisonTests, unsigned int amountOfDivisionByZeroTests) {
+	unsigned int passedTests = 0;
+	unsigned int testScenario = 0;
+	unsigned int failedTests = 0;
+
+
+	if (results.size() != expectedResults.size()) {
+		cout << delimiter << endl;
+		cout << testType << endl;
+		cout << "Amount of expected results does not match amount of real results!" << endl;
+		cout << delimiter << endl;
+		return -1;
+	} else {
+		for (unsigned long i = 0; i < results.size(); i++) {
+			testScenario++;
+			if (testScenario <= amountOfComparisonTests) {
+				if (results.at(i) == expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			} else if (testScenario <= (testScenario-amountOfDivisionByZeroTests)) {
+				if (results.at(i) <= expectedResults.at(i)) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			} else {
+				if (isnan(results.at(i))) {
+					passedTests++;
+				} else {
+					if (failedTests == 0) {
+						cout << testType << endl;
+					}
+					failedTests++;
+					cout << delimiter << endl;
+					cout << "Test case no.: " << testScenario << endl;
+					cout << "Expected output: " << expectedResults.at(i) << endl;
+					cout << "Given output: " << results.at(i) << endl;
+					cout << delimiter << endl;
+				}
+			}
+		}
+	}
+	return passedTests;
+
+}
+
 int basic_addition(Math Calculator1) {
     unsigned int amountOfComparisonTests = 10;
     string testType = "ADDITION TESTS INFORMATION";
@@ -174,7 +238,7 @@ int basic_multiplication(Math Calculator1) {
 }
 
 unsigned int basic_division(Math Calculator1) {
-	unsigned int amountOfComparisonTests = 10;
+	unsigned int amountOfComparisonTests = 13;
     string testType = "DIVISION TESTS INFORMATION";
 
     vector <double> expectedResults = {
@@ -191,6 +255,8 @@ unsigned int basic_division(Math Calculator1) {
             fabs(Calculator1.division(1, 9999999999))+fabs(1e-10),
             fabs(Calculator1.division(5.156, 2.651))+fabs(1.94493),
             fabs(Calculator1.division(-5.156, 2.651))+fabs(1.94493),
+			nan(""),
+			nan(""),
 			NAN
     };
     vector <double> results = {
@@ -207,10 +273,12 @@ unsigned int basic_division(Math Calculator1) {
             fabs(Calculator1.division(1, 9999999999) + 1e-10),
             fabs(Calculator1.division(5.156, 2.651) + 1.94493),
             fabs(Calculator1.division(-5.156, 2.651) - 1.94493),
-			Calculator1.division(5, 0)
+			Calculator1.division(5, 0),
+			Calculator1.division(-5, 0),
+			Calculator1.division(5, 0.0)
     };
 
-	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests);
+	return testScenario(Calculator1, testType, expectedResults, results, amountOfComparisonTests, 3);
 }
 
 int basic_powerOf(Math Calculator1) {
@@ -451,7 +519,7 @@ int main() {
 	cout << delimiter << endl;
     cout << "MULTIPLICATION RESULTS: " + to_string(basic_multiplication(Calculator1)) + "/16 PASSED" << endl;
 	cout << delimiter << endl;
-    cout << "DIVISION RESULTS: " + to_string(basic_division(Calculator1)) + "/13 PASSED" << endl;
+    cout << "DIVISION RESULTS: " + to_string(basic_division(Calculator1)) + "/16 PASSED" << endl;
 	cout << delimiter << endl;
     cout << "POWER RESULTS: " + to_string(basic_powerOf(Calculator1)) + "/20 PASSED" << endl;
 	cout << delimiter << endl;

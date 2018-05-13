@@ -64,7 +64,7 @@ double Math::division(double operand1, double operand2) {
 		return (operand1/operand2);
 	} catch (std::invalid_argument &e) {
 		printError(e.what());
-		return NAN;
+		return nan("");
 	} catch (std::underflow_error) {
 		printError("Underflow error!");
 		return INFINITY;
